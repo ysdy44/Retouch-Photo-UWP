@@ -51,7 +51,14 @@ Text,Grid,Fill,Transform<br>
 Add,Delete,Merge,Duplicate Layers<br> 
 Change the Name of the layer, Opacity, BlendMode<br> 
 Normal,Multiply,Screen,Dissolve,,Darken,Lighten,DarkerColor,LighterColor,,ColorBurn,ColorDodge,LinearBurn,LinearDodge,,Overlay ,HardLight,VividLight,LinearLight,PinLight,,HardMix,Difference,Exclusion,,Hue,Saturation,Color,,Luminosity,Subtract,Division<br> 
+[LayerControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/LayerControl.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/007.PNG)  
 
+## 8。Adjustment
+Use the parameter slider on the right to change the effect of the picture<br> 
+[AdjustControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/AdjustControl.xaml)
+You can also choose ready-made filters<br> 
+[FilterControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/FilterControl.xaml)
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/008.PNG)  
 
 
