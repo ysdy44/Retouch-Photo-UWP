@@ -45,7 +45,7 @@ Glass,Pinch and Punch,Morphology<br>
 Other operations:Crop,Stretch,Rotate,Gradient,Fade
 Text,Grid,Fill,Transform<br> 
 [Other](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/OtherButton.xaml)
-![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/006.PNG)  
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/006.PNG)  
 
 ## 7.Layer
 Add,Delete,Merge,Duplicate Layers<br> 
