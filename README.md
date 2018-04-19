@@ -29,13 +29,13 @@ Edit Lasso by :Select All,Deselect,Select Pixel,Inverse,Feather,Transform <br>
 
 ## 5.Effect
 Add special effects to the image with parameters<br> 
-[Effect](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage)
+[Effect](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage)<br>
 Gray,Invert,Exposure,Brightness,Saturation,HueRotatom,Contrast.Temperature,Highights and Shadow<br> 
-[Effect1](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage1)
+[Effect1](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage1)<br>
 DirectionBlur,GaussianBlur.Sharp.en.Shadow.Chromakey.EdgeDetection,Border,Emboss,Lighting<br> 
-[Effect2](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage2)
+[Effect2](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage2)<br>
 LuminanceToAlpha,Fog,Sepia,Posterize,Colouring,Tint,DiscreteTransfer,Vignette,GammaTransfer<br> 
-[Effect3](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage3)
+[Effect3](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage3)<br>
 Glass,Pinch and Punch,Morphology<br> 
 [EffectBuuton](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/EffectBuuton.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/005.PNG)  
@@ -56,7 +56,7 @@ Normal,Multiply,Screen,Dissolve,,Darken,Lighten,DarkerColor,LighterColor,,ColorB
 
 ## 8。Adjustment
 Use the parameter slider on the right to change the effect of the picture<br> 
-[AdjustControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/AdjustControl.xaml)
+[AdjustControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/AdjustControl.xaml)<br>
 You can also choose ready-made filters<br> 
 [FilterControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/FilterControl.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/008.PNG)  
