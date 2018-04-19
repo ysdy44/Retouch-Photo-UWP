@@ -10,22 +10,22 @@ new project> width:1000 height:1000>OK
 Rrtouch-Photo provide dozens of tools: hand,curves,straw,Magic Wand,,Rectangular Marquee,Elliptical Marquee,Polygonal Marquee,Free Hand,,Selection Paint,Selection Eraser,Smudge,Mixer,,paint,pencil,pen,eraser......<br> 
 [ToolControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/ToolControl.xaml)   <br> 
 [ToolPage](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/ToolPage)  
-![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/01.PNG)  
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/001.PNG)  
 
 
 ## 3.Canvas
 When you choose a different Tool, barPage will navigate to the corresponding Page。<br> 
 At this point, you can perform operations on the MainCanvasControl<br> 
 [MainCanvasControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/MainCanvasControl.xaml)
-![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/02.PNG)  
-![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/03.PNG)  
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/002.PNG)  
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/003.PNG)  
 
 
 ## 4.Edit
 Edit Lasso selected mask by :Cut,Copy,Paste,Clear,Extract,Copy Merged<br> 
 Edit Lasso by :Select All,Deselect,Select Pixel,Inverse,Feather,Transform <br> 
 [MaskButton](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/MaskButton.xaml)
-![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/04.PNG)  
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/004.PNG)  
 
 ## 5.Effect
 Add special effects to the image with parameters<br> 
@@ -38,20 +38,20 @@ LuminanceToAlpha,Fog,Sepia,Posterize,Colouring,Tint,DiscreteTransfer,Vignette,Ga
 [Effect3](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage3)
 Glass,Pinch and Punch,Morphology<br> 
 [EffectBuuton](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/EffectBuuton.xaml)
-![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/05.PNG)  
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/005.PNG)  
 
 
 ## 6.Others
 Other operations:Crop,Stretch,Rotate,Gradient,Fade
 Text,Grid,Fill,Transform<br> 
 [Other](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/OtherButton.xaml)
-![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/06.PNG)  
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/006.PNG)  
 
 ## 7.Layer
 Add,Delete,Merge,Duplicate Layers<br> 
 Change the Name of the layer, Opacity, BlendMode<br> 
 Normal,Multiply,Screen,Dissolve,,Darken,Lighten,DarkerColor,LighterColor,,ColorBurn,ColorDodge,LinearBurn,LinearDodge,,Overlay ,HardLight,VividLight,LinearLight,PinLight,,HardMix,Difference,Exclusion,,Hue,Saturation,Color,,Luminosity,Subtract,Division<br> 
-![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/09.PNG)  
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/007.PNG)  
 
 
 
