@@ -29,13 +29,13 @@ Edit Lasso by Select All,Deselect,Select Pixel,Inverse,Feather,Transform <br>
 
 ## 5.Effect
 Add special effects to the image with parameters<br> 
-[Effect](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage)<br> 
+[Effect](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage)
 Gray,Invert,Exposure,Brightness,Saturation,HueRotatom,Contrast.Temperature,Highights and Shadow<br> 
-[Effect1](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage1)<br> 
+[Effect1](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage1)
 DirectionBlur,GaussianBlur.Sharp.en.Shadow.Chromakey.EdgeDetection,Border,Emboss,Lighting<br> 
-[Effect2](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage2)<br> 
+[Effect2](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage2)
 LuminanceToAlpha,Fog,Sepia,Posterize,Colouring,Tint,DiscreteTransfer,Vignette,GammaTransfer<br> 
-[Effect3](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage3)<br> <br> 
+[Effect3](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage3)
 Glass,Pinch and Punch,Morphology
 [EffectBuuton](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/EffectBuuton.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/05.PNG)  
