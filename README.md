@@ -14,7 +14,7 @@ Rrtouch-Photo provide dozens of tools: hand,curves,straw,Magic Wand,,Rectangular
 
 
 ## 3.Canvas
-When you choose a different Tool, barPage will navigate to the corresponding BarPage。<br> 
+When you choose a different Tool, barPage will navigate to the corresponding Page。<br> 
 At this point, you can perform operations on the MainCanvasControl<br> 
 [MainCanvasControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/MainCanvasControl.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/02.PNG)  
