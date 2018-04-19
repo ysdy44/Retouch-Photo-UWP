@@ -54,11 +54,19 @@ Normal,Multiply,Screen,Dissolve,,Darken,Lighten,DarkerColor,LighterColor,,ColorB
 [LayerControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/LayerControl.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/007.PNG)  
 
-## 8。Adjustment
+## 8。Adjustment Mode
 Use the parameter slider on the right to change the effect of the picture<br> 
 [AdjustControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/AdjustControl.xaml)<br>
 You can also choose ready-made filters<br> 
 [FilterControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/FilterControl.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/008.PNG)  
 
+## 9.Paint Mode
+It is now a professional drawing software
+[BrushCOntrol](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/BrushControl.xaml)
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/009.PNG)
 
+## 10.Geometry
+You can freely draw any shape
+[GeometryControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/GeometryControl.xaml)
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/010.PNG)
