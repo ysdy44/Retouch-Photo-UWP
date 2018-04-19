@@ -40,3 +40,18 @@ Glass,Pinch and Punch,Morphology<br>
 [EffectBuuton](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/EffectBuuton.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/05.PNG)  
 
+
+## 6.Others
+Other operations:Crop,Stretch,Rotate,Gradient,Fade
+Text,Grid,Fill,Transform<br> 
+[Other](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/OtherButton.xaml)
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/06.PNG)  
+
+## 7.Layer
+Add,Delete,Merge,Duplicate Layers<br> 
+Change the Name of the layer, Opacity, BlendMode<br> 
+Normal,Multiply,Screen,Dissolve,,Darken,Lighten,DarkerColor,LighterColor,,ColorBurn,ColorDodge,LinearBurn,LinearDodge,,Overlay ,HardLight,VividLight,LinearLight,PinLight,,HardMix,Difference,Exclusion,,Hue,Saturation,Color,,Luminosity,Subtract,Division<br> 
+![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/09.PNG)  
+
+
+
