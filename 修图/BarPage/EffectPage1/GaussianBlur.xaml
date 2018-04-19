@@ -1,0 +1,55 @@
+﻿<Page
+    x:Class="修图.BarPage.EffectPage1.GaussianBlur"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.EffectPage1"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+    
+    <!-- GaussianBlur：高斯模糊-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions> 
+ 
+        <!--高斯模糊-->
+        <Button  Margin="0,8"   Style="{StaticResource RectangleButton}"  >
+
+            <Button.Flyout>
+                <Flyout  x:Name="flyout" Placement="Top" FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}">
+                    <StackPanel  >                     
+                        <TextBlock  x:Uid="/Effect1/GaussianBlurOptimization" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                        <StackPanel  Orientation="Horizontal" Margin="3">
+                            <ToggleButton x:Name="Optimization0" x:Uid="/Effect1/GaussianBlurOptimizationSpeed" MinWidth="60" FontSize="18" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource LeftToggleButton}" Click="Optimization_Click" />
+                            <ToggleButton x:Name="Optimization1" x:Uid="/Effect1/GaussianBlurOptimizationBalanced" MinWidth="60" FontSize="18" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource CenterToggleButton}"   Click="Optimization_Click" />
+                            <ToggleButton x:Name="Optimization2" x:Uid="/Effect1/GaussianBlurOptimizationQuality" MinWidth="60" FontSize="18" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource RightToggleButton}"  Click="Optimization_Click" />
+                        </StackPanel>
+                        <TextBlock x:Uid="/Effect1/GaussianBlurBorderMode" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                       <StackPanel  Orientation="Horizontal" Margin="3">
+                            <ToggleButton x:Name="BorderMode0" x:Uid="/Effect1/GaussianBlurBorderModeSoft" Width="90" FontSize="18" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource LeftToggleButton}"  Click="BorderMode_Click"/>
+                            <ToggleButton x:Name="BorderMode1" x:Uid="/Effect1/GaussianBlurBorderModeHard"  Width="90" FontSize="18" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource RightToggleButton}"  Click="BorderMode_Click"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Flyout>
+            </Button.Flyout>
+            
+            <StackPanel Orientation="Horizontal">
+                <Viewbox  Canvas.Left="-4" Canvas.Top="-4" Width="34" Height="34"  >
+                    <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M1248.74,211.139C1150.77,336.708 1022.91,416.704 1022.91,416.704C1022.91,416.704 1014.04,483.932 1008.65,496.997C1006.35,502.592 994.172,490.212 990.601,495.097C987.011,500.007 992.026,520.753 987.117,526.454C982.207,532.156 965.039,537.095 961.144,529.305C956.234,519.486 957.66,467.541 957.66,467.541L687.163,661.227C687.163,661.227 657.258,846.072 647.096,883.104C645.252,889.825 627.691,890.226 626.191,883.421C620.982,859.794 615.84,741.344 615.84,741.344C615.84,741.344 595.854,872.041 587.232,898.308C584.827,905.633 565.994,906.417 564.11,898.941C559.306,879.884 560.188,862.466 558.409,783.964C523.62,822.105 416.982,1002.43 443.273,1096.9C548.454,1019.99 995.895,658.282 1163.36,362.846C1185.93,354.867 1188.42,372.967 1184.4,381.405C1051.99,658.739 488.717,1172.2 281.007,1326.07C294.691,1328.9 317.171,1327.69 317.171,1327.69L489.478,1177.03C489.478,1177.03 563.993,1185.17 599.019,1174.83C674.527,1168 804.744,1083.95 804.744,1083.95C804.744,1083.95 688.318,1081.69 665.882,1076.02C656.676,1073.69 656.006,1052.8 668.313,1052.11C699.019,1050.38 843.226,1030.55 843.226,1030.55C843.226,1030.55 786.793,1030.19 779.561,1025.48C768.149,1021.32 771.345,1004.21 780.948,1000.32C808.034,999.858 914.652,988.538 915.918,987.196C1150.18,717.009 1228.13,437.748 1248.74,211.139Z"/>
+                </Viewbox>
+                <FontIcon Glyph="&#x2BC5;"   FontSize="12"  FontFamily="Segoe UI Symbol"  Foreground="{Binding SignForeground,Mode=OneWay}"/>
+            </StackPanel>
+            
+        </Button> 
+        
+        <Slider x:Name="GaussianBlurSlider" Maximum="100" Minimum="0" Grid.Column="1" Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}" />
+
+        <pic:NumberPicker x:Name="GaussianBlurNumberPicker"  Grid.Column="2"  Max="100" Min="0" Value="0" Placement="Top" />
+
+    </Grid>
+ </Page>

@@ -1,0 +1,24 @@
+﻿<Page
+    x:Class="修图.BarPage.AdjustBarPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    mc:Ignorable="d">
+
+    <Grid MinWidth="400" Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <FontIcon    Glyph="&#x25D0;" FontSize="26" FontFamily="Segoe UI Emoji"  VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{Binding SignForeground,Mode=OneWay}"  />
+
+        <Slider x:Name="Slider" Margin="11,0" Value="100" Minimum="10" Maximum="100" Grid.Column="1" Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}"  ValueChanged="Slider_ValueChanged"/>
+        <pic:NumberPicker x:Name="NumberPicker" Text="%"  Grid.Column="2" Value="100" Min="10" Max="100" Placement="Top" ValueChange="NumberPicker_ValueChange"/>
+
+    </Grid>
+</Page>

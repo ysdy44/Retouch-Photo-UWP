@@ -1,0 +1,273 @@
+﻿<UserControl
+    x:Class="修图.Picker.ColorPicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.Picker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignWidth="200"
+    d:DesignHeight="270"
+    RequestedTheme="{Binding Theme,Mode=OneWay}"
+    Loaded="UserControl_Loaded">
+
+    <Grid  Width="200" Height="270">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="36"/>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--标题-->
+        <TextBlock x:Uid="/Main/ColorColor" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <Button x:Name="StrawButton" Content="&#xEF3C;" Width="44" Height="33" HorizontalAlignment="Right"  Style="{StaticResource RectangleButton}" Tapped="StrawButton_Tapped"/>
+        <Button Width="44" Height="33" HorizontalAlignment="Left"   Style="{StaticResource RectangleButton}" >
+            <Border CornerRadius="10">
+                <Border.Background>
+                    <ImageBrush ImageSource="ms-appx:///Icon/Clutter/GrayWhite.png"/>
+                </Border.Background>
+                <Ellipse x:Name="Ellipse" Stroke="White"  Width="22" Height="22" VerticalAlignment="Center" HorizontalAlignment="Center" StrokeThickness="1.5"/>
+            </Border>
+            <Button.Flyout>
+                <Flyout x:Name="Flyout" Opened="Flyout_Opened" Closed="Flyout_Closed" Placement="Bottom" FlyoutPresenterStyle="{StaticResource FlyoutPresenterBottom }">
+                    <Grid  Width="180" Margin="4,2">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="36"/>
+                            <RowDefinition Height="32"/>
+                            <RowDefinition Height="33"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock x:Uid="/Main/ColorOpacity" FontSize="16" VerticalAlignment="Center" />
+                        <local:NumberPicker x:Name="OpacityNumberPicker" Min="0" Max="255" Width="70"  Value="{Binding Opacity,Mode=TwoWay}"  HorizontalAlignment="Right" ValueChange="OpacityNumberPicker_ValueChange"/>
+
+                        <Slider x:Name="OpacitySlider" Grid.Row="1" Grid.ColumnSpan="3" Value="255"   Minimum="0" Maximum="255" Foreground="{StaticResource Blue}"   Background="Gray"  Style="{StaticResource Slider}"  ValueChanged="OpacitySlider_ValueChanged"/>
+
+                        <TextBlock Text="#" Grid.Row="2" FontSize="16" VerticalAlignment="Center" />
+                        <TextBox x:Name="TextBox" Grid.Row="2" FontSize="18" BorderThickness="0,0,0,1" Width="120"  HorizontalAlignment="Right" />
+                    </Grid>
+                </Flyout>
+            </Button.Flyout>
+        </Button>
+
+
+        <!--四个按钮-->
+        <Grid Grid.Row="1"  Padding="6,0 " >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"  />
+                <ColumnDefinition Width="1*"  />
+                <ColumnDefinition Width="1*"  />
+                <ColumnDefinition Width="1*"  />
+            </Grid.ColumnDefinitions>
+
+            <ToggleButton x:Name="ListButton" Grid.Column="0"   Foreground="Red"  Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeLeftToggleButton}" Click="Button_Click">
+                <TextBlock x:Name="ListText" FontFamily="Segoe UI Symbol" Text="&#xE138;" FontSize="15"/>
+            </ToggleButton>
+            <ToggleButton x:Name="CopyButton" Grid.Column="1"  Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeCenterToggleButton}"  Click="Button_Click">
+                <TextBlock x:Name="CopyText" FontFamily="Segoe MDL2 Assets" Text="&#xE2B1;" FontSize="15"/>
+            </ToggleButton>
+            <ToggleButton x:Name="RGBButton" Grid.Column="2"  Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeCenterToggleButton}"  Click="Button_Click">
+                <TextBlock x:Name="RGBText" FontFamily="微软雅黑" Text="RGB" FontSize="12"/>
+            </ToggleButton>
+            <ToggleButton x:Name="HSLButton" Grid.Column="3"  Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeRightToggleButton}"  Click="Button_Click">
+                <TextBlock x:Name="HSLText" FontFamily="微软雅黑" Text="HSL" FontSize="12"/>
+            </ToggleButton>
+ 
+          </Grid>
+
+
+        <!--List-->
+        <Grid x:Name="ListGrid" Grid.Row="2" Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="30"/>
+            </Grid.RowDefinitions>
+            
+            <GridView  x:Name="ListGridView" ItemClick="ListGridView_ItemClick" IsItemClickEnabled="True" CanReorderItems="True" IsSwipeEnabled="True" HorizontalAlignment="Center" ScrollViewer.HorizontalScrollBarVisibility="Hidden"  ScrollViewer.VerticalScrollBarVisibility="Hidden"  Loaded="ListGridView_Loaded" AllowDrop="True">
+                    <!--模板代码-->
+                    <GridView.ItemTemplate>
+                        <DataTemplate>
+                        <Rectangle   RadiusX="4" RadiusY="4" Width="38" Height="38" Stroke="#55888888" StrokeThickness="2" Fill="{Binding Brush}"/>
+                        </DataTemplate>
+                    </GridView.ItemTemplate>
+
+                    <!--样式代码-->
+                    <GridView.ItemContainerStyle>
+                        <Style TargetType="GridViewItem">
+                            <Setter Property="Margin" Value="1"/>
+                        </Style>
+                    </GridView.ItemContainerStyle>
+                </GridView>
+
+            <Button  x:Name="AddButton" Grid.Row="1"  HorizontalAlignment="Left"  Width="50"  FontSize="20" Content="&#xECCD;"   Style="{ThemeResource NavigationBackButtonNormalStyle}"  Tapped="AddButton_Tapped" />
+            <Button  x:Name="DeleteButton" Grid.Row="1"  HorizontalAlignment="Right" Width="50"  FontSize="20" Content="&#xE107;"   Style="{ThemeResource NavigationBackButtonNormalStyle}" Tapped="DeleteButton_Tapped" />
+        </Grid>
+        
+        <!--Copy-->
+        <Grid x:Name="CopyGrid" Grid.Row="2" Margin="8" >
+
+            <!--圆&矩-->
+            <Grid   x:Name="圆网格"  VerticalAlignment="Center" HorizontalAlignment="Center" >
+                <Ellipse  x:Name="圆" Fill="{Binding TitleColor,Mode=OneWay}">
+                    <Ellipse.Stroke>
+                        <ImageBrush x:Name="圆环" />
+                    </Ellipse.Stroke>
+                </Ellipse>
+                <Grid  x:Name="圆指" Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Ellipse  StrokeThickness="3" Width="20" Height="20" Stroke="Black" />
+                    <Ellipse  StrokeThickness="2" Width="18" Height="18" Stroke="White" />
+                </Grid>
+                 <Thumb x:Name="圆触"  DragStarted="圆触_DragStarted" DragDelta="圆触_DragDelta" DragCompleted="圆触_DragCompleted">
+                    <Thumb.Template>
+                        <ControlTemplate>
+                            <Border Background="#00000000"/>
+                        </ControlTemplate>
+                    </Thumb.Template>
+                </Thumb>
+            </Grid>
+
+
+
+            <Grid   x:Name="矩网格"  Background="Black" VerticalAlignment="Center" HorizontalAlignment="Center">
+                <Rectangle x:Name="矩" Stroke="{Binding LineColor,Mode=OneWay}" StrokeThickness="2"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Rectangle.Fill>
+                        <ImageBrush x:Name="矩形" />
+                    </Rectangle.Fill>
+                </Rectangle>
+
+                <Grid  x:Name="矩指"  Width="20" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left">
+                    <Ellipse  StrokeThickness="3" Width="20" Height="20" Stroke="Black" />
+                    <Ellipse  StrokeThickness="2" Width="18" Height="18" Stroke="White" />
+                </Grid>
+
+                <Thumb x:Name="矩触"  DragStarted="矩触_DragStarted" DragDelta="矩触_DragDelta" DragCompleted="矩触_DragCompleted"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Thumb.Template>
+                        <ControlTemplate>
+                            <Grid Background="#00000000">
+                            </Grid>
+                        </ControlTemplate>
+                    </Thumb.Template>
+                </Thumb>
+            </Grid>
+
+
+    </Grid>
+        
+        <!--RGB-->
+        <Grid x:Name="RGBGrid" Grid.Row="2" Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!--RSlider-->
+            <TextBlock x:Uid="/Main/ColorR"  HorizontalAlignment="Left" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+            <local:NumberPicker x:Name="RNumberPicker" Max="255" Min="0" Width="54"   HorizontalAlignment="Right" ValueChange="RNumberPicker_ValueChange"/>
+            <Border   Grid.Row="1"   Height="12" CornerRadius="4" BorderThickness="1" VerticalAlignment="Center" BorderBrush="{Binding LineColor,Mode=OneWay}">
+                <Border.Background>
+                    <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop  x:Name="RLeft" Offset="0"/>
+                        <GradientStop  x:Name="RRight"  Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Slider x:Name="RSlider" Grid.Row="1" Maximum="255" Minimum="0" Style="{StaticResource OpacitySlider}"  ValueChanged="RSlider_ValueChanged"/>
+
+            <!--GSlider-->
+            <TextBlock  x:Uid="/Main/ColorG" Grid.Row="2"   HorizontalAlignment="Left" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+            <local:NumberPicker x:Name="GNumberPicker" Grid.Row="2"  Max="255" Min="0" Width="54" HorizontalAlignment="Right" ValueChange="GNumberPicker_ValueChange"/>
+            <Border  Grid.Row="3"     Height="12" CornerRadius="4" BorderThickness="1" VerticalAlignment="Center" BorderBrush="{Binding LineColor,Mode=OneWay}">
+                <Border.Background>
+                    <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop  x:Name="GLeft" Offset="0"/>
+                        <GradientStop  x:Name="GRight"  Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Slider x:Name="GSlider" Grid.Row="3"  Style="{StaticResource OpacitySlider}" ValueChanged="GSlider_ValueChanged" />
+
+            <!--BSlider-->
+            <TextBlock  x:Uid="/Main/ColorB" Grid.Row="4"  HorizontalAlignment="Left" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+            <local:NumberPicker x:Name="BNumberPicker" Grid.Row="4"  Max="255" Min="0" Width="54" HorizontalAlignment="Right"  ValueChange="BNumberPicker_ValueChange"/>
+            <Border  Grid.Row="5"     Height="12" CornerRadius="4" BorderThickness="1" VerticalAlignment="Center" BorderBrush="{Binding LineColor,Mode=OneWay}">
+                <Border.Background>
+                    <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop  x:Name="BLeft" Offset="0"/>
+                        <GradientStop  x:Name="BRight"  Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Slider x:Name="BSlider"  Grid.Row="5"  Style="{StaticResource OpacitySlider}" ValueChanged="BSlider_ValueChanged" />
+
+        </Grid>
+
+        <!--HSL-->
+        <Grid x:Name="HSLGrid" Grid.Row="2"  Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+
+            <!--HSlider-->
+            <TextBlock  x:Uid="/Main/ColorH" Grid.Row="0"   HorizontalAlignment="Left" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+            <local:NumberPicker x:Name="HNumberPicker" Max="360" Min="0" Width="54" HorizontalAlignment="Right" Text="º" ValueChange="HNumberPicker_ValueChange"/>
+            <Border   Grid.Row="1"    Height="12" CornerRadius="4" BorderThickness="1" VerticalAlignment="Center" BorderBrush="{Binding LineColor,Mode=OneWay}">
+                <Border.Background>
+                    <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop x:Name="HA" Offset="0"/>
+                        <GradientStop x:Name="HB"  Offset="0.16666667"/>
+                        <GradientStop x:Name="HC" Offset="0.33333333"/>
+                        <GradientStop x:Name="HD" Offset="0.5"/>
+                        <GradientStop x:Name="HE" Offset="0.66666667"/>
+                        <GradientStop x:Name="HF"  Offset="0.83333333"/>
+                        <GradientStop x:Name="HG"   Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Slider x:Name="HSlider" Grid.Row="1" Maximum="360" Style="{StaticResource OpacitySlider}" ValueChanged="HSlider_ValueChanged" />
+
+            <!--SSlider-->
+            <TextBlock  x:Uid="/Main/ColorS"  Grid.Row="2"   HorizontalAlignment="Left" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+         
+            <local:NumberPicker x:Name="SNumberPicker" 
+                                Grid.Row="2"   Max="255" Min="0" Width="54"
+                                HorizontalAlignment="Right" Text="%" 
+                                ValueChange="SNumberPicker_ValueChange"/>
+
+
+            <Border  Grid.Row="3"     Height="12" CornerRadius="4" BorderThickness="1" VerticalAlignment="Center" BorderBrush="{Binding LineColor,Mode=OneWay}">
+                <Border.Background>
+                    <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop  x:Name="SLeft" Offset="0"/>
+                        <GradientStop  x:Name="SRight"  Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Slider x:Name="SSlider" Grid.Row="3" Maximum="100" Style="{StaticResource OpacitySlider}" ValueChanged="SSlider_ValueChanged" />
+
+            <!--LSlider-->
+            <TextBlock  x:Uid="/Main/ColorL" Grid.Row="4"  HorizontalAlignment="Left" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+            <local:NumberPicker x:Name="LNumberPicker" Grid.Row="4"  Max="255" Min="0" Width="54" HorizontalAlignment="Right" Text="%"  ValueChange="LNumberPicker_ValueChange"/>
+            <Border  Grid.Row="5"    Height="12" CornerRadius="4" BorderThickness="1" VerticalAlignment="Center" BorderBrush="{Binding LineColor,Mode=OneWay}">
+                <Border.Background>
+                    <LinearGradientBrush  StartPoint="0,0.5" EndPoint="1,0.5">
+                        <GradientStop  x:Name="LLeft"  Offset="0"/>
+                        <GradientStop  x:Name="LRight"  Offset="1"/>
+                    </LinearGradientBrush>
+                </Border.Background>
+            </Border>
+            <Slider x:Name="LSlider"  Grid.Row="5" Maximum="100" Style="{StaticResource OpacitySlider}" ValueChanged="LSlider_ValueChanged" />
+
+
+        </Grid>
+        
+        
+    </Grid>
+</UserControl>

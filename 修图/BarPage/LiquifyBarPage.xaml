@@ -1,0 +1,128 @@
+﻿<Page
+    x:Class="修图.BarPage.LiquifyBarPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:Pic="using:修图.Picker"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid MinWidth="400">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--顶栏-->
+        <Grid HorizontalAlignment="Stretch" >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" MinWidth="50"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="2"/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="1*" MinWidth="50"/>
+            </Grid.ColumnDefinitions>
+
+
+            <Viewbox  Width="22" Height="22"  >
+                <Path  Fill="{Binding SignForeground}"  Data="M36,66c0,0 98.125,3.875 139.5,0.75c37.504,-2.833 73.883,-19.272 111,-20.25c90.867,-2.395 66.336,9.795 111.75,16.5c43.004,6.35 104.25,4.5 138,1.5c19.767,-1.757 36.599,-16.732 56.25,-19.5c26.625,-3.75 111.75,-3 111.75,-3c0,0 -2.375,124.625 2.25,168c3.383,31.723 21.375,69.25 25.5,92.25c2.692,15.013 2.624,30.876 -0.75,45.75c-5.5,24.25 -20.25,74.5 -32.25,99.75c-9.337,19.646 -35.52,30.414 -39.75,51.75c-12.603,63.576 -11.381,85.175 7.5,114.75c10.597,16.599 25.8,30.893 32.25,49.5c6.5,18.75 6.75,63 6.75,63l-237.75,-1.5c0,0 -90.1,-26.943 -192.75,-27c-22.136,-0.012 -40.931,19.286 -63,21c-25.75,2 -62.625,-8.625 -91.5,-9c-27.34,-0.355 -81.75,6.75 -81.75,6.75c0,0 0.572,-71.126 15.75,-102c39.867,-81.094 40.179,-58.385 82.5,-86.25c31.085,-20.467 36.75,-93 36.75,-93c0,0 -23.42,-79.528 -44.25,-122.25c-24.205,-49.643 -73.5,-187.5 -73.5,-187.5l-20.25,-60"/>
+            </Viewbox>
+
+            <!--按钮-->
+            <ToggleButton x:Name="ToolButton0"  ToolTipService.ToolTip="Push" Margin="0,6" Grid.Column="1" IsChecked="True" Background="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ToolToggleButton}" Click="ToolButton_Click" >
+                <Viewbox  Width="22" Height="22"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Canvas Width="768" Height="768" >
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M207,70.5c-0.39,82.14 38.434,110.815 34.5,207.75c-4.585,112.971 -31.214,101.05 -34.5,213.75c-2.852,97.8 35.914,111.515 33.75,210.75"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M350.25,70.5c-0.39,82.14 38.434,110.815 34.5,207.75c-4.585,112.971 -31.214,101.05 -34.5,213.75c-2.852,97.8 35.914,111.515 33.75,210.75"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M525,70.5c-0.39,82.14 38.434,110.815 34.5,207.75c-4.585,112.971 -31.214,101.05 -34.5,213.75c-2.852,97.8 35.914,111.515 33.75,210.75"/>
+
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M699.44,210.31c-82.14,-0.39 -110.815,38.434 -207.75,34.5c-112.971,-4.585 -101.05,-31.214 -213.75,-34.5c-97.8,-2.852 -111.515,35.914 -210.75,33.75"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M699.44,353.56c-82.14,-0.39 -110.815,38.434 -207.75,34.5c-112.971,-4.585 -101.05,-31.214 -213.75,-34.5c-97.8,-2.852 -111.515,35.914 -210.75,33.75"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M699.44,528.31c-82.14,-0.39 -110.815,38.434 -207.75,34.5c-112.971,-4.585 -101.05,-31.214 -213.75,-34.5c-97.8,-2.852 -111.515,35.914 -210.75,33.75"/>
+                    </Canvas>
+                </Viewbox>
+            </ToggleButton>
+
+            <Grid Grid.Column="2" Margin="0,8" Background="{Binding LineColor,Mode=OneWay}"/>
+
+            <ToggleButton x:Name="ToolButton1"  ToolTipService.ToolTip="Pinch"  Margin="0,6" Grid.Column="3" IsChecked="True" Background="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ToolToggleButton}"    Click="ToolButton_Click" >
+                <Viewbox  Width="22" Height="22"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Canvas Width="768" Height="768" >
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M165.75,67.5c113.636,-37.93 325.041,-33.755 437.25,0.75"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M165.75,687.931c113.636,37.929 325.041,33.754 437.25,-0.75"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M691.59,597.09c37.93,-113.636 33.755,-325.041 -0.75,-437.25"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M72.66,597.09c-37.93,-113.636 -33.755,-325.041 0.75,-437.25"/>
+
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M195,276c102.581,-28.223 281.287,-28.224 382.5,1.5"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M195,476.266c102.581,28.223 281.287,28.224 382.5,-1.5"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M482.258,566.258c28.223,-102.581 28.224,-281.287 -1.5,-382.5"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M281.992,566.258c-28.223,-102.581 -28.224,-281.287 1.5,-382.5"/>
+                    </Canvas>
+                </Viewbox>
+            </ToggleButton>
+
+            <Grid Grid.Column="4" Margin="0,8" Background="{Binding LineColor,Mode=OneWay}"/>
+
+            <ToggleButton x:Name="ToolButton2"  ToolTipService.ToolTip="Punch"  Margin="0,6" Grid.Column="5" IsChecked="True" Background="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ToolToggleButton}"  Click="ToolButton_Click" >
+                <Viewbox  Width="22" Height="22"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Canvas Width="768" Height="768" >
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M150,40.681c113.636,37.929 355.041,33.754 467.25,-0.75"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M137.25,714c113.636,-37.93 367.791,-34.505 480,0"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M722.91,618.09c-37.93,-113.636 -33.005,-369.291 1.5,-481.5"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M46.59,618.09c37.93,-113.636 31.505,-369.291 -3,-481.5"/>
+
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M195,256.516c102.581,28.223 281.287,28.224 382.5,-1.5"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M195,495.75c102.581,-28.223 281.287,-28.224 382.5,1.5"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M501.742,566.258c-28.223,-102.581 -28.224,-281.287 1.5,-382.5"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M262.508,566.258c28.223,-102.581 28.224,-281.287 -1.5,-382.5"/>
+                    </Canvas>
+                </Viewbox>
+            </ToggleButton>
+
+            <Grid Grid.Column="6" Margin="0,8" Background="{Binding LineColor,Mode=OneWay}"/>
+
+            <ToggleButton x:Name="ToolButton3"  ToolTipService.ToolTip="Pacified"  Margin="0,6" Grid.Column="7" IsChecked="True" Background="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ToolToggleButton}"  Click="ToolButton_Click" >
+                <Viewbox  Width="22" Height="22"  VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <Canvas Width="768" Height="768" >
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M103.5,109.5l561.75,0l0,562.5l-561.75,0l0,-562.5"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="60" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M204,296.25l360.75,-0.75"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M204,482.25l360.75,-0.75"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M291.75,569.25l-0.75,-360.75"/>
+                        <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="54" StrokeStartLineCap="Round" StrokeEndLineCap="Round" Data="M477.75,569.25l-0.75,-360.7"/>
+                    </Canvas>
+                </Viewbox>
+            </ToggleButton>
+
+            <local:BottomButton Grid.Column="8" Margin="0" />
+        </Grid>
+
+
+        <!--内容-->
+        <Grid x:Name="Content" Grid.Row="1" BorderThickness="0,1,0,0" HorizontalAlignment="Stretch"  BorderBrush="{Binding Foreground,Mode=OneWay}"  Visibility="{Binding BottomVisibility,Mode=OneWay}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/> 
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1*" MaxWidth="80"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Text="Size：" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+            <Slider  x:Name="SizeSlider" Grid.Column="1" Minimum="0" Maximum="300" VerticalAlignment="Center"   Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}" Style="{StaticResource Slider}"/>
+            <Pic:NumberPicker x:Name="SizeNumberPicker" Grid.Column="2" Min="0" Max="300" Placement="Top" />
+
+            <TextBlock Text="Amount：" Grid.Row="1" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+            <Slider  x:Name="AmountSlider" Grid.Column="1" Grid.Row="1" Minimum="0" Maximum="10" VerticalAlignment="Center"   Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}" Style="{StaticResource Slider}"/>
+            <Pic:NumberPicker x:Name="AmountNumberPicker" Grid.Column="2" Grid.Row="1" Min="0" Max="10" Placement="Top" />
+
+        </Grid>
+    </Grid>
+</Page>

@@ -1,0 +1,107 @@
+﻿<Page
+    x:Class="修图.BarPage.OtherPage.Text"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.OtherPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:con="using:修图.Control"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded" >
+
+    <!-- Text：文字-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="Auto"  />
+        </Grid.RowDefinitions>
+
+        <!--文字-->
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"  MinWidth="80"/>
+                <ColumnDefinition Width="1*" MinWidth="50"/>
+                <ColumnDefinition Width="3*" MinWidth="50"/>
+                <ColumnDefinition Width="1*" MinWidth="50"/>
+                <ColumnDefinition Width="Auto"  MinWidth="50"/>
+            </Grid.ColumnDefinitions>
+
+            <Button  Margin="0,8" Style="{StaticResource RectangleButton}"  >
+
+                <Button.Flyout>
+                    <Flyout  x:Name="flyout" Placement="Top" FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}">
+                        <StackPanel  Padding="6">
+                            <TextBlock  x:Uid="/Other/TextHorizontalAlignment" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <ToggleButton x:Name="HorizontalButton0" Grid.Column="0" FontFamily="Segoe MDL2 Assets" Content="&#xE8E4;" FontSize="18" MinWidth="60" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource LeftToggleButton}" Click="HorizontalButton_Click" />
+                                <ToggleButton x:Name="HorizontalButton1"   Grid.Column="1"   FontFamily="Segoe MDL2 Assets" Content="&#xE8E3;"  FontSize="18" MinWidth="50"    Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource CenterToggleButton}" Click="HorizontalButton_Click"/>
+                                <ToggleButton x:Name="HorizontalButton2"   Grid.Column="2"   FontFamily="Segoe MDL2 Assets" Content="&#xE8E2;"  FontSize="18" MinWidth="50"   Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource CenterToggleButton}" Click="HorizontalButton_Click"/>
+                                <ToggleButton x:Name="HorizontalButton3" Grid.Column="3"  FontFamily="Segoe MDL2 Assets" Content="&#xE700;"  FontSize="18" MinWidth="50"  Background="{Binding TitleColor,Mode=OneWay}"  Style="{StaticResource RightToggleButton}" Click="HorizontalButton_Click"/>
+                            </Grid>
+
+                            <TextBlock x:Uid="/Other/TextVerticalAlignment" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <ToggleButton x:Name="VerticalButton0" Grid.Column="0" FontFamily="Segoe UI Symbol" Content="&#x2631;" FontSize="18" MinWidth="60" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource LeftToggleButton}" Click="VerticalButton_Click" />
+                                <ToggleButton x:Name="VerticalButton1"   Grid.Column="1"   FontFamily="Segoe UI Symbol" Content="&#x2632;"  FontSize="18" MinWidth="50"    Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource CenterToggleButton}" Click="VerticalButton_Click"/>
+                                <ToggleButton x:Name="VerticalButton2"   Grid.Column="2"   FontFamily="Segoe UI Symbol"  Content="&#x2634;"  FontSize="18" MinWidth="50"   Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource RightToggleButton}" Click="VerticalButton_Click"/>
+                            </Grid>
+
+
+                            <TextBlock x:Uid="/Other/TextFontStyle" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="50"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <ToggleButton x:Name="FontStyleButton0" Grid.Column="0" FontFamily="Segoe MDL2 Assets" Content="&#xE8DD;" FontSize="18" MinWidth="60" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource LeftToggleButton}" Click="FontStyleButton_Click" />
+                                <ToggleButton x:Name="FontStyleButton1"   Grid.Column="1"  FontFamily="Segoe MDL2 Assets"  Content="&#xE199;"  FontSize="18" MinWidth="50"    Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource CenterToggleButton}" Click="FontStyleButton_Click"/>
+                                <ToggleButton x:Name="UnderLineButton"   Grid.Column="2"   FontFamily="Segoe MDL2 Assets"   Content="&#xE19A;"  FontSize="18" MinWidth="50"   Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource RightToggleButton}" Click="UnderLineButton_Click"/>
+                            </Grid>
+
+
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+
+                <StackPanel Orientation="Horizontal">
+                         <Viewbox   Width="32" Height="32">
+                            <Grid   >
+                                <Path  Fill="#e5e5e5" Data="M852.209,291.045C888.545,290.728 889.4,291.922 889.889,330.248C891.764,477.137 891.349,691.94 893.315,846.352C893.856,888.848 894.09,889.329 855.254,888.98C734.526,887.896 454.954,888.98 454.954,888.98L569.069,291.045"/>
+                                <Path Fill="{StaticResource Blue}" Data="M609.831,139.878L483.599,740.262C483.599,740.262 299.985,739.019 187.362,740.262C163.606,740.524 140.686,710.48 140.312,686.726C138.113,546.959 137.949,275.978 139.908,184.837C140.376,163.104 165.408,139.739 187.145,139.878"/>
+                                <Path  Fill="{Binding Foreground,Mode=OneWay}" Data="M587.349,463.621L678.354,463.231L677.664,430.665L711.482,430.883L710.997,464.347L831.133,463.816L831.522,496.164C831.522,496.164 816.52,497.729 782.025,496.749C760.342,572.106 717.328,612.503 717.328,612.503L805.215,700.195L783.779,723.969L694.528,636.472L620.087,700.195L576.349,687.005C576.349,687.005 660.692,625.534 672.136,612.005C644.43,584.182 622.688,545.481 620.087,532.41C639.154,518.081 647.246,512 647.246,512C647.246,512 675.197,567.682 694.723,588.144C708.481,577.27 733.957,544.09 746.558,497.334C655.39,498.263 597.287,496.554 597.287,496.554L587.349,463.621"/>
+                                <Path Fill="White" Data="M483.599,573.686L438.301,573.686L403.252,482.681L277.608,482.681L244.608,573.686L202.385,573.686L317.781,273.205L360.619,273.205L483.599,573.686ZM289.086,450.296L390.954,450.296L359.594,367.08C350.029,341.8 342.924,321.03 338.278,304.77C334.452,324.037 329.054,343.167 322.085,362.16L289.086,450.296Z"/>
+                            </Grid>
+                        </Viewbox>
+                     <FontIcon Glyph="&#x2BC5;"   FontSize="12"  FontFamily="Segoe UI Symbol"  Foreground="{Binding SignForeground,Mode=OneWay}"/>
+                </StackPanel>
+
+            </Button>
+
+            <pic:NumberPicker x:Name="NumberPicker" Grid.Column="1"  Height="30"  Value="12 " Min="12" Max="1000" Placement="Top" ValueChange="NumberPicker_ValueChange" />
+            <pic:FontPicker  Grid.Column="2" Margin="6,0,0,0" Height="30"  FontChange="FontPicker_FontChange"/>
+            <con:ColorButton   Grid.Column="3"   Height="36" Color="{Binding TextColor,Mode=TwoWay}" ColorChanged="ColorButton_ColorChanged"/>
+
+            <bar:BottomButton x:Name="BottomButton" Grid.Column="4"   />
+         </Grid>
+
+        <!--内容-->
+        <Grid  x:Name="Content" Grid.Row="1"   HorizontalAlignment="Stretch"  Visibility="{Binding BottomVisibility,Mode=OneWay}">
+            <TextBox  x:Name="TextBox" BorderThickness="0"  AcceptsReturn="True" TextWrapping="Wrap" MinHeight="50" Margin="0,4" HorizontalAlignment="Stretch" TextChanging="TextBox_TextChanging" TextChanged="TextBox_TextChanged"/>
+        </Grid>
+
+    </Grid>
+</Page>

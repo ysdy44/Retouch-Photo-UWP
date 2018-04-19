@@ -1,0 +1,293 @@
+﻿<Page
+    x:Class="修图.BarPage.ToolPage.Pen"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.ToolPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:con="using:修图.Control"
+    mc:Ignorable="d" 
+     NavigationCacheMode="Enabled"
+    Loaded="Page_Loaded">
+
+    <Grid MinWidth="{StaticResource BarPageMinWidth}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+         <!--顶栏-->
+        <Grid  HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"  MinWidth="80"/>
+                <ColumnDefinition Width="1*"  />
+                <ColumnDefinition Width="1*"  />
+                <ColumnDefinition Width="1*"  />
+                <ColumnDefinition Width="Auto"  MinWidth="60"/>
+            </Grid.ColumnDefinitions>
+
+            <Button  Margin="0,8"   Style="{StaticResource RectangleButton}"  >
+                <Button.Flyout>
+                    <Flyout x:Name="flyout" Placement="Top" FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}"   >
+                        <StackPanel>
+                            <Button x:Name="toMask"   Style="{StaticResource RectangleButton}" Tapped="toMask_Tapped">
+                                <Grid Width="200" Height="40" Padding="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <FontIcon Glyph="&#x25CC;" FontSize="24" FontFamily="Segoe UI Symbol" />
+                                    <TextBlock x:Uid="/Tool/PentoMask" Grid.Column="1" FontSize="14"  Style="{StaticResource TitleTextBlock}"/>
+                                    <FontIcon Grid.Column="2" Glyph="&#xE097;" FontFamily="Segoe UI Symbol"/>
+                                </Grid>
+                            </Button>
+                            <Button x:Name="toPoints"   Style="{StaticResource RectangleButton}"  Tapped="toPoints_Tapped">
+                                <Grid Width="200" Height="40" Padding="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                         <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <FontIcon Glyph="&#xF16A;" FontSize="24" FontFamily="Segoe MDL2 Assets" />
+                                    <TextBlock x:Uid="/Tool/PentoPoints" Grid.Column="1" FontSize="14"  Style="{StaticResource TitleTextBlock}"/>
+                                    <FontIcon Grid.Column="3" Glyph="&#xE097;" FontFamily="Segoe UI Symbol"/>
+                                </Grid>
+                            </Button>
+                            <Button x:Name="toFill"   Style="{StaticResource RectangleButton}"  Tapped="toFill_Tapped">
+                                <Grid Width="200" Height="40" Padding="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <FontIcon FontFamily="Segoe UI Symbol" Glyph="&#x25CF;"/>
+                                    <TextBlock x:Uid="/Tool/PentoFill" Grid.Column="1"  FontSize="14"  Style="{StaticResource TitleTextBlock}"/>
+                                    <FontIcon Grid.Column="2" Glyph="&#xE097;" FontFamily="Segoe UI Symbol"/>
+                                </Grid>
+                            </Button>
+                            <Button x:Name="toStroke"   Style="{StaticResource RectangleButton}"  Tapped="toStroke_Tapped">
+                                <Grid Width="200" Height="40" Padding="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="50"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <FontIcon FontFamily="Segoe UI Symbol" Glyph="&#x25CB;"/>
+                                    <TextBlock x:Uid="/Tool/PentoStroke" Grid.Column="1" FontSize="14"   Style="{StaticResource TitleTextBlock}"/>
+                                    <FontIcon Grid.Column="3" Glyph="&#xE097;" FontFamily="Segoe UI Symbol"/>
+                                </Grid>
+                            </Button>
+                            
+                            <Grid Margin="6,0" Height="1" HorizontalAlignment="Stretch"   Background="{Binding LineColor,Mode=OneWay}"   />
+                            <Button x:Name="toClear"   Style="{StaticResource RectangleButton}"  Tapped="toClear_Tapped">
+                                <Grid Width="200" Height="40" Padding="4">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="30"/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE74D;"/>
+                                    <TextBlock x:Uid="/Tool/PentoClear" Grid.Column="1"  FontSize="14"  Style="{StaticResource TitleTextBlock}"/>
+                                 </Grid>
+                            </Button>
+                        </StackPanel>
+                    </Flyout>
+                </Button.Flyout>
+
+            <StackPanel Orientation="Horizontal">
+                    <FontIcon Glyph="✒" FontSize="26" FontFamily="Segoe UI Emoji" />
+                    <FontIcon Glyph="&#x2BC5;"   FontSize="12"  FontFamily="Segoe UI Symbol"  Foreground="{Binding SignForeground,Mode=OneWay}"/>
+            </StackPanel>
+
+            </Button>
+
+            <ToggleButton x:Name="PenAdd"  Grid.Column="1" Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeLeftToggleButton}" Click="Pen_Click">
+                <FontIcon Glyph="&#xEDFB;"   FontSize="22"  FontFamily="Segoe MDL2 Assets"  RenderTransformOrigin="0.5,0.5">
+                    <FontIcon.RenderTransform>
+                        <CompositeTransform Rotation="45"/>
+                    </FontIcon.RenderTransform>
+                </FontIcon>
+            </ToggleButton>
+
+            <ToggleButton x:Name="PenEdit"  Grid.Column="2" Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeCenterToggleButton}"  Click="Pen_Click">
+                <FontIcon Glyph="&#x27A4;"   FontSize="20"  FontFamily="Segoe UI Symbol" RenderTransformOrigin="0.5,0.5">
+                    <FontIcon.RenderTransform>
+                        <CompositeTransform Rotation="-140"/>
+                    </FontIcon.RenderTransform>
+                </FontIcon>
+            </ToggleButton>
+
+            <ToggleButton x:Name="PenMode"  Grid.Column="3"  Content="&#xF003;"   FontSize="18"  FontFamily="Segoe MDL2 Assets" Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeRightToggleButton}"  Click="Pen_Click"/>
+
+            <bar:BottomButton Grid.Column="4"/>
+        </Grid>
+
+         <!--内容-->
+        <Grid x:Name="Content" Grid.Row="1" BorderThickness="0,1,0,0" HorizontalAlignment="Stretch"  BorderBrush="{Binding Foreground,Mode=OneWay}"  Visibility="{Binding BottomVisibility,Mode=OneWay}">
+    
+            <!--Add：添加-->
+            <Grid x:Name="PenAddGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="34"/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock x:Uid="/Tool/PenAddStroke" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                    <Button x:Name="Stroke" Grid.Column="1" Width="100" Height="36"   Background="{ Binding Background,Mode=OneWay}"  Foreground="{Binding SignForeground,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"  Style="{StaticResource Button}">
+                        <Button.Flyout>
+                            <Flyout Placement="Top" FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}"   >
+                                <pic:StrokePicker x:Name="StrokePicker"  Width="200" Height="250" />
+                            </Flyout>
+                        </Button.Flyout>
+                        <Rectangle Width="60" Height="22"   StrokeThickness="2"  Stroke="{Binding SignForeground,Mode=OneWay}"    StrokeDashArray="5 2"   />
+                    </Button>
+
+                    <TextBlock x:Uid="/Tool/PenAddColor" Grid.Column="2" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                    <con:ColorButton Grid.Column="3"  Width="100" Height="36" HorizontalAlignment="Right" Color="{Binding PenColor,Mode=TwoWay}" ColorChanged="ColorButton_ColorChanged" />
+
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="70"/>
+                    </Grid.ColumnDefinitions>
+                    <!--Control-->
+                    <TextBlock x:Uid="/Tool/PenWidth"   Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                    <Slider x:Name="WidthSlider" Grid.Column="1"  Value="4" Minimum="1" Maximum="100" Foreground="{StaticResource Blue}" Style="{StaticResource Slider}" />
+                    <pic:NumberPicker x:Name="WidthNumberPicker"  Height="28" Grid.Column="2" Grid.Row="1" Value="4" Min="1" Max="100" />
+                </Grid>
+
+            </Grid>
+
+            <!--Edit：编辑-->
+            <Grid x:Name="PenEditGrid" Padding="0,4" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="AddButton" MaxHeight="46" ToolTipService.ToolTip="Add"  Grid.Column="0" Style="{StaticResource NumberButton}" Tapped="AddButton_Tapped">
+                    <Grid Height="42" >
+                        <Viewbox  Width="28" Height="28"  VerticalAlignment="Bottom">
+                        <Canvas Width="768" Height="768"  >
+                            <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M151.023,344.381c23.481,-106.278 118.936,-185.921 232.977,-185.921c118.181,0 216.401,85.531 235.247,197.598c0.67,-0.034 1.345,-0.052 2.024,-0.052l107.451,0c21.679,0.001 39.278,17.6 39.278,39.278c0,21.678 -17.6,39.277 -39.278,39.277l-107.451,0c-0.679,0 -1.353,-0.017 -2.024,-0.051c-18.846,112.067 -117.066,197.598 -235.247,197.598c-122.217,0 -223.087,-91.473 -236.898,-209.172l-107.824,0c-21.678,0 -39.278,-17.599 -39.278,-39.277c0,-21.678 17.599,-39.277 39.278,-39.278l111.745,0Zm232.977,-126.715c98.728,0 178.882,79.588 178.882,177.618c0,98.03 -80.154,177.618 -178.882,177.618c-98.728,0 -178.882,-79.588 -178.882,-177.618c0,-98.03 80.154,-177.618 178.882,-177.618Zm-27.53,152.473l0,-70.336c0,-15.194 12.336,-27.53 27.53,-27.53c15.194,0 27.53,12.336 27.53,27.53l0,70.336l84.73,0c13.709,0 24.839,11.13 24.839,24.839c0,13.709 -11.13,24.839 -24.839,24.839l-84.73,0l0,72.323c0,15.194 -12.336,27.529 -27.53,27.529c-15.194,0 -27.53,-12.335 -27.53,-27.529l0,-72.323l-84.73,0c-13.709,0 -24.839,-11.13 -24.839,-24.839c0,-13.709 11.13,-24.839 24.839,-24.839l84.73,0Z"/>
+                        </Canvas>
+                        </Viewbox>
+                        <TextBlock x:Uid="/Tool/PenEditAdd" FontSize="12" VerticalAlignment="Top" Foreground="{Binding SignForeground,Mode=OneWay}" Style="{StaticResource TipTextBlock}"/>
+                    </Grid>
+                </Button>
+
+                <Button x:Name="SharpButton"  MaxHeight="46" ToolTipService.ToolTip="Sharp"  Grid.Column="1" Style="{StaticResource NumberButton}" Tapped="SharpButton_Tapped">
+                    <Grid Height="42" >
+                        <Viewbox  Width="28" Height="28"  VerticalAlignment="Bottom">
+                            <Canvas Width="768" Height="768">
+                            <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M284.017,323.664c-9.112,-16.395 -14.292,-35.191 -14.292,-55.164c0,-63.746 52.762,-115.5 117.75,-115.5c64.988,0 117.75,51.754 117.75,115.5c0,22.61 -6.638,43.712 -18.105,61.531l261.01,288.719c8.604,9.518 5.141,25.153 -0.75,30c-6.774,5.572 -22.951,10.077 -34.5,-0.75l-263.06,-281.522c-18.085,11.102 -39.457,17.522 -62.345,17.522c-25.786,0 -49.647,-8.148 -69.051,-21.96l0.628,0.7l-266.552,285.26c-11.549,10.827 -27.726,6.322 -34.5,0.75c-5.892,-4.847 -9.355,-20.482 -0.75,-30c47.353,-52.38 266.766,-295.087 266.766,-295.087l0.001,0.001Zm103.458,-112.914c32.494,0 58.875,25.877 58.875,57.75c0,31.873 -26.381,57.75 -58.875,57.75c-32.494,0 -58.875,-25.877 -58.875,-57.75c0,-31.873 26.381,-57.75 58.875,-57.75Z"/>
+                    </Canvas>
+                        </Viewbox>
+                        <TextBlock x:Uid="/Tool/PenEditSharp" FontSize="12" VerticalAlignment="Top" Foreground="{Binding SignForeground,Mode=OneWay}" Style="{StaticResource TipTextBlock}"/>
+                    </Grid>
+                </Button>
+                <Button x:Name="SmoothButton" MaxHeight="46" ToolTipService.ToolTip="Smooth"  Grid.Column="2" Style="{StaticResource NumberButton}" Tapped="SmoothButton_Tapped">
+                    <Grid Height="42" >
+                        <Viewbox  Width="28" Height="28"  VerticalAlignment="Bottom">
+                            <Canvas Width="768" Height="768">
+                            <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M496.853,246.408c-1.215,-19.267 -31.948,-92.544 -112.853,-93.408c-80.984,1.718 -111.488,72.665 -112.5,92.25c-21.558,0 -141.625,3.5 -177,0c-6.606,-12.182 -15.457,-21.723 -35.25,-21.75c-12.473,-0.305 -38.476,8.29 -38.25,35.954c0.214,26.167 25.796,36.273 38.25,36.046c14.106,-0.257 29.839,-9.204 35.25,-22.5c36.804,0 126.375,0.65 164.25,0c-143.949,77.405 -224.797,303.028 -241.5,356.25c-3.185,10.148 5.875,22.75 12,24c6.125,1.25 19.222,1.209 23.25,-12.75c34.952,-121.14 109.695,-262.134 222.75,-334.5c20.9,56.417 72.5,78 108.75,78c36.25,0 89.164,-19.785 108.75,-78c87.936,46.175 177.839,152.887 228.75,334.5c2.252,8.033 12.024,15.326 23.25,12.75c4.585,-1.052 16.957,-9.429 12.75,-23.25c-50.008,-164.426 -126.578,-295.597 -246,-357c75.436,0.335 132.98,0.742 168.75,0.75c5.31,11.156 17.684,22.162 36.75,21.75c23.863,0.213 36.75,-20.46 36.75,-36.046c-0.599,-17.503 -12.819,-35.163 -38.25,-35.954c-19.542,0.513 -30.158,10.08 -35.745,22.133c-37.042,0.302 -121.652,0.775 -182.902,0.775Zm-112.853,-35.658c32.287,0 58.5,25.877 58.5,57.75c0,31.873 -26.213,57.75 -58.5,57.75c-32.287,0 -58.5,-25.877 -58.5,-57.75c0,-31.873 26.213,-57.75 58.5,-57.75Z"/>
+                        </Canvas>
+                        </Viewbox>
+                        <TextBlock x:Uid="/Tool/PenEditSmooth" FontSize="12" VerticalAlignment="Top" Foreground="{Binding SignForeground,Mode=OneWay}" Style="{StaticResource TipTextBlock}"/>
+                    </Grid>
+                </Button>
+                <Button x:Name="ClearButton" MaxHeight="46" ToolTipService.ToolTip="Clear"  Grid.Column="3" Style="{StaticResource NumberButton}" Tapped="ClearButton_Tapped">
+                    <Grid Height="42" >
+                        <Viewbox  Width="28" Height="28"  VerticalAlignment="Bottom">
+                            <Canvas Width="768" Height="768"  >
+                            <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M384,158.46c131.637,0 238.51,106.117 238.51,236.824c0,130.707 -106.873,236.824 -238.51,236.824c-131.637,0 -238.51,-106.117 -238.51,-236.824c0,-130.707 106.873,-236.824 238.51,-236.824Zm0,59.206c98.728,0 178.882,79.588 178.882,177.618c0,98.03 -80.154,177.618 -178.882,177.618c-98.728,0 -178.882,-79.588 -178.882,-177.618c0,-98.03 80.154,-177.618 178.882,-177.618Zm105.51,137.029c22.402,0 40.589,18.188 40.589,40.589c0,22.402 -18.187,40.589 -40.589,40.589l-211.02,0c-22.402,0 -40.589,-18.187 -40.589,-40.589c0,-22.401 18.187,-40.589 40.589,-40.589l211.02,0Z"/>
+                        </Canvas>
+                        </Viewbox>
+                        <TextBlock x:Uid="/Tool/PenEditClear" FontSize="12" VerticalAlignment="Top" Foreground="{Binding SignForeground,Mode=OneWay}" Style="{StaticResource TipTextBlock}"/>
+                    </Grid>
+                </Button>
+            </Grid>
+            
+            <!--Mode：模式-->
+            <Grid x:Name="PenModeGrid" Height="62" Padding="0,4" >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <ToggleButton x:Name="Dash0" Grid.Column="000" Background="{Binding Foreground,Mode=OneWay}" Style="{StaticResource ToolToggleButton}"  Click="Dash_Click">
+                    <Grid>
+                        <Viewbox Width="70" Height="70" >
+                            <Canvas Width="768" Height="896">
+                                <Path Data="M131.966,558.011l258.694,-264.939l262.263,261.371" Fill="#3a9afd" Stroke="Black" StrokeThickness="36" />
+                                <Ellipse Canvas.Left="319" Canvas.Top="230" Width="130"   Height="130"   Fill="White" Stroke="Black" StrokeThickness="30" />
+                            </Canvas>
+                        </Viewbox>
+                        <TextBlock x:Uid="/Tool/PenModeStraight" FontSize="12" VerticalAlignment="Top" Foreground="{Binding SignForeground,Mode=OneWay}" Style="{StaticResource TipTextBlock}"/>
+                    </Grid>
+                </ToggleButton>
+                <ToggleButton x:Name="Dash1" Grid.Column="1" Background="{Binding Foreground,Mode=OneWay}" Style="{StaticResource ToolToggleButton}"   Click="Dash_Click">
+                    <Grid>
+                        <Viewbox Width="70" Height="70" >
+                        <Canvas Width="768" Height="896">
+                            <Path Data="M131.966,558.011c0,0 7.333,-52.381 16.056,-77.162c16.801,-47.725 95.528,-189.054 242.638,-187.777c160.509,1.394 229.257,140.201 243.976,181.533c9.159,25.719 18.287,79.838 18.287,79.838" Fill="#3a9afd" Stroke="#0084ff" StrokeThickness="30" />
+                            <Ellipse Canvas.Left="576" Canvas.Top="246" Width="70" Height="70" Fill="Black"/>
+                            <Ellipse Canvas.Left="138" Canvas.Top="249" Width="70" Height="70" Fill="Black"/>
+                            <Line X1="186.502" Y1="282" X2="630" Y2="282" StrokeThickness="30" Stroke="Black"/>
+                            <Ellipse Canvas.Left="319" Canvas.Top="209" Width="130"   Height="130"   Fill="White" Stroke="Black" StrokeThickness="30" />
+                        </Canvas>
+                    </Viewbox>
+                    <TextBlock x:Uid="/Tool/PenModeMirrored" FontSize="12" VerticalAlignment="Top" Foreground="{Binding SignForeground,Mode=OneWay}" Style="{StaticResource TipTextBlock}"/>
+            </Grid>
+            </ToggleButton>
+                <ToggleButton x:Name="Dash2" Grid.Column="2" Background="{Binding Foreground,Mode=OneWay}" Style="{StaticResource ToolToggleButton}"   Click="Dash_Click">
+                    <Grid>
+                        <Viewbox Width="70" Height="70" >
+                        <Canvas Width="768" Height="896">
+                            <Path Data="M131.966,558.011c0,0 7.333,-52.381 16.056,-77.162c16.801,-47.725 117.931,-265.823 242.638,-187.777c128.73,80.563 262.263,261.371 262.263,261.371" Fill="#3a9afd" Stroke="#0084ff" StrokeThickness="30" />
+                            <Ellipse Canvas.Left="500" Canvas.Top="380" Width="70" Height="70" Fill="Black"/>
+                            <Ellipse Canvas.Left="138" Canvas.Top="249" Width="70" Height="70" Fill="Black"/>
+                            <Polyline Points="190,282  360,260  555,440"  StrokeThickness="30" Stroke="Black"/>
+                            <Ellipse Canvas.Left="280" Canvas.Top="209" Width="130"   Height="130"   Fill="White" Stroke="Black" StrokeThickness="30" />
+                        </Canvas>
+                </Viewbox>
+                <TextBlock x:Uid="/Tool/PenModeDisconnected" FontSize="12" VerticalAlignment="Top" Foreground="{Binding SignForeground,Mode=OneWay}" Style="{StaticResource TipTextBlock}"/>
+        </Grid>
+        </ToggleButton>
+                <ToggleButton x:Name="Dash3" Grid.Column="3" Background="{Binding Foreground,Mode=OneWay}" Style="{StaticResource ToolToggleButton}"   Click="Dash_Click">
+                    <Grid>
+                        <Viewbox Width="70" Height="70" >
+                        <Canvas Width="768" Height="896">
+                            <Path Data="M131.966,558.011c0,0 8.048,-86.536 15.499,-111.729c13.455,-45.495 34.756,-160.62 181.867,-159.343c160.508,1.394 262.709,81.66 305.304,187.666c10.18,25.333 18.287,79.838 18.287,79.838" Fill="#3a9afd" Stroke="#0084ff" StrokeThickness="30" />
+                            <Ellipse Canvas.Left="576" Canvas.Top="246" Width="70" Height="70" Fill="Black"/>
+                            <Ellipse Canvas.Left="138" Canvas.Top="249" Width="70" Height="70" Fill="Black"/>
+                            <Line X1="186.502" Y1="282" X2="630" Y2="282" StrokeThickness="30" Stroke="Black"/>
+                            <Ellipse Canvas.Left="270" Canvas.Top="209" Width="130"   Height="130"   Fill="White" Stroke="Black" StrokeThickness="30" />
+                        </Canvas>
+            </Viewbox>
+            <TextBlock x:Uid="/Tool/PenModeAsymmetric" FontSize="12" VerticalAlignment="Top" Foreground="{Binding SignForeground,Mode=OneWay}" Style="{StaticResource TipTextBlock}"/>
+    </Grid>
+    </ToggleButton>
+            </Grid>
+            
+        </Grid>
+         
+    </Grid>
+</Page>

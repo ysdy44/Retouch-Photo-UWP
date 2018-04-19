@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="修图.BarPage.GeometryPage.Image"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.GeometryPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     NavigationCacheMode="Enabled"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <!--Image：图像-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <FontIcon  FontFamily="Segoe MDL2 Assets" Glyph="&#xEB9F;" FontSize="22"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+        <Button x:Name="PickerButton" x:Uid="/Geometry/ImagePicker" Grid.Column="1" Style="{StaticResource NumberButton}" Tapped="PickerButton_Tapped"/>
+
+        <ToggleButton x:Name="RatioButton" x:Uid="/Geometry/ImageRatio" IsChecked="True"  Grid.Column="2" Margin="0,8"  Style="{StaticResource NumberToggleButton}"   Loaded="RatioButton_Loaded">
+            <ToggleButton.Content>
+                <Viewbox Width="32" Height="32" Margin="0,3,0,0">
+                    <Canvas Width="768" Height="1024" >
+                        <Path Fill="{Binding Foreground,Mode=OneWay}" Data="M57,450.75l0.75,273.75l664.5,3l3.75,-655.5l-276,0l-0.75,380.25l-392.25,-1.5Z"/>
+                        <Path Fill="{StaticResource Blue}" Data="M36.375,49.5l0,350.25l355.5,0l0,-350.25"/>
+                    </Canvas>
+                </Viewbox>
+            </ToggleButton.Content>
+        </ToggleButton>
+
+    </Grid>
+</Page>

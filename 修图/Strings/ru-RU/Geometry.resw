@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Arrow.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Стрелку</value>
+  </data>
+  <data name="ArrowHead.Text" xml:space="preserve">
+    <value>Длина головы</value>
+  </data>
+  <data name="Arrow_" xml:space="preserve">
+    <value>Стрелку</value>
+  </data>
+  <data name="Capsule.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Капсула</value>
+  </data>
+  <data name="CapsuleRadius.Text" xml:space="preserve">
+    <value>Радиус</value>
+  </data>
+  <data name="Capsule_" xml:space="preserve">
+    <value>Капсула</value>
+  </data>
+  <data name="Circle.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Круг</value>
+  </data>
+  <data name="Circle_" xml:space="preserve">
+    <value>Круг</value>
+  </data>
+  <data name="Cog.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>COG</value>
+  </data>
+  <data name="CogCount.Text" xml:space="preserve">
+    <value>Зубы</value>
+  </data>
+  <data name="CogInner.Text" xml:space="preserve">
+    <value>Внутренний радиус</value>
+  </data>
+  <data name="CogNotch.Text" xml:space="preserve">
+    <value>Нотчсизе</value>
+  </data>
+  <data name="CogTooth.Text" xml:space="preserve">
+    <value>Размер зуба</value>
+  </data>
+  <data name="Cog_" xml:space="preserve">
+    <value>COG</value>
+  </data>
+  <data name="Diamond.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Алмаз</value>
+  </data>
+  <data name="Diamond_" xml:space="preserve">
+    <value>Алмаз</value>
+  </data>
+  <data name="Free.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Свободная линия</value>
+  </data>
+  <data name="Free_" xml:space="preserve">
+    <value>Свободная линия</value>
+  </data>
+  <data name="GeometryFill.Text" xml:space="preserve">
+    <value>Заполнить</value>
+  </data>
+  <data name="GeometryStroke.Text" xml:space="preserve">
+    <value>Цвет</value>
+  </data>
+  <data name="GeometryStrokeStyle.Text" xml:space="preserve">
+    <value>Инсульта</value>
+  </data>
+  <data name="GeometryWidth.Text" xml:space="preserve">
+    <value>Ширина</value>
+  </data>
+  <data name="Heart.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Сердце</value>
+  </data>
+  <data name="Heart_" xml:space="preserve">
+    <value>Сердце</value>
+  </data>
+  <data name="Image.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Рисование изображения</value>
+  </data>
+  <data name="ImagePicker.Content" xml:space="preserve">
+    <value>Выбрать изображение</value>
+  </data>
+  <data name="ImageRatio.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Коэффициент блокировки</value>
+  </data>
+  <data name="Image_" xml:space="preserve">
+    <value>Рисование изображения</value>
+  </data>
+  <data name="Line.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Линии</value>
+  </data>
+  <data name="Line_" xml:space="preserve">
+    <value>Линии</value>
+  </data>
+  <data name="Pentagon.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Пентагон</value>
+  </data>
+  <data name="PentagonCount.Text" xml:space="preserve">
+    <value>Сторон</value>
+  </data>
+  <data name="Pentagon_" xml:space="preserve">
+    <value>Пентагон</value>
+  </data>
+  <data name="Pie.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Пешком</value>
+  </data>
+  <data name="PieInner.Text" xml:space="preserve">
+    <value>Внутренний радиус</value>
+  </data>
+  <data name="PieSweep.Text" xml:space="preserve">
+    <value>Угол сдвига</value>
+  </data>
+  <data name="Pie_" xml:space="preserve">
+    <value>Пешком</value>
+  </data>
+  <data name="Rect.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Прямоугольник</value>
+  </data>
+  <data name="Rect_" xml:space="preserve">
+    <value>Прямоугольник</value>
+  </data>
+  <data name="RoundRect.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Закругленный прямоугольник</value>
+  </data>
+  <data name="RoundRectRadius.Text" xml:space="preserve">
+    <value>Радиус</value>
+  </data>
+  <data name="RoundRect_" xml:space="preserve">
+    <value>Закругленный прямоугольник</value>
+  </data>
+  <data name="Star.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Звезды</value>
+  </data>
+  <data name="StarCount.Text" xml:space="preserve">
+    <value>Точки</value>
+  </data>
+  <data name="StarInner.Text" xml:space="preserve">
+    <value>Внутренний радиус</value>
+  </data>
+  <data name="Star_" xml:space="preserve">
+    <value>Звезды</value>
+  </data>
+  <data name="Triangle.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Треугольник</value>
+  </data>
+  <data name="Triangle_" xml:space="preserve">
+    <value>Треугольник</value>
+  </data>
+  <data name="Word.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>Нарисовать слово</value>
+  </data>
+  <data name="Word_" xml:space="preserve">
+    <value>Нарисовать слово</value>
+  </data>
+</root>

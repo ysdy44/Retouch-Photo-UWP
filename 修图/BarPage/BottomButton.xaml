@@ -1,0 +1,17 @@
+﻿<UserControl
+    x:Class="修图.BarPage.BottomButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+     HorizontalAlignment="Right" >
+
+    <Button Width="42" Margin="0,8" HorizontalAlignment="Right" Background="Transparent" Style="{StaticResource RectangleButton}" Tapped="Button_Tapped">
+        <Border x:Name="FontGrid" Width="20" Height="20">
+            <FontIcon x:Name="FontIcon" Glyph="&#x2BC5;" FontSize="22" FontFamily="Segoe UI Symbol" />
+        </Border>
+    </Button>
+
+</UserControl>

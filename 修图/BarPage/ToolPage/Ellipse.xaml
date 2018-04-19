@@ -1,0 +1,57 @@
+﻿<Page
+    x:Class="修图.BarPage.ToolPage.Ellipse"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.ToolPage"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     NavigationCacheMode="Enabled"
+     mc:Ignorable="d">
+
+    <Grid MinWidth="{StaticResource BarPageMinWidth}" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--顶栏-->
+        <Grid HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Ellipse x:Name="Icon" Width="22" Height="16" StrokeThickness="2" Stroke="{Binding SignForeground,Mode=OneWay}"    StrokeDashArray="3 1"   />
+            <FontIcon x:Name="Fore" Glyph="&#xE7C8;" FontSize="6" FontFamily="Segoe MDL2 Assets"  Foreground="{Binding SignForeground,Mode=OneWay}"   />
+
+            <bar:MaskMode Grid.Column="1" Mode="{Binding MaskMode,Mode=TwoWay}"/>
+
+            <bar:BottomButton Grid.Column="2" />
+
+        </Grid>
+
+        <!--内容-->
+        <Grid x:Name="Content" Grid.Row="1" BorderThickness="0,1,0,0" HorizontalAlignment="Stretch"  BorderBrush="{Binding Foreground,Mode=OneWay}" Visibility="{Binding BottomVisibility,Mode=OneWay}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock x:Uid="/Tool/EllipseCenter"  Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+            <CheckBox  x:Name="CenterCheck" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Left"  Loaded="CenterCheck_Loaded"/>
+
+            <TextBlock x:Uid="/Tool/EllipseSquare" Grid.Column="2"   Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+            <CheckBox  x:Name="SquareCheck" Grid.Column="3"  VerticalAlignment="Center" HorizontalAlignment="Left"   Loaded="SquareCheck_Loaded"/>
+  
+        </Grid>
+
+    </Grid>
+</Page>
+

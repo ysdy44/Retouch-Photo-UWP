@@ -1,0 +1,39 @@
+﻿<Page
+    x:Class="修图.BarPage.EffectPage3.PinchPunch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.EffectPage3"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <!-- PinchPunch：膨胀收缩-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- 膨胀收缩-->
+        <Viewbox  Width="26" Height="26">
+            <Canvas Width="768" Height="768" >
+                <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="44" Data=" M109.694,158.897c-47.576,167.631 -43.301,292.332 -2.23,467.769 "/>
+                <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="44" Data=" M663.528,158.897c47.576,167.631 43.302,292.332 2.23,467.769 "/>
+                <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="44" Data=" M615.933,674.995c-167.631,47.575 -292.332,43.301 -467.769,2.23 "/>
+                <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="44" Data=" M615.933,109.453c-167.631,-47.576 -292.332,-43.302 -467.769,-2.23  "/>
+                <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="44" Data=" M176.041,279.881c114.665,-35.868 301.253,-29.363 419.821,3.903 "/>
+                <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="44" Data=" M176.041,489.367c114.665,35.868 301.253,29.363 419.821,-3.903 "/>
+                <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="44" Data=" M490.694,174.713c35.868,114.666 29.364,301.253 -3.902,419.822 "/>
+                <Path Stroke="{Binding SignForeground,Mode=OneWay}" StrokeThickness="44" Data="M281.208,174.713c-35.868,114.666 -29.363,301.253 3.903,419.822"/> 
+            </Canvas>
+        </Viewbox>
+
+        <Slider x:Name="Slider"  Maximum="200" Minimum="-200"   Grid.Column="1" Foreground="{StaticResource Blue}"  BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource Slider}" />
+      
+        <pic:NumberPicker x:Name="NumberPicker"  Grid.Column="2" Text="%"   Max="200" Min="-200" Value="0" Placement="Top"  />
+  
+    </Grid>
+</Page>

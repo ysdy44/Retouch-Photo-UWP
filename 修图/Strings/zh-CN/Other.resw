@@ -1,0 +1,327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Crop.Text" xml:space="preserve">
+    <value>裁切</value>
+  </data>
+  <data name="Crop_" xml:space="preserve">
+    <value>裁切</value>
+  </data>
+  <data name="Fade.Text" xml:space="preserve">
+    <value>渐隐</value>
+  </data>
+  <data name="FadeEdgeBehavior.Text" xml:space="preserve">
+    <value>边缘行为</value>
+  </data>
+  <data name="FadeEdgeBehaviorClamp.Content" xml:space="preserve">
+    <value>修复</value>
+  </data>
+  <data name="FadeEdgeBehaviorMirror.Content" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="FadeEdgeBehaviorWrap.Content" xml:space="preserve">
+    <value>换行</value>
+  </data>
+  <data name="FadeLinear.Text" xml:space="preserve">
+    <value>线性</value>
+  </data>
+  <data name="FadeOpacity.Text" xml:space="preserve">
+    <value>透明度</value>
+  </data>
+  <data name="FadeRadial.Text" xml:space="preserve">
+    <value>径向</value>
+  </data>
+  <data name="FadeReverse.Text" xml:space="preserve">
+    <value>反向</value>
+  </data>
+  <data name="Fade_" xml:space="preserve">
+    <value>渐隐</value>
+  </data>
+  <data name="Fill.Text" xml:space="preserve">
+    <value>填充</value>
+  </data>
+  <data name="FillFill.Content" xml:space="preserve">
+    <value>填充</value>
+  </data>
+  <data name="FillNoise.Content" xml:space="preserve">
+    <value>杂色</value>
+  </data>
+  <data name="FillStroke.Content" xml:space="preserve">
+    <value>描边</value>
+  </data>
+  <data name="Fill_" xml:space="preserve">
+    <value>填充</value>
+  </data>
+  <data name="Gradient.Text" xml:space="preserve">
+    <value>渐变</value>
+  </data>
+  <data name="GradientEdgeBehavior.Text" xml:space="preserve">
+    <value>边缘行为</value>
+  </data>
+  <data name="GradientEdgeBehaviorClamp.Content" xml:space="preserve">
+    <value>修复</value>
+  </data>
+  <data name="GradientEdgeBehaviorMirror.Content" xml:space="preserve">
+    <value>镜像</value>
+  </data>
+  <data name="GradientEdgeBehaviorWrap.Content" xml:space="preserve">
+    <value>换行</value>
+  </data>
+  <data name="GradientLinear.Text" xml:space="preserve">
+    <value>线性</value>
+  </data>
+  <data name="GradientRadial.Text" xml:space="preserve">
+    <value>径向</value>
+  </data>
+  <data name="GradientReverse.Text" xml:space="preserve">
+    <value>反向</value>
+  </data>
+  <data name="Gradient_" xml:space="preserve">
+    <value>渐变</value>
+  </data>
+  <data name="Grids.Text" xml:space="preserve">
+    <value>网格线</value>
+  </data>
+  <data name="Grids_" xml:space="preserve">
+    <value>网格线</value>
+  </data>
+  <data name="Rotate.Text" xml:space="preserve">
+    <value>旋转</value>
+  </data>
+  <data name="RotateHorizontal.Text" xml:space="preserve">
+    <value>水平</value>
+  </data>
+  <data name="RotateLeftTurn.Text" xml:space="preserve">
+    <value>左转</value>
+  </data>
+  <data name="RotateOverTurn.Text" xml:space="preserve">
+    <value>翻转</value>
+  </data>
+  <data name="RotateRightTurn.Text" xml:space="preserve">
+    <value>右转</value>
+  </data>
+  <data name="RotateVertical.Text" xml:space="preserve">
+    <value>垂直</value>
+  </data>
+  <data name="Stretch.Text" xml:space="preserve">
+    <value>拉伸</value>
+  </data>
+  <data name="StretchDialog.CloseButtonText" xml:space="preserve">
+    <value>取消</value>
+  </data>
+  <data name="StretchDialog.PrimaryButtonText" xml:space="preserve">
+    <value>确认</value>
+  </data>
+  <data name="StretchDialog.Title" xml:space="preserve">
+    <value>拉伸画布</value>
+  </data>
+  <data name="StretchHeight.Text" xml:space="preserve">
+    <value>高度</value>
+  </data>
+  <data name="StretchWidth.Text" xml:space="preserve">
+    <value>宽度</value>
+  </data>
+  <data name="Text.Text" xml:space="preserve">
+    <value>文本</value>
+  </data>
+  <data name="TextFontStyle.Text" xml:space="preserve">
+    <value>样式</value>
+  </data>
+  <data name="TextHorizontalAlignment.Text" xml:space="preserve">
+    <value>水平对齐</value>
+  </data>
+  <data name="TextVerticalAlignment.Text" xml:space="preserve">
+    <value>垂直对齐</value>
+  </data>
+  <data name="Text_" xml:space="preserve">
+    <value>文本</value>
+  </data>
+  <data name="Transform.Text" xml:space="preserve">
+    <value>变换</value>
+  </data>
+  <data name="Transform3D.Text" xml:space="preserve">
+    <value>3D变换</value>
+  </data>
+  <data name="Transform3DMove.Content" xml:space="preserve">
+    <value>移动</value>
+  </data>
+  <data name="Transform3DMoveX.Text" xml:space="preserve">
+    <value>移动X</value>
+  </data>
+  <data name="Transform3DMoveY.Text" xml:space="preserve">
+    <value>移动Y</value>
+  </data>
+  <data name="Transform3DMoveZ.Text" xml:space="preserve">
+    <value>移动Z</value>
+  </data>
+  <data name="Transform3DRotate.Content" xml:space="preserve">
+    <value>旋转</value>
+  </data>
+  <data name="Transform3DRotateX.Text" xml:space="preserve">
+    <value>旋转X</value>
+  </data>
+  <data name="Transform3DRotateY.Text" xml:space="preserve">
+    <value>旋转Y</value>
+  </data>
+  <data name="Transform3DRotateZ.Text" xml:space="preserve">
+    <value>旋转Z</value>
+  </data>
+  <data name="Transform3DScale.Content" xml:space="preserve">
+    <value>缩放</value>
+  </data>
+  <data name="Transform3DScaleX.Text" xml:space="preserve">
+    <value>缩放X</value>
+  </data>
+  <data name="Transform3DScaleY.Text" xml:space="preserve">
+    <value>缩放Y</value>
+  </data>
+  <data name="Transform3DScaleZ.Text" xml:space="preserve">
+    <value>缩放Z</value>
+  </data>
+  <data name="Transform3D_" xml:space="preserve">
+    <value>3D变换</value>
+  </data>
+  <data name="TransformFlip.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>翻转</value>
+  </data>
+  <data name="TransformHorizontal.Text" xml:space="preserve">
+    <value>水平</value>
+  </data>
+  <data name="TransformLeftTurn.Text" xml:space="preserve">
+    <value>左转</value>
+  </data>
+  <data name="TransformOverTurn.Text" xml:space="preserve">
+    <value>翻转</value>
+  </data>
+  <data name="TransformRatio.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>锁定比例</value>
+  </data>
+  <data name="TransformRightTurn.Text" xml:space="preserve">
+    <value>右转</value>
+  </data>
+  <data name="TransformSnapping.[using:Windows.UI.Xaml.Controls]ToolTipService.ToolTip" xml:space="preserve">
+    <value>吸附</value>
+  </data>
+  <data name="TransformVertical.Text" xml:space="preserve">
+    <value>垂直</value>
+  </data>
+  <data name="Transform_" xml:space="preserve">
+    <value>变换</value>
+  </data>
+</root>

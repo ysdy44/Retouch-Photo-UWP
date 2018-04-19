@@ -1,0 +1,24 @@
+﻿<UserControl
+    x:Class="修图.Picker.TipPicker"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.Picker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="50"
+    d:DesignWidth="200">
+
+    <Border x:Name="TipBorder" Opacity="0"  CornerRadius="4" MinHeight="24"  Width="Auto"  BorderThickness="1" Background="#b5d4f2"  BorderBrush="#3d9cf7"  >
+        <Border.Resources>
+            <Storyboard  x:Name="TipShow" >
+                <DoubleAnimation Duration="0:0:0.1"  To="1" Storyboard.TargetProperty="Opacity"    Storyboard.TargetName="TipBorder" d:IsOptimized="True"/>
+            </Storyboard>
+            <Storyboard  x:Name="TipFade" >
+                <DoubleAnimation Duration="0:0:0.1"  To="0" Storyboard.TargetProperty="Opacity"    Storyboard.TargetName="TipBorder" d:IsOptimized="True"/>
+            </Storyboard>
+        </Border.Resources>
+        <TextBlock x:Name="TipText" Margin="20,0" FontFamily="微软雅黑"  FontSize="16"  VerticalAlignment="Center" HorizontalAlignment="Center"  Text="{Binding Tip,Mode=OneWay}" Foreground="#0055a4" />
+    </Border>
+
+</UserControl>

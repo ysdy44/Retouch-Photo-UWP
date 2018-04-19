@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="修图.BarPage.OtherPage.Fill"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.OtherPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:con="using:修图.Control"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+    
+    <!-- Fill：填充-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"  MinWidth="60"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <!--填充-->
+        <Viewbox  Width="32" Height="32"  >
+            <Grid>
+                <Path Fill="{Binding Foreground,Mode=OneWay}" Data="M453.287,252.784c0,0 128.533,103.842 158.361,133.809c20.528,20.623 16.043,48.161 1.341,63.305c-50.807,52.331 -206.06,210.268 -254.287,255.508c-7.579,7.109 -20.878,6.956 -30.894,4.183c-87.739,-24.289 -167.3,-110.34 -167.3,-110.34c0,0 -104.74,-111.152 -116.504,-169.15c-4.965,-24.476 -0.681,-27.788 7.794,-37.209c43.341,-48.18 203.821,-205.702 252.253,-251.872c15.449,-14.727 45.238,-13.265 61.761,1.716c15.953,14.465 54.305,55.06 54.305,55.06l33.17,54.99"/>
+                <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M402.121,280.131c-19.637,15.978 -35.745,42.89 -29.266,64.732c5.589,18.845 23.41,49.972 65.77,45.727c48.725,-7.738 52.366,-38.705 55.771,-57.403c3.404,-18.699 -15.052,-48.791 -32.254,-51.701c-4.021,-28.39 7.804,-80.661 -1.886,-114.707c-9.651,-33.909 -26.965,-69.94 -56.253,-89.566c-30.484,-20.427 -89.587,-30.918 -126.199,-15.781c-36.612,15.137 -81.112,79.682 -93.473,106.604c-5.864,12.773 -0.907,30.9 18.856,37.712c18.095,6.238 27.68,-6.182 36.141,-16.342c14.613,-17.546 38.989,-60.471 60.202,-72.518c21.213,-12.047 48.534,-12.281 67.075,0.237c18.542,12.518 29.863,36.366 35.512,58.454c6.966,27.236 -1.576,68.637 0.004,104.552                          "/>
+                <Path Fill="{StaticResource BlueGradientBrush}" Data="M473.817,217.065c0,0 231.728,48.325 249.137,191.89c12.114,99.9 8.472,200.51 4.771,253.377c-3.372,48.18 -20.401,62.555 -38.104,62.854c-81.268,1.37 -119.548,-87.838 -114.315,-134.349c12.497,-111.069 92.155,-174.098 72.674,-196.809c-50.824,-59.253 -174.163,-176.963 -174.163,-176.963"/>
+            </Grid>
+        </Viewbox>
+
+        <ToggleButton x:Name="FillButton" x:Uid="/Other/FillFill" Grid.Column="1"  Grid.Row="2" MinWidth="60" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource LeftToggleButton}" Click="FiilStroke_Click"/>
+        <ToggleButton x:Name="StrokeButton" x:Uid="/Other/FillStroke" Grid.Column="2"  Grid.Row="2" MinWidth="60" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource CenterToggleButton}" Click="FiilStroke_Click"/>
+        <ToggleButton x:Name="TurbulenceButton" x:Uid="/Other/FillNoise" Grid.Column="3"  Grid.Row="2" MinWidth="60" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource RightToggleButton}" Click="FiilStroke_Click"/>
+
+        <con:ColorButton   Grid.Column="4"   Height="36" Color="{Binding FillColor,Mode=TwoWay}"  ColorChanged="ColorButton_ColorChanged"/>
+    
+    </Grid>
+</Page>

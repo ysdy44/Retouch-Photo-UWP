@@ -1,0 +1,36 @@
+﻿<Page
+    x:Class="修图.BarPage.ToolPage.Straw"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.ToolPage"
+    xmlns:pic="using:修图.Picker"  
+    xmlns:con="using:修图.Control"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" 
+    Loaded="Page_Loaded"
+     NavigationCacheMode="Enabled"
+    
+    >
+
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <!--吸管-->
+        <Viewbox  Width="26" Height="26"  >
+            <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M93.102,658.641l14.891,27.237c0,0 132.75,-60.238 134.683,-60.204l250.204,-250.06l49.094,50.262l54.293,-54.197c0.926,-1.44 1.854,-2.885 2.63,-4.41c1.933,-3.796 4.013,-7.544 5.492,-11.538c4.182,-11.29 6.901,-22.333 5.185,-34.322c-1.495,-10.444 -6.258,-20.777 -11.937,-29.511c-2.702,-4.156 -5.909,-7.97 -9.099,-11.765l81.878,-81.665c2.422,-4.146 4.851,-8.304 6.906,-12.644c4.492,-9.486 8.634,-21.274 10.345,-31.553c4.412,-26.513 -1.375,-52.342 -20.436,-71.937c-18.744,-19.269 -48.463,-35.094 -76.224,-30.954c-13.195,1.968 -19.638,3.719 -31.306,9.6c-3.712,1.872 -7.242,4.113 -10.638,6.511c-3.179,2.244 -6.115,4.818 -9.041,7.383l-78.678,78.232c-1.043,-1.121 -2.094,-2.25 -3.286,-3.211c-3.101,-2.496 -6.128,-5.147 -9.572,-7.143c-11.531,-6.684 -23.006,-10.607 -36.271,-11.16c-10.486,-0.436 -20.373,2.884 -29.776,7.249c-3.24,1.504 -6.233,3.495 -9.273,5.369c-1.201,0.74 -2.323,1.605 -3.44,2.467l-55.532,54.128l49.606,49.706l-248.911,249.401c0.163,1.656 -59.429,144.562 -59.429,144.562l25.968,7.139l69.623,-120.959l245.543,-248.891l52.7,53.513l-251.454,255.522                                   "/>
+        </Viewbox>
+
+        <ToggleButton x:Name="Main" x:Uid="/Tool/StrawGlobal" Grid.Column="1" Background="{Binding TitleColor,Mode=OneWay}"  Style="{StaticResource LeftToggleButton}"  Click="MainCurrent_Click"/>
+        <ToggleButton x:Name="Current" x:Uid="/Tool/StrawCurrent" Grid.Column="2" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource RightToggleButton}" Click="MainCurrent_Click" />
+
+        <con:ColorButton  Grid.Column="3"  Height="36" Color="{Binding Color,Mode=TwoWay}"  />
+
+    </Grid>
+</Page>

@@ -1,0 +1,186 @@
+﻿<Page
+    x:Name="page"
+    x:Class="修图.DrawPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图"
+    xmlns:con="using:修图.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    SizeChanged="page_SizeChanged"
+    Loaded="page_Loaded"
+     KeyUp="page_KeyUp"
+    KeyDown="page_KeyDown">
+    
+    <Grid>
+        <SplitView x:Name="RightSplitView" PanePlacement="Right" OpenPaneLength="190" CompactPaneLength="0" DisplayMode="Inline" IsPaneOpen="True">
+            <SplitView.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+
+                    <!--画布内容-->
+                    <SplitView x:Name="LeftSplitView" Grid.Row="1" PanePlacement="Left" OpenPaneLength="60" CompactPaneLength="0" DisplayMode="Inline" IsPaneOpen="True">
+                        <SplitView.Content>
+                            <Grid Background="{Binding Background,Mode=OneWay}" >
+             
+                                 <!--主画布-->
+                                <con:MainCanvasControl x:Name="MainCanvasControl" Grid.Row="1" Grid.Column="1" Refresh="{Binding  Refresh,Mode=OneWay}" Tool="{Binding Tool,Mode=OneWay}"   Layers="LayerControl_Layers" />
+
+                                <!--刘海-->
+                                <Border  x:Name="LeftBorder" Grid.Row="1" Grid.Column="1"  Width="12" CornerRadius="0,4,4,0" VerticalAlignment="Stretch" HorizontalAlignment="Left" Background="{Binding LineColor,Mode=OneWay}" PointerEntered=" LeftBorder_PointerEntered">
+                                    <Button x:Name="LeftButton" Style="{StaticResource RectangleButton}" Tapped="LeftButton_Tapped"/>
+                                </Border>
+                                <Border  x:Name="RightBorder" Grid.Row="1" Grid.Column="1"  Width="12" CornerRadius="4,0,0,4" VerticalAlignment="Stretch" HorizontalAlignment="Right" Background="{Binding LineColor,Mode=OneWay}" PointerEntered="RightBorder_PointerEntered">
+                                    <Button x:Name="RightButton" Style="{StaticResource RectangleButton}" Tapped="RightButton_Tapped"/>
+                                </Border>
+
+                                <!--底栏 -->
+                                <Border x:Name="BottomBorder" Grid.Row="1" Grid.Column="1" CornerRadius="8" Padding="12,0" Margin="14" VerticalAlignment=" Bottom" HorizontalAlignment="Center" Background="{Binding AcrylicBrush,Mode=OneWay}" Visibility="{Binding StrawVisibility,Mode=OneWay}" >
+                                    <con:BottomControl Tool="{Binding Tool,Mode=OneWay}"/>
+                                </Border>
+                            </Grid>
+                        </SplitView.Content>
+
+                        <!--左侧侧栏-->
+                        <SplitView.Pane >
+                            <Grid x:Name="LeftPane"   BorderThickness="0,0,2,0" Visibility="{Binding StrawVisibility,Mode=OneWay}"   BorderBrush="{Binding LineColor,Mode=OneWay}"   Background="{Binding ButtonColor,Mode=OneWay}" >
+                                <con:ToolControl x:Name="ToolControl" Visibility="Collapsed" Tool="{Binding Tool,Mode=OneWay}"/>
+                                <con:FilterControl  x:Name="FilterControl"  Visibility="Collapsed"/>
+                                <con:BrushControl  x:Name="BrushControl"  Visibility="Collapsed" />
+                                <con:GeometryControl  x:Name="GeometryControl"   Visibility="Collapsed"/>
+                                <Grid x:Name="LeftGrid" Background="#00000000" Visibility="Collapsed"/>
+                            </Grid>
+                        </SplitView.Pane>
+                    </SplitView>
+
+                    <!--主顶栏-->
+                    <Grid x:Name="MainTitleBar" Grid.ColumnSpan="2"  AllowDrop="True"  Drop="GGGGG_Drop" DragOver="GGGGG_DragOver" VerticalAlignment="Stretch" BorderThickness="0,0,0,2" Background="{Binding TitleColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="66"/>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" MinWidth="210" />
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!--回家-->
+                        <Button  x:Name="HomeButton"  x:Uid="/Main/Home" Width="58" FontSize="24" FontFamily="Segoe MDL2 Assets" Content="&#xE17C;" Foreground="Black" Background="{StaticResource Yellow}"  BorderBrush="{Binding LineColor,Mode=OneWay}"  Style="{StaticResource Button}" Tapped="HomeButton_Tapped"  />
+
+                        <!--左侧：模式按钮-->
+                        <ListView x:Name="ModeListView" Grid.Column="1"   ItemContainerStyle="{StaticResource ModeListViewItem}" >
+                            <ListView.ItemsPanel >
+                                <ItemsPanelTemplate>
+                                     <VirtualizingStackPanel  Orientation="Horizontal"/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListViewItem x:Uid="/Main/ModeBitmap"  Tapped="BitmapModeButton_Tapped" />
+                            <ListViewItem x:Uid="/Main/ModeAdjust" Tapped="AdjustModeButton_Tapped" />
+                            <ListViewItem x:Uid="/Main/ModeLiquify" Visibility="Collapsed" Tapped="LiquifyModeButton_Tapped" />
+                            <ListViewItem x:Uid="/Main/ModePaint" Tapped="PaintModeButton_Tapped" />
+                            <ListViewItem x:Uid="/Main/ModeGeometry" Tapped="GeometryModeButton_Tapped" />
+                        </ListView>
+
+
+                        <!--中侧：三大按钮-->
+                        <StackPanel x:Name="BitmapStackPanel" Grid.Column="2" HorizontalAlignment="Center" Orientation="Horizontal">
+                            <con:MaskButton x:Name="maskButton" Mask="MaskButton_Mask"/>
+                            <con:EffectBuuton x:Name="effectBuuton"  Effect="EffectBuuton_Effect"/>
+                            <con:OtherButton x:Name="otherButton"  Other="OtherButton_Other"/>
+                        </StackPanel>
+
+                        <!--右侧-->
+                        <StackPanel x:Name="MorePanel" Grid.Column="3"  Orientation="Horizontal" >
+                            <ToggleButton x:Name="MsssssssButton" x:Uid="/Main/isMask"   FontSize="24" Content="&#x2756;" FontFamily="Segoe UI Symbol"  IsChecked="{Binding isMask,Mode=TwoWay}" Foreground="{Binding Foreground,Mode=OneWay}" Background="{Binding TitleColor,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"   Style="{StaticResource ToggleButton}"/>
+                            <ToggleButton x:Name="LineButton" x:Uid="/Main/isLine"   FontSize="18" Content="&#xE80A;" FontFamily="Segoe MDL2 Assets"  IsChecked="{Binding isLine,Mode=TwoWay}" Foreground="{Binding Foreground,Mode=OneWay}" Background="{Binding TitleColor,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"    Style="{StaticResource ToggleButton}"/>
+                            <ToggleButton x:Name="RulerButton" x:Uid="/Main/isRuler"   FontSize="18" Content="&#xECC6;" FontFamily="Segoe MDL2 Assets"  IsChecked="{Binding isRuler,Mode=TwoWay}" Foreground="{Binding Foreground,Mode=OneWay}" Background="{Binding TitleColor,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"   Style="{StaticResource ToggleButton}"/>
+                         </StackPanel>
+                        <Button x:Name="MoreButton" x:Uid="/Main/More"   Grid.Column="3"   Content="&#xE154;" FontSize="18" FontFamily="Segoe UI Symbol" Foreground="{Binding Foreground,Mode=OneWay}" Background="{Binding ButtonColor,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"  Style="{StaticResource Button}">
+                            <Button.Flyout>
+                                <Flyout x:Name="MoreFlyout" Placement="Bottom" FlyoutPresenterStyle="{StaticResource FlyoutPresenter}"  >
+                                    <StackPanel  Orientation="Horizontal" Height="50">
+                                        <ToggleButton x:Name="MsssssssButton1"  x:Uid="/Main/isMask"   IsChecked="{Binding isMask,Mode=TwoWay}" FontSize="24" FontFamily="Segoe UI Symbol" Content="&#x2756;"   Foreground="{Binding SignForeground,Mode=OneWay}" Background="Transparent"  BorderBrush="Transparent"  Style="{StaticResource ToggleButton}"/>
+                                        <ToggleButton x:Name="LineButton1"  x:Uid="/Main/isLine"    IsChecked="{Binding isLine,Mode=TwoWay}" FontSize="18" FontFamily="Segoe MDL2 Assets" Content="&#xE80A;"   Foreground="{Binding SignForeground,Mode=OneWay}" Background="Transparent"  BorderBrush="Transparent"  Style="{StaticResource ToggleButton}"/>
+                                        <ToggleButton x:Name="RulerButton1" x:Uid="/Main/isRuler"    IsChecked="{Binding isRuler,Mode=TwoWay}" FontSize="18" FontFamily="Segoe MDL2 Assets" Content="&#xECC6;"   Foreground="{Binding SignForeground,Mode=OneWay}" Background="Transparent"  BorderBrush="Transparent"  Style="{StaticResource ToggleButton}"/>
+                                        <con:ThemeButton  x:Name="ThemeButton1" />
+                                        <Button x:Name="UndoButtom1" x:Uid="/Main/Undo" FontSize="18" FontFamily="Segoe MDL2 Assets" Content="&#xE26C;" IsEnabled="{Binding isUndo,Mode=OneWay}" Foreground="{Binding SignForeground,Mode=OneWay}" Background="{Binding ButtonColor,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"  Style="{StaticResource Button}" Tapped="UndoButtom_Tapped"/>
+                                        <Button x:Name="RedoButton1"  x:Uid="/Main/Redo"  FontSize="18" FontFamily="Segoe MDL2 Assets" Content="&#xE26B;" IsEnabled="{Binding isRedo,Mode=OneWay}" Foreground="{Binding SignForeground,Mode=OneWay}" Background="{Binding ButtonColor,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"  Style="{StaticResource Button}" Tapped="RedoButton_Tapped"/>
+                                    </StackPanel>
+                                </Flyout>
+                            </Button.Flyout>
+                        </Button>
+
+
+                    </Grid>
+
+                    <!--第二顶栏-->
+                    <Grid  x:Name="SecondTitleBar" Grid.ColumnSpan="2" Visibility="Collapsed" BorderThickness="0,0,0,2" Background="{Binding TitleColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" >
+                        
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*" MaxWidth="100" MinWidth="60"/>
+                            <ColumnDefinition Width="6*"/>
+                            <ColumnDefinition Width="1*" MaxWidth="160" MinWidth="80"/>
+                        </Grid.ColumnDefinitions>
+                        <Button  x:Name="CancelButton"  FontFamily="Segoe MDL2 Assets" Content="&#xE112;" Style="{StaticResource RectangleButton}" Tapped="CancelButton_Tapped"/>
+                        <TextBlock x:Name="TittleText" FontWeight="Bold" Text="{Binding Text,Mode=OneWay}"  Grid.Column="1"  Foreground="{Binding SignForeground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                        <Button  x:Name="ApplyButton" Grid.Column="2" x:Uid="/Main/Apply" FontFamily="微软雅黑"  Style="{StaticResource RectangleButton}" Tapped="ApplyButton_Tapped"/>
+                    </Grid>
+
+                </Grid>
+            </SplitView.Content>
+
+            <!--右侧侧栏-->
+            <SplitView.Pane >
+                <Grid x:Name="RightPane"  Visibility="{Binding StrawVisibility,Mode=OneWay}">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid BorderThickness="0,0,0,2" BorderBrush="{Binding LineColor,Mode=OneWay}" Background="{Binding TitleColor,Mode=OneWay}">
+               
+                         <ComboBox x:Name="ModeComboBox"   Width="170" Height="33" BorderBrush="Gray" SelectedIndex="0" Style="{StaticResource ComboBox}">
+                            <ComboBoxItem x:Uid="/Main/ModeBitmap" Tapped="BitmapModeButton_Tapped" />
+                            <ComboBoxItem x:Uid="/Main/ModeAdjust" Tapped="AdjustModeButton_Tapped" />
+                            <ComboBoxItem x:Uid="/Main/ModeLiquify" Visibility="Collapsed" Tapped="LiquifyModeButton_Tapped" />
+                            <ComboBoxItem x:Uid="/Main/ModePaint" Tapped="PaintModeButton_Tapped" />
+                            <ComboBoxItem x:Uid="/Main/ModeGeometry" Tapped="GeometryModeButton_Tapped" />
+                        </ComboBox>
+                         <Grid x:Name="MoreGrid">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                                <ColumnDefinition Width="1*"/>
+                            </Grid.ColumnDefinitions>
+                            <con:ThemeButton />
+                            <Button x:Name="UndoButtom" x:Uid="/Main/Undo"  Grid.Column="1"  FontFamily="Segoe MDL2 Assets" FontSize="18" Content="&#xE26C;"  IsEnabled="{Binding isUndo,Mode=OneWay}" Foreground="{Binding SignForeground,Mode=OneWay}" Background="{Binding ButtonColor,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"  Style="{StaticResource Button}" Tapped="UndoButtom_Tapped"  />
+                            <Button x:Name="RedoButton"  x:Uid="/Main/Redo"  Grid.Column="2"   FontFamily="Segoe MDL2 Assets" FontSize="18" Content="&#xE26B;"  IsEnabled="{Binding isRedo,Mode=OneWay}" Foreground="{Binding SignForeground,Mode=OneWay}" Background="{Binding ButtonColor,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"  Style="{StaticResource Button}" Tapped="RedoButton_Tapped"/>
+                        </Grid>
+
+                    </Grid>
+
+                    <Grid Grid.Row="1"  BorderThickness="2,0,0,0" BorderBrush="{Binding LineColor,Mode=OneWay}" Background="{ThemeResource SystemControlAcrylicWindowBrush}" >
+                        <con:LayerControl x:Name="LayerControl"  Layers="LayerControl_Layers"/>
+                         <con:AdjustControl x:Name="AdjustControl" Refresh="{Binding  Refresh,Mode=OneWay}"/>
+                        <Grid x:Name="RightGrid" Background="#00000000" Visibility="Collapsed"/>
+                    </Grid>
+
+                </Grid>
+            </SplitView.Pane>
+        </SplitView>
+
+        <con:StartControl StartVisibility="{Binding StartVisibility,Mode=OneWay}" />
+        <!--其他控件-->
+        <controls:Loading x:Name="LoadingControl" IsLoading="True" HorizontalContentAlignment="Center"   VerticalContentAlignment="Center" Background="Black" Opacity="0.71">
+            <StackPanel>
+                <ProgressRing IsActive="True"   Foreground="White"/>
+                <TextBlock Text="Loading" FontSize="20" Foreground="White"/>
+             </StackPanel>
+        </controls:Loading>
+        <ContentDialog x:Name="HomeContentDialog"  x:Uid="/Home/HomeDialog"   PrimaryButtonClick="HomeContentDialog_PrimaryButtonClick"  SecondaryButtonClick="HomeContentDialog_SecondaryButtonClick"  CloseButtonClick="HomeContentDialog_CloseButtonClick" PrimaryButtonStyle="{ThemeResource AccentButtonStyle}" Background="{Binding AcrylicBrush,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" /> 
+        
+    </Grid>
+</Page>

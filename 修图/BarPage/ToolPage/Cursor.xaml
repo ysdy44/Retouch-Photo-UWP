@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="修图.BarPage.ToolPage.Cursor"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.ToolPage"
+    xmlns:pic="using:修图.Picker"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+     NavigationCacheMode="Enabled"
+    mc:Ignorable="d">
+
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <!--光标-->
+        <Viewbox  Width="24" Height="24"  >
+            <Path Fill="{StaticResource BlueGradientBrush}" Data="M80.799,68.569l303.201,647.439l82.643,-260.008l269.107,-72l-654.951,-315.431"/>
+        </Viewbox>
+
+        <Button x:Name="RasterizeButton" x:Uid="/Tool/CursorRasterize" Grid.Column="1" IsEnabled="{Binding isCursor,Mode=OneWay}" Style="{StaticResource NumberButton}" Tapped="RasterizeButton_Tapped"/>
+  
+        <Button x:Name="recoverButton" x:Uid="/Tool/CursorRecover" Grid.Column="2"   IsEnabled="{Binding isCursor,Mode=OneWay}" Margin="0,8"  Style="{StaticResource NumberButton}" Tapped="recoverButton_Tapped"/>
+
+    </Grid>
+</Page>

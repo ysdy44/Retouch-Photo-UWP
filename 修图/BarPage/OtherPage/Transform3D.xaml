@@ -1,0 +1,117 @@
+﻿<Page
+    x:Class="修图.BarPage.OtherPage.Transform3D"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.OtherPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:Pic="using:修图.Picker"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid MinWidth="{StaticResource BarPageMinWidth}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--顶栏-->
+        <Grid HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+                 <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Canvas Width="40" Height="40"  >
+                <Viewbox  Width="32" Height="32"  >
+                    <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M346.495,210.4c0,0 -22.373,-0.645 -55.447,-1.552c-17.726,-0.487 -18.024,-14.357 -12.605,-23.111c26.376,-26.14 64.886,-71.326 95.228,-98.653c7.196,-5.752 20.327,-5.157 27.632,0.456c23.719,23.781 56.339,62.607 82.622,91.346c17.101,18.699 12.897,31.995 -16.122,31.88c-40.27,1.204 -40.01,1.233 -40.01,1.233l-0.685,130.853l131.31,-2.055c0,0 -0.276,-33.932 -0.457,-49.556c-0.296,-25.528 8.335,-32.048 24.663,-18.954c18.741,15.029 80.082,75.067 98.197,94.315c12.768,13.565 5.884,23.78 -1.37,31.286c-19.525,20.202 -71.909,71.968 -88.377,88.834c-19.585,20.058 -29.158,17.649 -29.688,-10.962c-0.216,-11.709 -1.827,-51.839 -1.827,-51.839l-132.223,-0.685l-0.456,132.223c0,0 41.888,-0.562 53.894,-0.228c18.754,0.521 24.634,10.926 13.473,25.805c-15.012,20.014 -75.017,83.277 -95.684,99.795c-7.376,5.895 -21.133,5.441 -28.318,-0.685c-19.373,-16.518 -72.905,-79.15 -87.92,-98.425c-15.613,-20.043 -7.512,-27.343 11.19,-26.49c11.383,0.519 51.839,0 51.839,0l0.685,-131.081l-133.137,0.228c0,0 0.457,32.938 -0.046,44.577c-1.239,28.712 -7.388,34.31 -24.846,20.735c-19.199,-14.929 -82.439,-76.363 -98.881,-95.228c-3.935,-4.514 -3.696,-13.439 0.228,-17.962c15.434,-17.793 74.796,-70.608 92.373,-88.798c15.276,-15.808 32.492,-20.5 32.999,11.076c0.314,19.516 0.457,43.16 0.457,43.16l129.939,1.599l1.37,-133.137"/>
+                </Viewbox>
+            </Canvas>
+
+            <ToggleButton x:Name="Transform3DMove"  x:Uid="/Other/Transform3DMove" Grid.Column="1" MinWidth="60" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource LeftToggleButton}" Click="Transform3D_Click" />
+            <ToggleButton x:Name="Transform3DScale" x:Uid="/Other/Transform3DScale" Grid.Column="2"  MinWidth="50"    Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource CenterToggleButton}" Click="Transform3D_Click"/>
+            <ToggleButton x:Name="Transform3DRotate" x:Uid="/Other/Transform3DRotate" Grid.Column="3" MinWidth="50"  Background="{Binding TitleColor,Mode=OneWay}"  Style="{StaticResource RightToggleButton}" Click="Transform3D_Click"/>
+
+            <bar:BottomButton Grid.Column="4" />
+        </Grid>
+
+        <!--内容-->
+        <Grid x:Name="Content" Grid.Row="1" BorderThickness="0,1,0,0" HorizontalAlignment="Stretch"  BorderBrush="{Binding Foreground,Mode=OneWay}"  Visibility="{Binding BottomVisibility,Mode=OneWay}">
+
+            <!--Move：移动-->
+            <Grid x:Name="Transform3DMoveGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1*" MaxWidth="80"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="33"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Uid="/Other/Transform3DMoveX" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <TextBlock x:Uid="/Other/Transform3DMoveY"  Grid.Row="1" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <TextBlock x:Uid="/Other/Transform3DMoveZ" Grid.Row="2" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <Slider x:Name="MoveXSlider" Grid.Column="1" Maximum="180" Minimum="0"  Foreground="{StaticResource Red}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}"/>
+                <Slider x:Name="MoveYSlider" Grid.Column="1" Grid.Row="1" Maximum="180" Minimum="0"  Foreground="{StaticResource Red}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}" />
+                <Slider x:Name="MoveZSlider" Grid.Column="1" Grid.Row="2" Maximum="180" Minimum="0"  Foreground="{StaticResource Red}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}"/>
+                <Pic:NumberPicker x:Name="MoveXNumberPicker" Grid.Column="2" Height="24" Max="180" Min="0" Placement="Top" />
+                <Pic:NumberPicker x:Name="MoveYNumberPicker" Grid.Column="2" Grid.Row="1" Height="24" Max="180" Min="0" Placement="Top" />
+                <Pic:NumberPicker x:Name="MoveZNumberPicker" Grid.Column="2" Grid.Row="2" Height="24" Max="180" Min="0" Placement="Top" />
+            </Grid>
+
+            <!--Scale：缩放-->
+            <Grid x:Name="Transform3DScaleGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1*" MaxWidth="80"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="33"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Uid="/Other/Transform3DScaleX" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <TextBlock x:Uid="/Other/Transform3DScaleY"  Grid.Row="1" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <TextBlock x:Uid="/Other/Transform3DScaleZ" Grid.Row="2" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <Slider x:Name="ScaleXSlider" Grid.Column="1" Value="100" Maximum="200" Minimum="1"  Foreground="{StaticResource Green}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}" />
+                <Slider x:Name="ScaleYSlider" Grid.Column="1" Value="100" Grid.Row="1" Maximum="200" Minimum="1"  Foreground="{StaticResource Green}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}"/>
+                <Slider x:Name="ScaleZSlider" Grid.Column="1" Value="100" Grid.Row="2" Maximum="200" Minimum="1"  Foreground="{StaticResource Green}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}" />
+                <Pic:NumberPicker x:Name="ScaleXNumberPicker" Grid.Column="2" Text="%" Height="24" Value="100" Max="200" Min="1" Placement="Top"/>
+                <Pic:NumberPicker x:Name="ScaleYNumberPicker" Grid.Column="2" Grid.Row="1" Text="%" Height="24" Value="100" Max="200" Min="1" Placement="Top" />
+                <Pic:NumberPicker x:Name="ScaleZNumberPicker" Grid.Column="2" Grid.Row="2"  Text="%" Height="24" Value="100" Max="200" Min="1" Placement="Top" />
+            </Grid>
+
+            <!--Rotate：旋转-->
+            <Grid x:Name="Transform3DRotateGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="1*" MaxWidth="80"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="33"/>
+                    <RowDefinition Height="33"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Uid="/Other/Transform3DRotateX" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <TextBlock x:Uid="/Other/Transform3DRotateY"  Grid.Row="1" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <TextBlock x:Uid="/Other/Transform3DRotateZ" Grid.Row="2" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <Slider x:Name="RotateXSlider" Grid.Column="1" Maximum="180" Minimum="0"  Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}"/>
+                <Slider x:Name="RotateYSlider" Grid.Column="1" Grid.Row="1" Maximum="180" Minimum="0"  Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}"/>
+                <Slider x:Name="RotateZSlider" Grid.Column="1" Grid.Row="2" Maximum="180" Minimum="0"  Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}" />
+                <Pic:NumberPicker x:Name="RotateXNumberPicker" Grid.Column="2" Text="º" Height="24" Max="180" Min="0" Placement="Top" />
+                <Pic:NumberPicker x:Name="RotateYNumberPicker" Grid.Column="2" Grid.Row="1" Text="º" Height="24" Max="180" Min="0" Placement="Top" />
+                <Pic:NumberPicker x:Name="RotateZNumberPicker" Grid.Column="2" Grid.Row="2" Text="º" Height="24" Max="180" Min="0" Placement="Top" />
+            </Grid>
+ 
+        </Grid>
+
+    </Grid>
+</Page>

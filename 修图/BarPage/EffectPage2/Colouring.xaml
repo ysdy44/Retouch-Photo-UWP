@@ -1,0 +1,40 @@
+﻿<Page
+    x:Class="修图.BarPage.EffectPage2.Colouring"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.EffectPage2"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <!-- Colouring：上色-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <!--上色-->
+        <Image Width="24" Height="24" Source="ms-appx:///Icon\gradient.png"  Stretch="UniformToFill"/>
+
+        <Slider x:Name="HueRotationSlider" Maximum="600" Minimum="0"   Grid.Column="1"  Foreground="#22FFFFFF" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource Slider}" >
+            <Slider.Background>
+                <LinearGradientBrush StartPoint=" 0,0.5" EndPoint="1,0.5">
+                    <GradientStop Color="#0000FF" Offset="0"/>
+                    <GradientStop Color="#FF00FF" Offset="0.1"/>
+                    <GradientStop Color="#FF0000" Offset="0.3"/>
+                    <GradientStop Color="#FFFF00" Offset="0.5"/>
+                    <GradientStop Color="#00FF00" Offset="0.7"/>
+                    <GradientStop Color="#00FFFF" Offset="0.9"/>
+                    <GradientStop Color="#0000FF" Offset="1"/>
+                </LinearGradientBrush>
+            </Slider.Background>
+        </Slider>
+        
+        <pic:NumberPicker x:Name="HueRotationNumberPicker"  Grid.Column="2" Text="º"  Max="600" Min="0" Value="0" Placement="Top" />
+   
+    </Grid>
+</Page>

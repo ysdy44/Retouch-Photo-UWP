@@ -1,0 +1,21 @@
+﻿<Page
+    x:Class="修图.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:pic="using:修图.Picker"
+    xmlns:con="using:修图.Control"
+    mc:Ignorable="d"
+    NavigationCacheMode="Required"
+    Loaded="Page_Loaded">
+
+    <Grid x:Name="grid" Background="#242424">
+        <con:ThemeButton Width="10"/>
+        <canvas:CanvasVirtualControl   x:Name="CanvasVirtualControl" Width="10" Height="10"  />
+        <Frame x:Name="DrawFrame"/>
+        <Frame x:Name="StartFrame" Visibility="{Binding StartVisibility,Mode=OneWay}"/>
+      </Grid>
+</Page>

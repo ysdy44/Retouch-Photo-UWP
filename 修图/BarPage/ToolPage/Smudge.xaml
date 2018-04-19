@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="修图.BarPage.ToolPage.Smudge"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.ToolPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded"
+     NavigationCacheMode="Enabled"
+    
+    >
+
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"  MinWidth="80"/>
+            <ColumnDefinition Width="*"  />
+            <ColumnDefinition Width="Auto"  MinWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <!--涂抹-->
+        <TextBlock Text="👇"   FontSize="24" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{Binding SignForeground,Mode=OneWay}"  />
+
+        <Slider x:Name="WidthSlider" Grid.Column="1" Value="10" Minimum="2" Maximum="512" Foreground="{StaticResource Blue}" Style="{StaticResource Slider}" />
+       
+        <pic:NumberPicker x:Name="WidthNumberPicker" Height="28" Grid.Column="2" Value="10" Min="2" Max="512" />
+    
+    </Grid>
+</Page>

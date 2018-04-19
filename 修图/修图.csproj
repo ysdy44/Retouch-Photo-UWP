@@ -1,0 +1,1142 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{41B9AD4E-0E96-486A-81AA-49C356FF19A7}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>修图</RootNamespace>
+    <AssemblyName>修图</AssemblyName>
+    <DefaultLanguage>en</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion Condition=" '$(TargetPlatformVersion)' == '' ">10.0.16299.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.16299.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WindowsXamlEnableOverview>true</WindowsXamlEnableOverview>
+    <PackageCertificateKeyFile>修图_StoreKey.pfx</PackageCertificateKeyFile>
+    <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
+    <AppxBundle>Always</AppxBundle>
+    <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
+    <PackageCertificateThumbprint>448C2CFF8267F5D8FDD062BF2069FBFCD4CA98D7</PackageCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup>
+    <RestoreProjectStyle>PackageReference</RestoreProjectStyle>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\AdjustBarPage.xaml.cs">
+      <DependentUpon>AdjustBarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\BottomButton.xaml.cs">
+      <DependentUpon>BottomButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage1\Border.xaml.cs">
+      <DependentUpon>Border.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage1\ChromaKey.xaml.cs">
+      <DependentUpon>ChromaKey.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage1\DirectionalBlur.xaml.cs">
+      <DependentUpon>DirectionalBlur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage1\EdgeDetection.xaml.cs">
+      <DependentUpon>EdgeDetection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage1\Emboss.xaml.cs">
+      <DependentUpon>Emboss.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage1\GaussianBlur.xaml.cs">
+      <DependentUpon>GaussianBlur.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage1\Lighting.xaml.cs">
+      <DependentUpon>Lighting.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage1\Shadow.xaml.cs">
+      <DependentUpon>Shadow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage1\Sharpen.xaml.cs">
+      <DependentUpon>Sharpen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage2\Colouring.xaml.cs">
+      <DependentUpon>Colouring.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage2\DiscreteTransfer.xaml.cs">
+      <DependentUpon>DiscreteTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage2\GammaTransfer.xaml.cs">
+      <DependentUpon>GammaTransfer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage2\Tint.xaml.cs">
+      <DependentUpon>Tint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage2\Vignette.xaml.cs">
+      <DependentUpon>Vignette.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage3\Glass.xaml.cs">
+      <DependentUpon>Glass.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage3\Morphology.xaml.cs">
+      <DependentUpon>Morphology.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage3\PinchPunch.xaml.cs">
+      <DependentUpon>PinchPunch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage\Brightness.xaml.cs">
+      <DependentUpon>Brightness.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage\Contrast.xaml.cs">
+      <DependentUpon>Contrast.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage\Exposure.xaml.cs">
+      <DependentUpon>Exposure.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage\HighlightsAndShadows.xaml.cs">
+      <DependentUpon>HighlightsAndShadows.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage\HueRotation.xaml.cs">
+      <DependentUpon>HueRotation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage\Saturation.xaml.cs">
+      <DependentUpon>Saturation.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\EffectPage\Temperature.xaml.cs">
+      <DependentUpon>Temperature.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Arrow.xaml.cs">
+      <DependentUpon>Arrow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Capsule.xaml.cs">
+      <DependentUpon>Capsule.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Circle.xaml.cs">
+      <DependentUpon>Circle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Cog.xaml.cs">
+      <DependentUpon>Cog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Diamond.xaml.cs">
+      <DependentUpon>Diamond.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Free.xaml.cs">
+      <DependentUpon>Free.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Heart.xaml.cs">
+      <DependentUpon>Heart.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Image.xaml.cs">
+      <DependentUpon>Image.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Line.xaml.cs">
+      <DependentUpon>Line.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Pentagon.xaml.cs">
+      <DependentUpon>Pentagon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Pie.xaml.cs">
+      <DependentUpon>Pie.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Rect.xaml.cs">
+      <DependentUpon>Rect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\RoundRect.xaml.cs">
+      <DependentUpon>RoundRect.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Star.xaml.cs">
+      <DependentUpon>Star.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Triangle.xaml.cs">
+      <DependentUpon>Triangle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\GeometryPage\Word.xaml.cs">
+      <DependentUpon>Word.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\LiquifyBarPage.xaml.cs">
+      <DependentUpon>LiquifyBarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\MaskMode.xaml.cs">
+      <DependentUpon>MaskMode.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\MaskPage\Feather.xaml.cs">
+      <DependentUpon>Feather.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\OtherPage\Crop.xaml.cs">
+      <DependentUpon>Crop.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\OtherPage\Fade.xaml.cs">
+      <DependentUpon>Fade.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\OtherPage\Fill.xaml.cs">
+      <DependentUpon>Fill.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\OtherPage\Gradient.xaml.cs">
+      <DependentUpon>Gradient.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\OtherPage\Grids.xaml.cs">
+      <DependentUpon>Grids.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\OtherPage\Text.xaml.cs">
+      <DependentUpon>Text.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\OtherPage\Transform.xaml.cs">
+      <DependentUpon>Transform.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\OtherPage\Transform3D.xaml.cs">
+      <DependentUpon>Transform3D.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Cursor.xaml.cs">
+      <DependentUpon>Cursor.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Ellipse.xaml.cs">
+      <DependentUpon>Ellipse.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Eraser.xaml.cs">
+      <DependentUpon>Eraser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Hand.xaml.cs">
+      <DependentUpon>Hand.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Lasso.xaml.cs">
+      <DependentUpon>Lasso.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Magic.xaml.cs">
+      <DependentUpon>Magic.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\MaskEraser.xaml.cs">
+      <DependentUpon>MaskEraser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\MaskPaint.xaml.cs">
+      <DependentUpon>MaskPaint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Mixer.xaml.cs">
+      <DependentUpon>Mixer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Paint.xaml.cs">
+      <DependentUpon>Paint.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Pen.xaml.cs">
+      <DependentUpon>Pen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Pencil.xaml.cs">
+      <DependentUpon>Pencil.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Polygon.xaml.cs">
+      <DependentUpon>Polygon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Rectangle.xaml.cs">
+      <DependentUpon>Rectangle.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Smudge.xaml.cs">
+      <DependentUpon>Smudge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="BarPage\ToolPage\Straw.xaml.cs">
+      <DependentUpon>Straw.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\AdjustControl.xaml.cs">
+      <DependentUpon>AdjustControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\BottomControl.xaml.cs">
+      <DependentUpon>BottomControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\BrushControl.xaml.cs">
+      <DependentUpon>BrushControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ColorButton.xaml.cs">
+      <DependentUpon>ColorButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\EffectBuuton.xaml.cs">
+      <DependentUpon>EffectBuuton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\FilterControl.xaml.cs">
+      <DependentUpon>FilterControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\GeometryControl.xaml.cs">
+      <DependentUpon>GeometryControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\LayerControl.xaml.cs">
+      <DependentUpon>LayerControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\MainCanvasControl.xaml.cs">
+      <DependentUpon>MainCanvasControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\MaskButton.xaml.cs">
+      <DependentUpon>MaskButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\OtherButton.xaml.cs">
+      <DependentUpon>OtherButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\StartControl.xaml.cs">
+      <DependentUpon>StartControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ThemeButton.xaml.cs">
+      <DependentUpon>ThemeButton.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Control\ToolControl.xaml.cs">
+      <DependentUpon>ToolControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DrawPage.xaml.cs">
+      <DependentUpon>DrawPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="KeyPage.xaml.cs">
+      <DependentUpon>KeyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Library\Adjust.cs" />
+    <Compile Include="Library\DataRequestExtensions.cs" />
+    <Compile Include="Library\Geometry.cs" />
+    <Compile Include="Library\Image.cs" />
+    <Compile Include="Library\Judge.cs" />
+    <Compile Include="Library\Method.cs" />
+    <Compile Include="Library\ShareSourceData.cs" />
+    <Compile Include="Library\ShareSourceItem.cs" />
+    <Compile Include="Library\Toast.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ColorBrushCode.cs" />
+    <Compile Include="Model\FilterCode.cs" />
+    <Compile Include="Model\Lasso2.cs" />
+    <Compile Include="Model\Layer.cs" />
+    <Compile Include="Model\Model.cs" />
+    <Compile Include="Model\PaintBrush.cs" />
+    <Compile Include="Model\Pen.cs" />
+    <Compile Include="Model\PhotoFile.cs" />
+    <Compile Include="Model\Setting.cs" />
+    <Compile Include="Model\Undo.cs" />
+    <Compile Include="Picker\ColorPicker.xaml.cs">
+      <DependentUpon>ColorPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Picker\FontPicker.xaml.cs">
+      <DependentUpon>FontPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Picker\NumberPicker.xaml.cs">
+      <DependentUpon>NumberPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Picker\RotationPicker.xaml.cs">
+      <DependentUpon>RotationPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Picker\StrokePicker.xaml.cs">
+      <DependentUpon>StrokePicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Picker\TipPicker.xaml.cs">
+      <DependentUpon>TipPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <PRIResource Include="Strings\en-US\Mask.resw" />
+    <PRIResource Include="Strings\en-US\Effect0.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\en-US\Effect1.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\zh-CN\Mask.resw" />
+    <PRIResource Include="Strings\en-US\Effect2.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\en-US\Effect3.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\zh-CN\Effect0.resw" />
+    <PRIResource Include="Strings\zh-CN\Effect1.resw" />
+    <PRIResource Include="Strings\zh-CN\Effect2.resw" />
+    <PRIResource Include="Strings\zh-CN\Effect3.resw" />
+    <PRIResource Include="Strings\en-US\Other.resw" />
+    <PRIResource Include="Strings\zh-CN\Other.resw" />
+    <PRIResource Include="Strings\en-US\Adjust.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\zh-CN\Adjust.resw" />
+    <PRIResource Include="Strings\en-US\Tool.resw" />
+    <PRIResource Include="Strings\zh-CN\Tool.resw" />
+    <PRIResource Include="Strings\en-US\Layer.resw" />
+    <PRIResource Include="Strings\zh-CN\Layer.resw" />
+    <PRIResource Include="Strings\en-US\Resources.resw" />
+    <PRIResource Include="Strings\zh-CN\Resources.resw" />
+    <PRIResource Include="Strings\en-US\Main.resw" />
+    <PRIResource Include="Strings\zh-CN\Main.resw" />
+    <PRIResource Include="Strings\en-US\Home.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\zh-CN\Home.resw" />
+    <None Include="Icon\XDocument\Logo.photo" />
+    <None Include="Icon\XDocument\圣诞鱼.photo" />
+    <PRIResource Include="Strings\en-US\Filter.resw" />
+    <PRIResource Include="Strings\zh-CN\Filter.resw" />
+    <PRIResource Include="Strings\en-US\Geometry.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\zh-CN\Geometry.resw" />
+    <PRIResource Include="Strings\fr-FR\Adjust.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-FR\Effect0.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-FR\Effect1.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-FR\Effect2.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-FR\Effect3.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-FR\Filter.resw" />
+    <PRIResource Include="Strings\fr-FR\Geometry.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-FR\Home.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\fr-FR\Layer.resw" />
+    <PRIResource Include="Strings\fr-FR\Main.resw" />
+    <PRIResource Include="Strings\fr-FR\Mask.resw" />
+    <PRIResource Include="Strings\fr-FR\Other.resw" />
+    <PRIResource Include="Strings\fr-FR\Tool.resw" />
+    <PRIResource Include="Strings\fr-FR\Resources.resw" />
+    <PRIResource Include="Strings\ru-RU\Adjust.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\ru-RU\Effect0.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\ru-RU\Effect1.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\ru-RU\Effect2.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\ru-RU\Effect3.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\ru-RU\Filter.resw" />
+    <PRIResource Include="Strings\ru-RU\Geometry.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\ru-RU\Home.resw">
+      <SubType>Designer</SubType>
+    </PRIResource>
+    <PRIResource Include="Strings\ru-RU\Layer.resw" />
+    <PRIResource Include="Strings\ru-RU\Main.resw" />
+    <PRIResource Include="Strings\ru-RU\Mask.resw" />
+    <PRIResource Include="Strings\ru-RU\Other.resw" />
+    <PRIResource Include="Strings\ru-RU\Resources.resw" />
+    <PRIResource Include="Strings\ru-RU\Tool.resw" />
+    <None Include="修图_StoreKey.pfx" />
+    <None Include="修图_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\BadgeLogo.scale-100.png" />
+    <Content Include="Assets\BadgeLogo.scale-125.png" />
+    <Content Include="Assets\BadgeLogo.scale-150.png" />
+    <Content Include="Assets\BadgeLogo.scale-200.png" />
+    <Content Include="Assets\BadgeLogo.scale-400.png" />
+    <Content Include="Assets\LargeTile.scale-100.png" />
+    <Content Include="Assets\LargeTile.scale-125.png" />
+    <Content Include="Assets\LargeTile.scale-150.png" />
+    <Content Include="Assets\LargeTile.scale-200.png" />
+    <Content Include="Assets\LargeTile.scale-400.png" />
+    <Content Include="Assets\SmallTile.scale-100.png" />
+    <Content Include="Assets\SmallTile.scale-125.png" />
+    <Content Include="Assets\SmallTile.scale-150.png" />
+    <Content Include="Assets\SmallTile.scale-200.png" />
+    <Content Include="Assets\SmallTile.scale-400.png" />
+    <Content Include="Assets\SplashScreen.scale-100.png" />
+    <Content Include="Assets\SplashScreen.scale-125.png" />
+    <Content Include="Assets\SplashScreen.scale-150.png" />
+    <Content Include="Assets\SplashScreen.scale-400.png" />
+    <Content Include="Assets\Square150x150Logo.scale-100.png" />
+    <Content Include="Assets\Square150x150Logo.scale-125.png" />
+    <Content Include="Assets\Square150x150Logo.scale-150.png" />
+    <Content Include="Assets\Square150x150Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.altform-unplated_targetsize-48.png" />
+    <Content Include="Assets\Square44x44Logo.scale-100.png" />
+    <Content Include="Assets\Square44x44Logo.scale-125.png" />
+    <Content Include="Assets\Square44x44Logo.scale-150.png" />
+    <Content Include="Assets\Square44x44Logo.scale-400.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-16.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-256.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-32.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-48.png" />
+    <Content Include="Assets\StoreLogo.scale-100.png" />
+    <Content Include="Assets\StoreLogo.scale-125.png" />
+    <Content Include="Assets\StoreLogo.scale-150.png" />
+    <Content Include="Assets\StoreLogo.scale-200.png" />
+    <Content Include="Assets\StoreLogo.scale-400.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-100.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-125.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-150.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-400.png" />
+    <Content Include="Icon\Brush\Flash\00-.png" />
+    <Content Include="Icon\Brush\Flash\00-400-0.7-0.9-0.8.png" />
+    <Content Include="Icon\Brush\Flash\00.png" />
+    <Content Include="Icon\Brush\Flash\01-.png" />
+    <Content Include="Icon\Brush\Flash\01-500-1-0.85-0.55.png" />
+    <Content Include="Icon\Brush\Flash\01.png" />
+    <Content Include="Icon\Brush\Flash\02-.png" />
+    <Content Include="Icon\Brush\Flash\02-428.49-0.01-0.66-0.6.png" />
+    <Content Include="Icon\Brush\Flash\02.png" />
+    <Content Include="Icon\Brush\Flash\03-.png" />
+    <Content Include="Icon\Brush\Flash\03-306.25-0.7-0.73-0.8.png" />
+    <Content Include="Icon\Brush\Flash\03.png" />
+    <Content Include="Icon\Brush\Flash\04-.png" />
+    <Content Include="Icon\Brush\Flash\04-1024-1-9-0.3.png" />
+    <Content Include="Icon\Brush\Flash\04.png" />
+    <Content Include="Icon\Brush\Scratch\00-.png" />
+    <Content Include="Icon\Brush\Scratch\00-222-0.8-0.49-0.45.png" />
+    <Content Include="Icon\Brush\Scratch\00.png" />
+    <Content Include="Icon\Brush\Scratch\01-.png" />
+    <Content Include="Icon\Brush\Scratch\01-233-0.01-1-0.33.png" />
+    <Content Include="Icon\Brush\Scratch\01.png" />
+    <Content Include="Icon\Brush\Scratch\02-.png" />
+    <Content Include="Icon\Brush\Scratch\02-158.76-1-1-0.5.png" />
+    <Content Include="Icon\Brush\Scratch\02.png" />
+    <Content Include="Icon\Brush\Scratch\03-.png" />
+    <Content Include="Icon\Brush\Scratch\03-132.25-0.23-0.21-0.22.png" />
+    <Content Include="Icon\Brush\Scratch\03.png" />
+    <Content Include="Icon\Brush\Scratch\04-.png" />
+    <Content Include="Icon\Brush\Scratch\04-193.21-0.23-0.21-0.22.png" />
+    <Content Include="Icon\Brush\Scratch\04.png" />
+    <Content Include="Icon\Brush\Scratch\05-.png" />
+    <Content Include="Icon\Brush\Scratch\05-225-0.87-0.8-0.45.png" />
+    <Content Include="Icon\Brush\Scratch\05.png" />
+    <Content Include="Icon\Brush\Scratch\06-.png" />
+    <Content Include="Icon\Brush\Scratch\06-112.36-0.01-0.8-0.66.png" />
+    <Content Include="Icon\Brush\Scratch\06.png" />
+    <Content Include="Icon\Brush\Scratch\07-.png" />
+    <Content Include="Icon\Brush\Scratch\07-102.01-0.59-1-0.66.png" />
+    <Content Include="Icon\Brush\Scratch\07.png" />
+    <Content Include="Icon\Brush\Scratch\08-.png" />
+    <Content Include="Icon\Brush\Scratch\08-121-0.01-0.58-0.8.png" />
+    <Content Include="Icon\Brush\Scratch\08.png" />
+    <Content Include="Icon\Brush\Scratch\09-.png" />
+    <Content Include="Icon\Brush\Scratch\09-166.41-0.17-0.41-0.33.png" />
+    <Content Include="Icon\Brush\Scratch\09.png" />
+    <Content Include="Icon\Brush\Splodge\00-.png" />
+    <Content Include="Icon\Brush\Splodge\00-120-0.01-0.7-0.33.png" />
+    <Content Include="Icon\Brush\Splodge\00.png" />
+    <Content Include="Icon\Brush\Splodge\01-.png" />
+    <Content Include="Icon\Brush\Splodge\01-158.76-0.01-1-0.22.png" />
+    <Content Include="Icon\Brush\Splodge\01.png" />
+    <Content Include="Icon\Brush\Splodge\02-.png" />
+    <Content Include="Icon\Brush\Splodge\02-150-1-1-0.33.png" />
+    <Content Include="Icon\Brush\Splodge\02.png" />
+    <Content Include="Icon\Brush\Splodge\03-.png" />
+    <Content Include="Icon\Brush\Splodge\03-136.89-0.27-0.89-0.33.png" />
+    <Content Include="Icon\Brush\Splodge\03.png" />
+    <Content Include="Icon\Brush\Splodge\04-.png" />
+    <Content Include="Icon\Brush\Splodge\04-86.49-0.09-0.69-0.3.png" />
+    <Content Include="Icon\Brush\Splodge\04.png" />
+    <Content Include="Icon\Brush\Splodge\05-.png" />
+    <Content Include="Icon\Brush\Splodge\05-108.16-0.14-0.79-0.4.png" />
+    <Content Include="Icon\Brush\Splodge\05.png" />
+    <Content Include="Icon\Brush\Splodge\06-.png" />
+    <Content Include="Icon\Brush\Splodge\06-180-0.27-0.89-0.33.png" />
+    <Content Include="Icon\Brush\Splodge\06.png" />
+    <Content Include="Icon\Brush\Splodge\07-.png" />
+    <Content Include="Icon\Brush\Splodge\07-249.64-1-1-0.66.png" />
+    <Content Include="Icon\Brush\Splodge\07.png" />
+    <Content Include="Icon\Brush\Splodge\08-.png" />
+    <Content Include="Icon\Brush\Splodge\08-272.25-0.07-0.56-0.4.png" />
+    <Content Include="Icon\Brush\Splodge\08.png" />
+    <Content Include="Icon\Brush\Splodge\09-.png" />
+    <Content Include="Icon\Brush\Splodge\09-160-0.09-0.84-0.45.png" />
+    <Content Include="Icon\Brush\Splodge\09.png" />
+    <Content Include="Icon\Brush\Universal\00-.png" />
+    <Content Include="Icon\Brush\Universal\01-.png" />
+    <Content Include="Icon\Brush\Universal\02-.png" />
+    <Content Include="Icon\Brush\Universal\03-.png" />
+    <Content Include="Icon\Brush\Universal\03-108.16-0.01-0.18-0.25.png" />
+    <Content Include="Icon\Brush\Universal\04-.png" />
+    <Content Include="Icon\Brush\Universal\05-.png" />
+    <Content Include="Icon\Brush\Universal\06-.png" />
+    <Content Include="Icon\Brush\Universal\07-.png" />
+    <Content Include="Icon\Brush\Universal\07-11.56-0.01-1-0.25.png" />
+    <Content Include="Icon\Brush\Universal\00-12-1-1-0.25.png" />
+    <Content Include="Icon\Brush\Universal\04-20.25-1-0.23-0.25.png" />
+    <Content Include="Icon\Brush\Universal\02-21.16-0.83-0.59-0.25.png" />
+    <Content Include="Icon\Brush\Universal\05-210.25-0.01-0.15-0.25.png" />
+    <Content Include="Icon\Brush\Universal\08-.png" />
+    <Content Include="Icon\Brush\Universal\08-27.04-0.34-1-0.25.png" />
+    <Content Include="Icon\Brush\Universal\06-3.24-1-1-0.25.png" />
+    <Content Include="Icon\Brush\Universal\01-4-0.83-1-0.25.png" />
+    <Content Include="Icon\Brush\Universal\09-.png" />
+    <Content Include="Icon\Brush\Universal\09-75.69-0.34-0.46-0.25.png" />
+    <Content Include="Icon\Clutter\Add.png" />
+    <Content Include="Icon\Clutter\GeometryImage.PNG" />
+    <Content Include="Icon\Clutter\GrayWhite.png" />
+    <Content Include="Icon\Clutter\GrayWhiteBig.png" />
+    <Content Include="Icon\Clutter\GrayWhiteLong.png" />
+    <Content Include="Icon\Clutter\OK.png" />
+    <Content Include="Icon\Effect2\Colouring.png" />
+    <Content Include="Icon\Effect2\Tint.png" />
+    <Content Include="Icon\Effect3\Morphology.png" />
+    <Content Include="Icon\Filter\Classic\Blues.png" />
+    <Content Include="Icon\Filter\Classic\Cowboy.png" />
+    <Content Include="Icon\Filter\Classic\Handsome.png" />
+    <Content Include="Icon\Filter\Classic\Personality.png" />
+    <Content Include="Icon\Filter\Classic\Pure.png" />
+    <Content Include="Icon\Filter\Classic\Sentimental.png" />
+    <Content Include="Icon\Filter\Classic\Tranquil.png" />
+    <Content Include="Icon\Filter\Classic\Unreal.png" />
+    <Content Include="Icon\Money\Alipay.png" />
+    <Content Include="Icon\Money\AlipayText.png" />
+    <Content Include="Icon\Money\QQ.png" />
+    <Content Include="Icon\Money\QQText.png" />
+    <Content Include="Icon\Money\Wechat.png" />
+    <Content Include="Icon\Money\WechatText.png" />
+    <Content Include="Icon\More\ColorScheme pro\Logo.png" />
+    <Content Include="Icon\More\RetouchPhoto\Logo.png" />
+    <Content Include="Icon\PunchDisplacement.png" />
+    <Content Include="Icon\PinchDisplacement.png" />
+    <Content Include="Icon\Effect1\Emboss.png" />
+    <Content Include="Icon\Effect1\Lighting.png" />
+    <Content Include="Icon\Effect2\DiscreteTransfer.png" />
+    <Content Include="Icon\Effect2\GammaTransfer.png" />
+    <Content Include="Icon\Effect2\LuminanceToAlpha.png" />
+    <Content Include="Icon\Effect1\Border.png" />
+    <Content Include="Icon\Effect2\Posterize.png" />
+    <Content Include="Icon\Effect2\Sepia.png" />
+    <Content Include="Icon\Effect2\Vignette.png" />
+    <Content Include="Icon\Effect2\Fog.png" />
+    <Content Include="Icon\Effect3\Glass.png" />
+    <Content Include="Icon\Effect3\PinchPunch.png" />
+    <Content Include="Icon\Effect\Brightness.png" />
+    <Content Include="Icon\Effect1\ChromaKey.png" />
+    <Content Include="Icon\Effect\Contrast.png" />
+    <Content Include="Icon\Effect1\DirectionalBlur.png" />
+    <Content Include="Icon\Effect1\EdgeDetection.png" />
+    <Content Include="Icon\Effect\Exposure.png" />
+    <Content Include="Icon\Effect1\GaussianBlur.png" />
+    <Content Include="Icon\Effect\Gray.png" />
+    <Content Include="Icon\Effect\HighlightsAndShadows.png" />
+    <Content Include="Icon\Effect\HueRotation.png" />
+    <Content Include="Icon\Effect\Invert.png" />
+    <Content Include="Icon\Effect\Saturation.png" />
+    <Content Include="Icon\Effect1\Shadow.png" />
+    <Content Include="Icon\Effect1\Sharpen.png" />
+    <Content Include="Icon\Effect\Temperature.png" />
+    <Content Include="Icon\Filter\Memory\Childhood.png" />
+    <Content Include="Icon\Filter\Shadow\Dusk.png" />
+    <Content Include="Icon\Filter\Memory\Memory.png" />
+    <Content Include="Icon\Filter\Shadow\Morning.png" />
+    <Content Include="Icon\Filter\Memory\Old.png" />
+    <Content Include="Icon\Filter\Original.png" />
+    <Content Include="Icon\Filter\Shadow\Shadow.png" />
+    <Content Include="Icon\gradient.png" />
+    <Content Include="Icon\Logo.png" />
+    <Content Include="Icon\LogoA.png" />
+    <Content Include="Icon\LogoB.png" />
+    <Content Include="Icon\LogoL.png" />
+    <Content Include="Icon\LogoPM.png" />
+    <Content Include="Icon\LogoS.png" />
+    <Content Include="Icon\XDocument\Logo.png" />
+    <Content Include="Icon\XDocument\圣诞鱼.png" />
+    <Content Include="Icon\圣诞鱼.png" />
+    <None Include="Package.StoreAssociation.xml" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="BarPage\AdjustBarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\BottomButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage1\Border.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage1\ChromaKey.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage1\DirectionalBlur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage1\EdgeDetection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage1\Emboss.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage1\GaussianBlur.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage1\Lighting.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage1\Shadow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage1\Sharpen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage2\Colouring.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage2\DiscreteTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage2\GammaTransfer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage2\Tint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage2\Vignette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage3\Glass.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage3\Morphology.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage3\PinchPunch.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage\Brightness.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage\Contrast.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage\Exposure.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage\HighlightsAndShadows.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage\HueRotation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage\Saturation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\EffectPage\Temperature.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Arrow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Capsule.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Circle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Cog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Diamond.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Free.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Heart.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Image.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Line.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Pentagon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Pie.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Rect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\RoundRect.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Star.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Triangle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\GeometryPage\Word.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\LiquifyBarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\MaskMode.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\MaskPage\Feather.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\OtherPage\Crop.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\OtherPage\Fade.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\OtherPage\Fill.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\OtherPage\Gradient.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\OtherPage\Grids.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\OtherPage\Text.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\OtherPage\Transform.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\OtherPage\Transform3D.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Cursor.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Ellipse.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Eraser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Hand.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Lasso.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Magic.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\MaskEraser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\MaskPaint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Mixer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Paint.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Pen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Pencil.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Polygon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Rectangle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Smudge.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BarPage\ToolPage\Straw.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\AdjustControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\BottomControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\BrushControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\ColorButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\EffectBuuton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\FilterControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\GeometryControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\LayerControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\MainCanvasControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\MaskButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\OtherButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\StartControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\ThemeButton.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Control\ToolControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="DrawPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="KeyPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Picker\ColorPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Picker\FontPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Picker\NumberPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Picker\RotationPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Picker\StrokePicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Picker\TipPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Style\Light.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Style\Night.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Style\Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform">
+      <Version>6.0.6</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.DeveloperTools">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Toolkit.Uwp.UI.Controls">
+      <Version>2.2.0</Version>
+    </PackageReference>
+    <PackageReference Include="Win2D.uwp">
+      <Version>1.21.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

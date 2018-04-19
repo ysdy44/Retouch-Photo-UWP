@@ -1,0 +1,737 @@
+﻿<UserControl
+    x:Class="修图.Control.StartControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    xmlns:animations="using:Microsoft.Toolkit.Uwp.UI.Animations"
+    xmlns:pic="using:修图.Picker"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+
+    <!--页面资源-->
+    <UserControl.Resources>
+
+ 
+        <!--建议框样式-->
+        <Style x:Key="AutoSuggestBoxStyle1" TargetType="AutoSuggestBox">
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="TextBoxStyle" Value="{StaticResource AutoSuggestBoxTextBoxStyle}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="AutoSuggestBox">
+                        <Grid x:Name="LayoutRoot" Background="#bbffffff">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="Orientation">
+                                    <VisualState x:Name="Landscape"/>
+                                    <VisualState x:Name="Portrait"/>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <TextBox x:Name="TextBox" BorderThickness="0" ScrollViewer.BringIntoViewOnFocusChange="False" DesiredCandidateWindowAlignment="BottomEdge" Header="{TemplateBinding Header}" Margin="0" PlaceholderText="{TemplateBinding PlaceholderText}" Style="{TemplateBinding TextBoxStyle}" Width="{TemplateBinding Width}" Canvas.ZIndex="0"/>
+                            <Popup x:Name="SuggestionsPopup">
+                                <Border x:Name="SuggestionsContainer">
+                                    <Border.RenderTransform>
+                                        <TranslateTransform x:Name="UpwardTransform"/>
+                                    </Border.RenderTransform>
+                                    <ListView x:Name="SuggestionsList" Background="{ThemeResource AutoSuggestBoxSuggestionsListBackground}" BorderThickness="{ThemeResource AutoSuggestListBorderThemeThickness}" BorderBrush="{ThemeResource AutoSuggestBoxSuggestionsListBorderBrush}" DisplayMemberPath="{TemplateBinding DisplayMemberPath}" ItemContainerStyle="{TemplateBinding ItemContainerStyle}" ItemTemplate="{TemplateBinding ItemTemplate}" IsItemClickEnabled="True" ItemTemplateSelector="{TemplateBinding ItemTemplateSelector}" MaxHeight="{ThemeResource AutoSuggestListMaxHeight}" Margin="{ThemeResource AutoSuggestListMargin}" Padding="{ThemeResource AutoSuggestListPadding}">
+                                        <ListView.ItemContainerTransitions>
+                                            <TransitionCollection/>
+                                        </ListView.ItemContainerTransitions>
+                                    </ListView>
+                                </Border>
+                            </Popup>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <!--建议项模板-->
+        <DataTemplate x:Key="AutoSuggestBoxItem">
+            <StackPanel Orientation="Horizontal"  Padding="4" >
+                <Ellipse Width="44" Height="44">
+                    <Ellipse.Fill>
+                        <ImageBrush>
+                            <ImageBrush.ImageSource >
+                               <BitmapImage  UriSource="{Binding Uri}"  />
+                            </ImageBrush.ImageSource>
+                        </ImageBrush>
+                    </Ellipse.Fill>
+                </Ellipse>
+                <TextBlock   Text="{Binding Name}" Margin="6" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                <TextBlock   Text="{Binding Describe}"  Foreground="{ThemeResource AppBarSeparatorForegroundThemeBrush}" Margin="6" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            </StackPanel>
+        </DataTemplate>
+
+        <!--网格列表-->
+        <DataTemplate x:Key="ColumnGridView">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}" BlurRadius="18" ShadowOpacity="0.3">
+                    <Grid MaxWidth="200" Margin="6" Background="White" BorderBrush="#33000000"  BorderThickness="1,1,1,2">
+                        <controls:ImageEx  IsCacheEnabled="True" >
+                            <controls:ImageEx.Source>
+                                <BitmapImage UriSource="{Binding Uri,Mode=OneWay}"  />
+                            </controls:ImageEx.Source>
+                        </controls:ImageEx>
+                        <FontIcon  Visibility="{Binding isAdd}" FontFamily="Segoe MDL2 Assets" Glyph="&#xE109;" FontSize="55" Foreground="Gray"/>
+                    </Grid>
+                </controls:DropShadowPanel>
+
+                <TextBlock Grid.Row="1"  TextTrimming="CharacterEllipsis" Text="{Binding Name,Mode=OneWay}" HorizontalAlignment="Center" Foreground="{StaticResource Blue}" FontWeight="ExtraBold" Style="{StaticResource TitleTextBlock}" />
+                <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="{Binding Describe}" Foreground="{ThemeResource AppBarSeparatorForegroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="RowGridView">
+            <Grid   >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+
+                <controls:DropShadowPanel Style="{StaticResource DropShadowPanel}"   OffsetX="8">
+                    <Grid MaxWidth="120"   Margin="6" Background="White" BorderBrush="#33000000"  BorderThickness="1,1,1,2">
+                        <controls:ImageEx  IsCacheEnabled="True" >
+                            <controls:ImageEx.Source>
+                                <BitmapImage UriSource="{Binding Uri,Mode=OneWay}"  />
+                            </controls:ImageEx.Source>
+                        </controls:ImageEx>
+                        <FontIcon  Visibility="{Binding isAdd}" FontFamily="Segoe MDL2 Assets" Glyph="&#xE109;" FontSize="38" Foreground="Gray"/>
+                    </Grid>
+                </controls:DropShadowPanel>
+
+                <TextBlock Grid.Row="1"  TextTrimming="CharacterEllipsis" Text="{Binding Name,Mode=OneWay}" HorizontalAlignment="Center"  FontWeight="ExtraBold" Foreground="{StaticResource Blue}" Style="{StaticResource TitleTextBlock}" />
+                <TextBlock Grid.Row="2" TextWrapping="Wrap" Text="{Binding Describe}" Foreground="{ThemeResource AppBarSeparatorForegroundThemeBrush}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="GridViewHeader">
+            <Grid Height="20">
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="GridViewFooter">
+            <StackPanel>
+
+                <TextBlock x:Uid="/Home/Name" Opacity="0.5" FontSize="33" Foreground="{Binding Foreground,Mode=OneWay}"  HorizontalAlignment="Center"/>
+                <TextBlock x:Uid="/Home/Versin"  FontSize="16" Foreground="{Binding Foreground,Mode=OneWay}"  HorizontalAlignment="Center"/>
+                <TextBlock  Text="@ysdy44 All rights reserved" FontSize="16" Foreground="{Binding Foreground,Mode=OneWay}"  HorizontalAlignment="Center"/>
+
+            </StackPanel>
+        </DataTemplate>
+        <!--右键菜单-->
+        <MenuFlyout x:Name="GridView_MenuFlyout">
+          
+            <MenuFlyoutItem x:Name="RenameMenuItem" IsEnabled="False" x:Uid="/Home/RenameMenuItem" Click="RenameMenuItem_Click">
+                <MenuFlyoutItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEC88;" FontSize="26"/>
+                </MenuFlyoutItem.Icon>
+            </MenuFlyoutItem>      
+            
+            <MenuFlyoutSeparator/>
+
+            <MenuFlyoutSubItem   x:Name="SaveMenuItem"  x:Uid="/Home/SaveMenuItem" >
+                <MenuFlyoutSubItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE17C;" FontSize="26"/>
+                </MenuFlyoutSubItem.Icon>
+                <MenuFlyoutItem  x:Name="SaveMenuItemJPEG" Text="JPEG" Click="SaveMenuItemJPEG_Click" />
+                <MenuFlyoutItem  x:Name="SaveMenuItemPNG" Text="PNG" Click="SaveMenuItemPNG_Click" />
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem  x:Name="SaveMenuItemBMP" Text="BMP" Click="SaveMenuItemBMP_Click" />
+                <MenuFlyoutItem  x:Name="SaveMenuItemGIF" Text="GIF" Click="SaveMenuItemGIF_Click" />
+                <MenuFlyoutItem  x:Name="SaveMenuItemTIFF" Text="TIFF" Click="SaveMenuItemTIFF_Click" />
+            </MenuFlyoutSubItem>
+
+            <MenuFlyoutSubItem   x:Name="ShareMenuItem"  x:Uid="/Home/ShareMenuItem" >
+                <MenuFlyoutSubItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE17C;" FontSize="26"/>
+                </MenuFlyoutSubItem.Icon>
+                <MenuFlyoutItem  x:Name="ShareMenuItemJPEG" Text="JPEG" Click="ShareMenuItemJPEG_Click" />
+                <MenuFlyoutItem  x:Name="ShareMenuItemPNG" Text="PNG" Click="ShareMenuItemPNG_Click" />
+                <MenuFlyoutSeparator/>
+                <MenuFlyoutItem  x:Name="ShareMenuItemBMP" Text="BMP" Click="ShareMenuItemBMP_Click" />
+                <MenuFlyoutItem  x:Name="ShareMenuItemGIF" Text="GIF" Click="ShareMenuItemGIF_Click" />
+                <MenuFlyoutItem  x:Name="ShareMenuItemTIFF" Text="TIFF" Click="ShareMenuItemTIFF_Click" />
+            </MenuFlyoutSubItem>
+
+            <MenuFlyoutSeparator/>
+            
+            <MenuFlyoutItem x:Name="CopyMenuItem" x:Uid="/Home/CopyMenuItem" Click="CopyMenuItem_Click">
+                <MenuFlyoutItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE16F;"  FontSize="20" />
+                </MenuFlyoutItem.Icon>
+            </MenuFlyoutItem>
+            
+            <MenuFlyoutItem x:Name="DeleteMenuItem" x:Uid="/Home/DeleteMenuItem" Click="DeleteMenuItem_Click">
+                <MenuFlyoutItem.Icon>
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE107;"  FontSize="20" />
+                </MenuFlyoutItem.Icon>
+            </MenuFlyoutItem>
+            
+        </MenuFlyout>
+
+        <!--Save模板-->
+        <DataTemplate x:Key="ColumnSaveInAppNotification">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock  x:Uid="/Home/SaveText" VerticalAlignment="Center"  TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                <TextBlock HorizontalAlignment="Right" Text="{Binding Text,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+
+                <ComboBox x:Name="SaveComboBox" Grid.Column="1" Margin ="0,6" SelectedIndex="0" HorizontalAlignment="Stretch" Style="{StaticResource ComboBox}" SelectionChanged="SaveComboBox_SelectionChanged">
+                    <ComboBoxItem Content="JPEG"/>
+                    <ComboBoxItem Content="PNG" BorderBrush="{ThemeResource MenuFlyoutItemPointerOverBackgroundThemeBrush}" BorderThickness="0,0,0,2"/>
+                    <ComboBoxItem Content="BMP"/>
+                    <ComboBoxItem Content="GIF"/>
+                    <ComboBoxItem Content="TIFF"/>
+                </ComboBox>
+
+                <Button x:Name="ColumnSaveSaveButton" x:Uid="/Home/SaveSaveButton" HorizontalAlignment="Stretch" Grid.Column="3" IsEnabled="{Binding isMain,Mode=OneWay}"  Style="{ThemeResource AccentButtonStyle}"  Tapped="SaveSaveButton_Tapped"/>
+                <Button x:Name="ColumnSaveCancelButton" x:Uid="/Home/SaveCancelButton" HorizontalAlignment="Stretch" Grid.Column="5"   Tapped="SaveCancelButton_Tapped"/>
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="RowSaveInAppNotification">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="006"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="006"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.ColumnSpan="3"  x:Uid="/Home/SaveText"  VerticalAlignment="Center" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                <TextBlock Grid.Column="2" HorizontalAlignment="Right" Text="{Binding Text,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+
+                <ComboBox  x:Name="SaveComboBox" Grid.ColumnSpan="3"  Grid.Row="2" Margin ="0,6" SelectedIndex="0" HorizontalAlignment="Stretch" Style="{StaticResource ComboBox}"  SelectionChanged="SaveComboBox_SelectionChanged">
+                    <ComboBoxItem Content="JPEG"/>
+                    <ComboBoxItem Content="PNG" BorderBrush="{ThemeResource MenuFlyoutItemPointerOverBackgroundThemeBrush}" BorderThickness="0,0,0,2"/>
+                    <ComboBoxItem Content="BMP"/>
+                    <ComboBoxItem Content="GIF"/>
+                    <ComboBoxItem Content="TIFF"/>
+                </ComboBox>
+
+                <Button x:Name="RowSaveSaveButton"  x:Uid="/Home/SaveSaveButton" HorizontalAlignment="Stretch" Grid.Row="4" IsEnabled="{Binding isMain,Mode=OneWay}"  Style="{ThemeResource AccentButtonStyle}"  Tapped="SaveSaveButton_Tapped" />
+                <Button x:Name="RowSaveCancelButton" x:Uid="/Home/SaveCancelButton" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="4"   Tapped="SaveCancelButton_Tapped"/>
+
+            </Grid>
+        </DataTemplate>
+
+        <!--Share模板-->
+        <DataTemplate x:Key="ColumnShareInAppNotification">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="140"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock   x:Uid="/Home/ShareText" VerticalAlignment="Center" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                <TextBlock HorizontalAlignment="Right" Text="{Binding Text,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+
+                <ComboBox  x:Name="ShareComboBox" Grid.Column="1" Margin ="0,6" SelectedIndex="0" HorizontalAlignment="Stretch"  Style="{StaticResource ComboBox}"  SelectionChanged="ShareComboBox_SelectionChanged">
+                    <ComboBoxItem Content="JPEG"/>
+                    <ComboBoxItem Content="PNG" BorderBrush="{ThemeResource MenuFlyoutItemPointerOverBackgroundThemeBrush}" BorderThickness="0,0,0,2"/>
+                    <ComboBoxItem Content="BMP"/>
+                    <ComboBoxItem Content="GIF"/>
+                    <ComboBoxItem Content="TIFF" />
+                 </ComboBox>
+
+                <Button x:Name="ShareShareButton" x:Uid="/Home/ShareShareButton" HorizontalAlignment="Stretch" Grid.Column="3" IsEnabled="{Binding isMain,Mode=OneWay}"  Style="{ThemeResource AccentButtonStyle}" Tapped="ShareShareButton_Tapped" />
+                <Button x:Name="ShareCancelButton" x:Uid="/Home/ShareCancelButton" HorizontalAlignment="Stretch" Grid.Column="5" Tapped="ShareCancelButton_Tapped" />
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="RowShareInAppNotification">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.ColumnSpan="3" x:Uid="/Home/ShareText"  VerticalAlignment="Center"  TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                <TextBlock Grid.Column="2" HorizontalAlignment="Right" Text="{Binding Text,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+
+                <ComboBox  x:Name="ShareComboBox" Grid.ColumnSpan="3"  Grid.Row="2" Margin ="0,6" SelectedIndex="0" HorizontalAlignment="Stretch"  Style="{StaticResource ComboBox}"  SelectionChanged="ShareComboBox_SelectionChanged">
+                    <ComboBoxItem Content="JPEG"/>
+                    <ComboBoxItem Content="PNG" BorderBrush="{ThemeResource MenuFlyoutItemPointerOverBackgroundThemeBrush}" BorderThickness="0,0,0,2"/>
+                    <ComboBoxItem Content="BMP"/>
+                    <ComboBoxItem Content="GIF"/>
+                    <ComboBoxItem Content="TIFF" />
+                </ComboBox>
+
+                <Button x:Name="ShareShareButton"  x:Uid="/Home/ShareShareButton"  HorizontalAlignment="Stretch" Grid.Row="4" IsEnabled="{Binding isMain,Mode=OneWay}"  Style="{ThemeResource AccentButtonStyle}"  Tapped="ShareShareButton_Tapped" />
+                <Button x:Name="ShareCancelButton" x:Uid="/Home/ShareCancelButton" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="4" Tapped="ShareCancelButton_Tapped" />
+            </Grid>
+        </DataTemplate>
+
+        <!--Delete模板-->
+        <DataTemplate x:Key="ColumnDeleteInAppNotification">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock   x:Uid="/Home/DeleteText" VerticalAlignment="Center" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                <TextBlock HorizontalAlignment="Right" Text="{Binding Text,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+
+                <Button x:Name="DeleteDeleteButton" x:Uid="/Home/DeleteDeleteButton" HorizontalAlignment="Stretch" Grid.Column="1" IsEnabled="{Binding isMain,Mode=OneWay}"  Style="{ThemeResource AccentButtonStyle}" Tapped="DeleteDeleteButton_Tapped" />
+                <Button x:Name="DeleteCancelButton" x:Uid="/Home/DeleteCancelButton" HorizontalAlignment="Stretch" Grid.Column="3" Tapped="DeleteCancelButton_Tapped" />
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="RowDeleteInAppNotification">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.ColumnSpan="3" x:Uid="/Home/DeleteText"  VerticalAlignment="Center"  TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                <TextBlock Grid.Column="2" HorizontalAlignment="Right" Text="{Binding Text,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+
+                <Button x:Name="DeleteDeleteButton"  x:Uid="/Home/DeleteDeleteButton"  HorizontalAlignment="Stretch" Grid.Row="2" IsEnabled="{Binding isMain,Mode=OneWay}"  Style="{ThemeResource AccentButtonStyle}"  Tapped="DeleteDeleteButton_Tapped"/>
+                <Button x:Name="DeleteCancelButton" x:Uid="/Home/DeleteCancelButton" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Tapped="DeleteCancelButton_Tapped" />
+            </Grid>
+        </DataTemplate>
+
+        <!--Copy模板-->
+        <DataTemplate x:Key="ColumnCopyInAppNotification">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="120"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="120"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock   x:Uid="/Home/CopyText" VerticalAlignment="Center" TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                <TextBlock HorizontalAlignment="Right" Text="{Binding Text,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+
+                <Button x:Name="CopyCopyButton" x:Uid="/Home/CopyCopyButton" HorizontalAlignment="Stretch" Grid.Column="1" IsEnabled="{Binding isMain,Mode=OneWay}"  Style="{ThemeResource AccentButtonStyle}" Tapped="CopyCopyButton_Tapped" />
+                <Button x:Name="CopyCancelButton" x:Uid="/Home/CopyCancelButton" HorizontalAlignment="Stretch" Grid.Column="3" Tapped="CopyCancelButton_Tapped" />
+
+            </Grid>
+        </DataTemplate>
+        <DataTemplate x:Key="RowCopyInAppNotification">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="6"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="6"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.ColumnSpan="3" x:Uid="/Home/CopyText"  VerticalAlignment="Center"  TextWrapping="NoWrap" TextTrimming="CharacterEllipsis" />
+                <TextBlock Grid.Column="2" HorizontalAlignment="Right" Text="{Binding Text,Mode=OneWay}" Style="{StaticResource TextBlock}"/>
+
+                <Button x:Name="CopyCopyButton"  x:Uid="/Home/CopyCopyButton"  HorizontalAlignment="Stretch" Grid.Row="2" IsEnabled="{Binding isMain,Mode=OneWay}"  Style="{ThemeResource AccentButtonStyle}"  Tapped="CopyCopyButton_Tapped"/>
+                <Button x:Name="CopyCancelButton" x:Uid="/Home/CopyCancelButton" HorizontalAlignment="Stretch" Grid.Column="2" Grid.Row="2" Tapped="CopyCancelButton_Tapped" />
+            </Grid>
+        </DataTemplate>
+
+    </UserControl.Resources>
+
+    <Grid x:Name="Grid" AllowDrop="True"  Drop="Grid_Drop" DragOver="Grid_DragOver" Background="{Binding Background,Mode=OneWay}" >
+
+        <!--触发状态-->
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+
+                <VisualState  >
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="700" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+
+                        <Setter Target="AdaptiveGridViewControl.ItemTemplate" Value="{StaticResource ColumnGridView}" />
+                        <Setter Target="AdaptiveGridViewControl.ItemHeight" Value="200" />
+                        <Setter Target="AdaptiveGridViewControl.DesiredWidth" Value="240" />
+
+                        <Setter Target="CommandPanel.HorizontalAlignment" Value="Center" />
+                          
+                        <Setter Target="SaveInAppNotification.ContentTemplate" Value="{StaticResource ColumnSaveInAppNotification}" />
+                        <Setter Target="ShareInAppNotification.ContentTemplate" Value="{StaticResource ColumnShareInAppNotification}" />
+                        <Setter Target="DeleteInAppNotification.ContentTemplate" Value="{StaticResource ColumnDeleteInAppNotification}" />
+                        <Setter Target="CopyInAppNotification.ContentTemplate" Value="{StaticResource ColumnCopyInAppNotification}" />
+                    </VisualState.Setters>
+                </VisualState>
+                <VisualState  >
+                    <VisualState.StateTriggers>
+                        <AdaptiveTrigger MinWindowWidth="0" />
+                    </VisualState.StateTriggers>
+                    <VisualState.Setters>
+                         <Setter Target="AdaptiveGridViewControl.ItemTemplate" Value="{StaticResource RowGridView}" />
+                        <Setter Target="AdaptiveGridViewControl.ItemHeight" Value="160" />
+                        <Setter Target="AdaptiveGridViewControl.DesiredWidth" Value="140" />
+
+                        <Setter Target="CommandPanel.HorizontalAlignment" Value="Stretch" />
+                         
+                        <Setter Target="SaveInAppNotification.ContentTemplate" Value="{StaticResource RowSaveInAppNotification}" />
+                        <Setter Target="ShareInAppNotification.ContentTemplate" Value="{StaticResource RowShareInAppNotification}" />
+                        <Setter Target="DeleteInAppNotification.ContentTemplate" Value="{StaticResource RowDeleteInAppNotification}" />
+                        <Setter Target="CopyInAppNotification.ContentTemplate" Value="{StaticResource RowCopyInAppNotification}" />
+                    </VisualState.Setters>
+                </VisualState>
+
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--标题栏-->
+        <Grid  BorderThickness="0,0,0,2" Background="{Binding TitleColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" >
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Uid="/Home/HomeTittle"  FontSize="22" Margin="12,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                 <Button  x:Name="RefreshButton" Style="{ThemeResource NavigationBackButtonNormalStyle}" Tapped="RefreshButton_Tapped">
+                    <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE117;"/>
+                </Button>
+            </StackPanel>
+            <AutoSuggestBox x:Uid="/Home/Search"  Style="{StaticResource AutoSuggestBoxStyle1}"  Width="300" Margin ="6" QueryIcon="Find"  HorizontalAlignment="Right" VerticalAlignment="Center"   ItemTemplate="{StaticResource AutoSuggestBoxItem}" TextChanged="AutoSuggestBox_TextChanged" QuerySubmitted="AutoSuggestBox_QuerySubmitted" />
+        </Grid>
+
+        
+        <!--内容-->
+        <controls:AdaptiveGridView x:Name="AdaptiveGridViewControl"   Grid.Row="1" 
+                                   ItemTemplate="{StaticResource ColumnGridView}" 
+                                   HeaderTemplate="{StaticResource GridViewHeader}" 
+                                   FooterTemplate="{StaticResource GridViewFooter}" 
+                                   OneRowModeEnabled="False" SelectionMode="None" 
+                                   ItemHeight="200"  DesiredWidth="240" 
+                                   
+                                   IsItemClickEnabled="True" AllowDrop="False" 
+                                   ScrollViewer.VerticalScrollBarVisibility="Hidden"  
+                                   CanReorderItems="False"  IsSwipeEnabled="False"         
+                                   
+                                   RightTapped="AdaptiveGridViewControl_RightTapped"  
+                                   SelectionChanged="AdaptiveGridViewControl_SelectionChanged"
+                                   ItemClick="AdaptiveGridViewControl_ItemClick"
+                                   Loaded="AdaptiveGridViewControl_Loaded"
+               
+                                   animations:ReorderGridAnimation.Duration="300"/>
+        
+        <Border Grid.Row="1"  Height="16" HorizontalAlignment="Stretch" VerticalAlignment="Top">
+            <Border.Background>
+                <LinearGradientBrush  StartPoint="0.5,0" EndPoint="0.5,1">
+                    <GradientStop Color="#22000000" Offset="0"/>
+                    <GradientStop Color="#09000000" Offset="0.5"/>
+                    <GradientStop Color="#00000000"  Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+        </Border>
+        
+        
+        <!--命令条-->
+        <controls:DropShadowPanel  x:Name="CommandPanel" Grid.Row="1"  VerticalAlignment="Bottom" HorizontalAlignment="Center" HorizontalContentAlignment="Stretch"   Style="{StaticResource DropShadowPanel}" ShadowOpacity="0.2" OffsetY="0" OffsetX="0" BlurRadius="20" Color="Black">
+            <CommandBar x:Name="CommandBar" Grid.Row="1"    VerticalAlignment="Bottom" HorizontalAlignment="Stretch" BorderThickness="0,2,0,0"    Background="{Binding ButtonColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}"  >
+
+                <AppBarButton x:Name="AddAppBarButton" x:Uid="/Home/AddBarButton" Icon="Add" Click="AddAppBarButton_Click"/>
+                <AppBarButton x:Uid="/Home/PicturesBarButton">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xEB9F;" FontSize="24" FontFamily="Segoe MDL2 Assets"  />
+                    </AppBarButton.Icon>
+                    <AppBarButton.Flyout>
+                        <Flyout x:Name="PicturesFlyoutx"  FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop }" Opened="PicturesFlyoutx_Opened">
+                            <StackPanel Padding="4">
+                                <Button x:Name="PicturesPicturesButton"   Style="{StaticResource RectangleButton}" Tapped="PicturesPicturesButton_Tapped">
+                                    <Grid Height="42"  Margin="6,2" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="2"/>
+                                            <ColumnDefinition Width="2*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <FontIcon Glyph="&#xEB9F;" FontSize="30" FontFamily="Segoe MDL2 Assets"  Foreground="{Binding SignForeground,Mode=OneWay}" />
+                                        <TextBlock  x:Uid="/Home/PicturesLibrary" Grid.Column="2" Foreground="{Binding SignForeground,Mode=OneWay}"  Style="{StaticResource TitleTextBlock}"/>
+                                    </Grid>
+                                </Button>
+                                <Button x:Name="PicturesDestopButton" Style="{StaticResource RectangleButton}" Tapped="PicturesDestopButton_Tapped">
+                                    <Grid Height="42"  Margin="6,2" >
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="2"/>
+                                            <ColumnDefinition Width="2*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <FontIcon Glyph="&#xEC4E;" FontSize="30" FontFamily="Segoe MDL2 Assets"  Foreground="{Binding SignForeground,Mode=OneWay}" />
+                                        <TextBlock x:Uid="/Home/PicturesDestop" Grid.Column="2"   Foreground="{Binding SignForeground,Mode=OneWay}"   Style="{StaticResource TitleTextBlock}"/>
+                                    </Grid>
+                                </Button>
+                            </StackPanel>
+                        </Flyout>
+                    </AppBarButton.Flyout>
+                </AppBarButton>
+
+                <AppBarSeparator/>
+
+                <AppBarButton x:Name="SaveAppBarButton"  x:Uid="/Home/SaveBarButton" Click="SaveAppBarButton_Click">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE17C;" FontSize="26"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="ShareAppBarButton" x:Uid="/Home/ShareBarButton" Click="ShareAppBarButton_Click">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE72D;" FontSize="23" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+
+                <AppBarSeparator/>
+
+                <AppBarButton x:Name="DeleteAppBarButton" x:Uid="/Home/DeleteBarButton" Click="DeleteAppBarButton_Click">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE107;"  FontSize="20" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton x:Name="CopyAppBarButton"   x:Uid="/Home/CopyBarButton" Click="CopyAppBarButton_Click" >
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE16F;"  FontSize="20" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+
+                <AppBarSeparator/>
+
+                <AppBarButton  Visibility="Collapsed" IsEnabled="False" x:Name="FolderAppBarButton"   x:Uid="/Home/FolderBarButton">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe UI Symbol" Glyph="&#xE188;" FontSize="21"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                <AppBarButton Visibility="Collapsed"  IsEnabled="False" x:Name="MoveAppBarButton" x:Uid="/Home/MoveBarButton">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe UI Symbol" Glyph="&#xE197;" FontSize="22"/>
+                    </AppBarButton.Icon>
+                </AppBarButton>
+
+                <AppBarSeparator Visibility="Collapsed"/>
+
+
+                <CommandBar.SecondaryCommands>
+                   
+                <AppBarButton x:Name="LocalAppBarButton"  x:Uid="/Home/LocalBarButton" Click="LocalAppBarButton_Click">
+                    <AppBarButton.Icon>
+                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEA8A;"  FontSize="20" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                    
+                <AppBarButton  x:Name="MoneyAppBarButton"  x:Uid="/Home/MoneyBarButton" Click="MoneyAppBarButton_Click">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xEA89;" FontSize="20" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+                    
+                    <AppBarButton  x:Name="MoreAppBarButton"  x:Uid="/Home/MoreBarButton" Click="MoreAppBarButton_Click">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE0C2;"   FontFamily="Segoe UI Symbol"  FontSize="15"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+
+                    <AppBarButton  x:Name="MoreShareAppBarButton"  x:Uid="/Home/MoreShareBarButton" Click="MoreShareAppBarButton_Click">
+                        <AppBarButton.Icon>
+                            <FontIcon Glyph="&#xE1CB;" FontSize="24" FontFamily="Segoe UI Symbol" />
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+
+                </CommandBar.SecondaryCommands>
+            </CommandBar>
+        </controls:DropShadowPanel>
+        
+        <!--其他控件-->
+        <controls:Loading x:Name="LoadingControl" Grid.RowSpan="2" HorizontalContentAlignment="Center"   VerticalContentAlignment="Center" Background="Black" Opacity="0.71">
+            <StackPanel>
+                <ProgressRing IsActive="True"  Foreground="White"/>
+                <TextBlock  Text="Loading" FontSize="20"    Foreground="White"/>
+            </StackPanel>
+        </controls:Loading>
+        <controls:InAppNotification x:Name="SaveInAppNotification" Grid.Row="1" ShowDismissButton="False" ContentTemplate="{StaticResource ColumnSaveInAppNotification}"  AnimationDuration="00:00:00.1000000" VerticalOffset="100" HorizontalOffset="0" Background="{Binding AcrylicBrush,Mode=OneWay }" BorderBrush="{Binding LineColor,Mode=OneWay}" />
+        <controls:InAppNotification x:Name="ShareInAppNotification" Grid.Row="1" ShowDismissButton="False"  ContentTemplate="{StaticResource ColumnShareInAppNotification}"   AnimationDuration="00:00:00.1000000" VerticalOffset="100"  HorizontalOffset="0" Background="{Binding AcrylicBrush,Mode=OneWay }"  BorderBrush="{Binding LineColor,Mode=OneWay}" />
+        <controls:InAppNotification x:Name="DeleteInAppNotification" Grid.Row="1"   ShowDismissButton="False"  ContentTemplate="{StaticResource ColumnDeleteInAppNotification}"  AnimationDuration="00:00:00.1000000" VerticalOffset="100"  HorizontalOffset="0" Background="{Binding AcrylicBrush,Mode=OneWay }" BorderBrush="{Binding LineColor,Mode=OneWay}" />
+        <controls:InAppNotification x:Name="CopyInAppNotification" Grid.Row="1"   ShowDismissButton="False"  ContentTemplate="{StaticResource ColumnDeleteInAppNotification}"  AnimationDuration="00:00:00.1000000" VerticalOffset="100"  HorizontalOffset="0" Background="{Binding AcrylicBrush,Mode=OneWay }" BorderBrush="{Binding LineColor,Mode=OneWay}" />
+        <ContentDialog x:Name="AddContentDialog" x:Uid="/Home/AddDialog" Style="{StaticResource  Dialog}" PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"   PrimaryButtonClick="AddContentDialog_PrimaryButtonClick" Background="{Binding AcrylicBrush,Mode=OneWay}"   BorderBrush="{Binding LineColor,Mode=OneWay}" >
+            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="4"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock x:Uid="/Home/AddWidth" VerticalAlignment="Center"/>
+                <TextBlock Grid.Row="2" x:Uid="/Home/AddHeight" VerticalAlignment="Center"/>
+                <pic:NumberPicker x:Name="AddWidthNumberPicker" Grid.Column="1" Min="16" Max="16384" Text=" px" Loaded="AddWidthNumberPicker_Loaded" ValueChange="AddWidthNumberPicker_ValueChange"/>
+                <pic:NumberPicker x:Name="AddHeighNumberPicker" Grid.Column="1" Grid.Row="2" Min="16" Max="16384" Text=" px" Loaded="AddHeighNumberPicker_Loaded"  ValueChange="AddHeightNumberPicker_ValueChange"/>
+            </Grid>
+        </ContentDialog>
+        <ContentDialog x:Name="RenameContentDialog" x:Uid="/Home/RenameDialog"  Style="{StaticResource  Dialog}" PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"   PrimaryButtonClick="RenameContentDialog_PrimaryButtonClick" Background="{Binding AcrylicBrush,Mode=OneWay}"   BorderBrush="{Binding LineColor,Mode=OneWay}" >
+            <TextBox x:Name="RenameText" Height="22" BorderThickness="0,0,0,1" />
+         </ContentDialog>
+        <ContentDialog x:Name="MoneyContentDialog"  x:Uid="/Home/MoneyDialog"  Style="{StaticResource  Dialog}" PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"    Background="{Binding AcrylicBrush,Mode=OneWay}"   BorderBrush="{Binding LineColor,Mode=OneWay}" >
+            <Hub >
+                <HubSection Margin="6,0" Background="White">
+                    <DataTemplate>
+                        <Grid Padding="6,0" MaxHeight="300">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"  />
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image MaxWidth="200" Source="ms-appx:///Icon/Money/Alipay.png" Stretch="Uniform"/>
+                            <Image MaxWidth="180" Grid.Row="1" Source="ms-appx:///Icon/Money/AlipayText.png" Stretch="Uniform"/>
+                        </Grid>
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Margin="6,0" Background="White">
+                    <DataTemplate>
+                        <Grid Padding="6,0" MaxHeight="300">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image MaxWidth="200"  Source="ms-appx:///Icon/Money/Wechat.png" Stretch="Uniform"/>
+                            <Image MaxWidth="180" Grid.Row="1" Source="ms-appx:///Icon/Money/WechatText.png" Stretch="Uniform"/>
+                        </Grid>
+                    </DataTemplate>
+                </HubSection>
+                <HubSection Margin="6,0" Background="White">
+                    <DataTemplate>
+                        <Grid Padding="6,0" MaxHeight="300">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*"/>
+                                <RowDefinition Height="1*"/>
+                            </Grid.RowDefinitions>
+                            <Image MaxWidth="200"  Source="ms-appx:///Icon/Money/QQ.png" Stretch="Uniform"/>
+                            <Image MaxWidth="180" Grid.Row="1" Source="ms-appx:///Icon/Money/QQText.png" Stretch="Uniform"/>
+                        </Grid>
+                    </DataTemplate>
+                </HubSection>
+            </Hub>
+        </ContentDialog>
+
+        <ContentDialog x:Name="MoreContentDialog"  x:Uid="/Home/MoreDialog"  Style="{StaticResource  Dialog}" PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"    Background="{Binding AcrylicBrush,Mode=OneWay}"   BorderBrush="{Binding LineColor,Mode=OneWay}" >
+            <GridView 
+            SelectionMode="None" 
+            CanReorderItems="False"
+            IsSwipeEnabled="False" 
+            HorizontalAlignment="Center" 
+            ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+            ScrollViewer.VerticalScrollBarVisibility="Disabled"  
+            AllowDrop="False"
+            animations:ReorderGridAnimation.Duration="300">
+
+
+                <Border   BorderThickness="1,1,1,2"  BorderBrush="#22000000"   Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+                    <Grid Background="#16f0f0ff" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*" MinWidth="150" MaxWidth="400"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.RowSpan="2" Background="#242424">
+                            <Image Source="ms-appx:///Icon/More/RetouchPhoto/Logo.png" Stretch="Uniform"/>
+                        </Border>
+
+                        <HyperlinkButton   Grid.Column="1" FontSize="20" Margin="20,0" Background="#00000000"
+                                       Content="Retouch Photo   " 
+                                       NavigateUri="https://www.microsoft.com/store/productId/9N2SVF2769GH"
+                    />
+
+                        <TextBlock   Grid.Column="1"  Grid.Row="1"  Margin="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"
+                                 Text="Simple and free photo retouching tools,can transform,adjustment,shear,filling images,support layer,the selecti on.If you think that the PS is too complex might as well try."
+                                 Foreground="{ThemeResource SystemControlDisabledChromeDisabledLowBrush}"
+                        />
+
+                    </Grid>
+                </Border>
+
+
+                <Border   BorderThickness="1,1,1,2"  BorderBrush="#22000000"   Background="{ThemeResource SystemControlBackgroundAltHighBrush}">
+                    <Grid Background="#16f0f0ff" >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="120"/>
+                            <ColumnDefinition Width="*" MinWidth="150" MaxWidth="400"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="50"/>
+                            <RowDefinition Height="70"/>
+                        </Grid.RowDefinitions>
+
+                        <Border Grid.RowSpan="2" Background="#e9e8f0">
+                            <Image Source="ms-appx:///Icon/More/ColorScheme pro/Logo.png" Stretch="Uniform"/>
+                        </Border>
+
+                        <HyperlinkButton   Grid.Column="1" FontSize="20" Margin="20,0" Background="#00000000"
+                                       Content="ColorScheme pro  " 
+                                       NavigateUri="https://www.microsoft.com/store/productId/9NJXVM10VX16"
+                    />
+
+                        <TextBlock   Grid.Column="1"  Grid.Row="1"  Margin="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"
+                                 Text="Used to select the color application, support the hexadecimal color, support the RGB an HSL toning, support choose color from the picture"
+                                 Foreground="{ThemeResource SystemControlDisabledChromeDisabledLowBrush}"
+                        />
+
+                    </Grid>
+                </Border>
+
+
+                <!--样式代码-->
+                <GridView.ItemContainerStyle>
+                    <Style TargetType="GridViewItem">
+                        <Setter Property="Margin" Value="10"/>
+                    </Style>
+                </GridView.ItemContainerStyle>
+
+            </GridView>
+        </ContentDialog>
+
+    </Grid>
+  </UserControl>

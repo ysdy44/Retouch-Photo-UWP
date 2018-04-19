@@ -1,0 +1,339 @@
+﻿<UserControl
+    x:Class="修图.Control.OtherButton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.Control"
+    xmlns:pic="using:修图.Picker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400">
+    <Grid>
+        <Button x:Name="button" x:Uid="/Main/Other"  Content="&#xE10C;" FontSize="16" FontFamily="Segoe UI Symbol" Foreground="{Binding SignForeground,Mode=OneWay}" Background="{Binding ButtonColor,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"  Style="{StaticResource Button}" >
+        <Button.Flyout>
+                <Flyout x:Name="flyout" Opened="flyout_Opened" Placement="Bottom" FlyoutPresenterStyle="{StaticResource FlyoutPresenterBottom }">
+                <Grid  CacheMode="BitmapCache">
+                    
+                    <Grid x:Name="Grid" Width="300" Padding="4" CacheMode="BitmapCache">
+                         <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="1*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="1*"/>
+                        </Grid.ColumnDefinitions>
+ 
+                        <!--左-->
+                        <StackPanel   Grid.Column="0">
+
+                            <!--Crop：裁切-->
+                                <Button x:Name="OtherCropButton" Height="46" Style="{StaticResource RectangleButton}" Tapped="OtherCropButton_Tapped">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Canvas Width="40" Height="40">
+                                        <Rectangle Width="6" Height="28" Canvas.Left="8" Canvas.Top="4" RadiusX="1" RadiusY="1" Fill="{StaticResource Blue}" />
+                                        <Rectangle Width="28" Height="6" Canvas.Left="8" Canvas.Top="26" RadiusX="1" RadiusY="1" Fill="{StaticResource Blue}" />
+                                        
+                                        <Line X1="36" Y1="4" X2="12" Y2="28" StrokeThickness="2" Stroke="{Binding SignForeground,Mode=OneWay}"/>
+
+                                        <Rectangle Width="18" Height="5" Canvas.Left="13" Canvas.Top="8" RadiusX="1" RadiusY="1" Fill="{Binding Foreground,Mode=OneWay}" />
+                                        <Rectangle Width="5" Height="19" Canvas.Left="27" Canvas.Top="8" RadiusX="1" RadiusY="1" Fill="{Binding Foreground,Mode=OneWay}" />
+
+                                        <Rectangle Width="5" Height="5" Canvas.Left="2" Canvas.Top="8" RadiusX="1" RadiusY="1" Fill="{Binding Foreground,Mode=OneWay}" />
+                                        <Rectangle Width="5" Height="5" Canvas.Left="27" Canvas.Top="33" RadiusX="1" RadiusY="1" Fill="{Binding Foreground,Mode=OneWay}" />
+                                    </Canvas>
+                                        <TextBlock x:Uid="/Other/Crop"  Grid.Column="1"   Style="{StaticResource TipTextBlock}"/>
+                                    </Grid>
+                            </Button>
+
+                            <!--Stretch：拉伸-->
+                                <Button  x:Name="OtherStretchButton" Height="46" Style="{StaticResource RectangleButton}" Tapped="OtherStretchButton_Tapped">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Canvas Width="40" Height="40">
+                                        <Border Canvas.Left="4" Canvas.Top="10"  Width="30" Height="20"  BorderThickness="1" BorderBrush="{Binding Foreground,Mode=OneWay}" />
+                                            <Polygon Points="15,22 19,25 27,16       33,28 7,28" Fill="{StaticResource Blue}" />
+                                            <Ellipse  Canvas.Left="8" Canvas.Top="14"  Width="6" Height="6" Fill="{StaticResource Blue}" />
+                                        <FontIcon Canvas.Left="7" Canvas.Top="10" Glyph="&#x2950;" FontSize="28" FontFamily="Segoe UI Symbol" Foreground="{Binding SignForeground,Mode=OneWay}" />
+                                        <FontIcon Canvas.Left="32" Canvas.Top="2" Glyph="&#x294F;" FontSize="24" FontFamily="Segoe UI Symbol" Foreground="{Binding SignForeground,Mode=OneWay}" />
+                                    </Canvas>
+                                        <TextBlock  x:Uid="/Other/Stretch" Grid.Column="1"  Style="{StaticResource TipTextBlock}"/>
+                                    </Grid>
+                                </Button>
+
+                            <!--Rotate：旋转-->
+                                <Button x:Name="OtherRotateButton" Height="46" Style="{StaticResource RectangleButton}" Tapped="OtherRotateButton_Tapped">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Canvas Width="40" Height="40">
+                                            <Rectangle Width="12" Height="28" Canvas.Left="6" Canvas.Top="6" Fill="{StaticResource Blue}" />
+                                        <Rectangle Width="12" Height="12" Canvas.Left="22" Canvas.Top="22" Fill="{Binding Foreground,Mode=OneWay}" />
+                                        <FontIcon Canvas.Left="20" Canvas.Top="0" Glyph="&#x2BA2;" FontSize="16" FontFamily="Segoe UI Symbol" Foreground="{Binding SignForeground,Mode=OneWay}" />
+                                    </Canvas>
+                                        <TextBlock x:Uid="/Other/Rotate" Grid.Column="1" Style="{StaticResource TipTextBlock}"/>
+                                    </Grid>
+                            </Button>
+
+                            <Grid Margin="12,0" Height="1" HorizontalAlignment="Stretch"   Background="{Binding LineColor,Mode=OneWay}"   />
+ 
+                            <!--Gradient：渐变-->
+                                <Button x:Name="OtherGradientButton" Height="46" Style="{StaticResource RectangleButton}"  Tapped="OtherGradientButton_Tapped">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Canvas.Left="3" Canvas.Top="8" Padding="1"  Width="34" Height="22" BorderThickness="2" BorderBrush="{Binding SignForeground,Mode=OneWay}" >
+                                            <Grid>
+                                                <Grid.Background>
+                                                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
+                                                        <GradientStop Color="Black" Offset="0"/>
+                                                        <GradientStop Color="White" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Grid.Background>
+                                            </Grid>
+                                        </Grid>
+                                        <TextBlock x:Uid="/Other/Gradient"  Grid.Column="1" Style="{StaticResource TipTextBlock}"/>
+                                    </Grid>
+                                </Button>
+
+                            <!--Fade：渐隐-->
+                                <Button x:Name="OtherFadeButton" Height="46" Style="{StaticResource RectangleButton}"  Tapped="OtherFadeButton_Tapped">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Grid Canvas.Left="3" Canvas.Top="8" Padding="1"  Width="34" Height="22"   BorderThickness="2" BorderBrush="{Binding SignForeground,Mode=OneWay}" >
+                                            <Grid>
+                                                <Grid.Background>
+                                                    <ImageBrush ImageSource="ms-appx:///Icon/Clutter/GrayWhiteBig.png" Stretch="UniformToFill"/>
+                                                </Grid.Background>
+                                            </Grid>
+                                            <Grid>
+                                                <Grid.Background>
+                                                    <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
+                                                        <GradientStop Color="#888888" Offset="0"/>
+                                                        <GradientStop Color="#00888888" Offset="1"/>
+                                                    </LinearGradientBrush>
+                                                </Grid.Background>
+                                            </Grid>
+                                        </Grid>
+                                        <TextBlock x:Uid="/Other/Fade" Grid.Column="1"  Style="{StaticResource TipTextBlock}"/>
+                                    </Grid>
+                                </Button>
+
+                         </StackPanel>
+ 
+                        <Border Grid.Column="1" Margin="0,4" Width="1" VerticalAlignment="Stretch"   Background="{Binding LineColor,Mode=OneWay}"   />
+
+                        <!--右-->
+                        <StackPanel   Grid.Column="2">
+
+                            <!--Text：文字-->
+                                <Button x:Name="OtherTextButton" Height="46" Style="{StaticResource RectangleButton}" Tapped="OtherTextButton_Tapped">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                             <Viewbox  Width="32" Height="32">
+                                                <Grid   >
+                                                    <Path  Fill="#e5e5e5" Data="M852.209,291.045C888.545,290.728 889.4,291.922 889.889,330.248C891.764,477.137 891.349,691.94 893.315,846.352C893.856,888.848 894.09,889.329 855.254,888.98C734.526,887.896 454.954,888.98 454.954,888.98L569.069,291.045"/>
+                                                    <Path Fill="{StaticResource Blue}" Data="M609.831,139.878L483.599,740.262C483.599,740.262 299.985,739.019 187.362,740.262C163.606,740.524 140.686,710.48 140.312,686.726C138.113,546.959 137.949,275.978 139.908,184.837C140.376,163.104 165.408,139.739 187.145,139.878"/>
+                                                    <Path  Fill="{Binding Foreground,Mode=OneWay}" Data="M587.349,463.621L678.354,463.231L677.664,430.665L711.482,430.883L710.997,464.347L831.133,463.816L831.522,496.164C831.522,496.164 816.52,497.729 782.025,496.749C760.342,572.106 717.328,612.503 717.328,612.503L805.215,700.195L783.779,723.969L694.528,636.472L620.087,700.195L576.349,687.005C576.349,687.005 660.692,625.534 672.136,612.005C644.43,584.182 622.688,545.481 620.087,532.41C639.154,518.081 647.246,512 647.246,512C647.246,512 675.197,567.682 694.723,588.144C708.481,577.27 733.957,544.09 746.558,497.334C655.39,498.263 597.287,496.554 597.287,496.554L587.349,463.621"/>
+                                                    <Path Fill="White" Data="M483.599,573.686L438.301,573.686L403.252,482.681L277.608,482.681L244.608,573.686L202.385,573.686L317.781,273.205L360.619,273.205L483.599,573.686ZM289.086,450.296L390.954,450.296L359.594,367.08C350.029,341.8 342.924,321.03 338.278,304.77C334.452,324.037 329.054,343.167 322.085,362.16L289.086,450.296Z"/>
+                                                </Grid>
+                                            </Viewbox>
+                                        <TextBlock x:Uid="/Other/Text" Grid.Column="1"  Style="{StaticResource TipTextBlock}"/>
+                                    </Grid>
+                            </Button>
+
+                            <!--Grids：网格线-->
+                                <Button x:Name="GridsButton" Height="46" Style="{StaticResource RectangleButton}"  Tapped="GridsButton_Tapped" >
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE80A;" FontSize="26" Foreground="{StaticResource BlueGradientBrush}"/>
+                                        <TextBlock  x:Uid="/Other/Grids" Grid.Column="1"  Style="{StaticResource TipTextBlock}"/>
+                                    </Grid>
+                                </Button>
+
+                                <!--Fiil：填充-->
+                                <Button x:Name="OtherFillButton" Height="46" Style="{StaticResource RectangleButton}"  Tapped="OtherFillButton_Tapped">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                         <Viewbox  Width="32" Height="32"  >
+                                            <Grid>
+                                                <Path Fill="{Binding Foreground,Mode=OneWay}" Data="M453.287,252.784c0,0 128.533,103.842 158.361,133.809c20.528,20.623 16.043,48.161 1.341,63.305c-50.807,52.331 -206.06,210.268 -254.287,255.508c-7.579,7.109 -20.878,6.956 -30.894,4.183c-87.739,-24.289 -167.3,-110.34 -167.3,-110.34c0,0 -104.74,-111.152 -116.504,-169.15c-4.965,-24.476 -0.681,-27.788 7.794,-37.209c43.341,-48.18 203.821,-205.702 252.253,-251.872c15.449,-14.727 45.238,-13.265 61.761,1.716c15.953,14.465 54.305,55.06 54.305,55.06l33.17,54.99"/>
+                                                <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M402.121,280.131c-19.637,15.978 -35.745,42.89 -29.266,64.732c5.589,18.845 23.41,49.972 65.77,45.727c48.725,-7.738 52.366,-38.705 55.771,-57.403c3.404,-18.699 -15.052,-48.791 -32.254,-51.701c-4.021,-28.39 7.804,-80.661 -1.886,-114.707c-9.651,-33.909 -26.965,-69.94 -56.253,-89.566c-30.484,-20.427 -89.587,-30.918 -126.199,-15.781c-36.612,15.137 -81.112,79.682 -93.473,106.604c-5.864,12.773 -0.907,30.9 18.856,37.712c18.095,6.238 27.68,-6.182 36.141,-16.342c14.613,-17.546 38.989,-60.471 60.202,-72.518c21.213,-12.047 48.534,-12.281 67.075,0.237c18.542,12.518 29.863,36.366 35.512,58.454c6.966,27.236 -1.576,68.637 0.004,104.552                          "/>
+                                                <Path Fill="{StaticResource BlueGradientBrush}" Data="M473.817,217.065c0,0 231.728,48.325 249.137,191.89c12.114,99.9 8.472,200.51 4.771,253.377c-3.372,48.18 -20.401,62.555 -38.104,62.854c-81.268,1.37 -119.548,-87.838 -114.315,-134.349c12.497,-111.069 92.155,-174.098 72.674,-196.809c-50.824,-59.253 -174.163,-176.963 -174.163,-176.963"/>
+                                            </Grid>
+                                        </Viewbox>
+                                        <TextBlock  x:Uid="/Other/Fill" Grid.Column="1"  Style="{StaticResource TipTextBlock}"/>
+                                    </Grid>
+                            </Button>
+
+                            <Border Margin="12,0" Height="1" HorizontalAlignment="Stretch"  Background="{Binding LineColor,Mode=OneWay}"   />
+
+                            <!--Transform：变换-->
+                                <Button x:Name="OtherTransformButton" Height="46" Style="{StaticResource RectangleButton}"  Tapped="OtherTransformButton_Tapped">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="1*"/>
+                                            <ColumnDefinition Width="2*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Viewbox  Width="36" Height="36"  >
+                                            <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M346.495,210.4c0,0 -22.373,-0.645 -55.447,-1.552c-17.726,-0.487 -18.024,-14.357 -12.605,-23.111c26.376,-26.14 64.886,-71.326 95.228,-98.653c7.196,-5.752 20.327,-5.157 27.632,0.456c23.719,23.781 56.339,62.607 82.622,91.346c17.101,18.699 12.897,31.995 -16.122,31.88c-40.27,1.204 -40.01,1.233 -40.01,1.233l-0.685,130.853l131.31,-2.055c0,0 -0.276,-33.932 -0.457,-49.556c-0.296,-25.528 8.335,-32.048 24.663,-18.954c18.741,15.029 80.082,75.067 98.197,94.315c12.768,13.565 5.884,23.78 -1.37,31.286c-19.525,20.202 -71.909,71.968 -88.377,88.834c-19.585,20.058 -29.158,17.649 -29.688,-10.962c-0.216,-11.709 -1.827,-51.839 -1.827,-51.839l-132.223,-0.685l-0.456,132.223c0,0 41.888,-0.562 53.894,-0.228c18.754,0.521 24.634,10.926 13.473,25.805c-15.012,20.014 -75.017,83.277 -95.684,99.795c-7.376,5.895 -21.133,5.441 -28.318,-0.685c-19.373,-16.518 -72.905,-79.15 -87.92,-98.425c-15.613,-20.043 -7.512,-27.343 11.19,-26.49c11.383,0.519 51.839,0 51.839,0l0.685,-131.081l-133.137,0.228c0,0 0.457,32.938 -0.046,44.577c-1.239,28.712 -7.388,34.31 -24.846,20.735c-19.199,-14.929 -82.439,-76.363 -98.881,-95.228c-3.935,-4.514 -3.696,-13.439 0.228,-17.962c15.434,-17.793 74.796,-70.608 92.373,-88.798c15.276,-15.808 32.492,-20.5 32.999,11.076c0.314,19.516 0.457,43.16 0.457,43.16l129.939,1.599l1.37,-133.137"/>
+                                        </Viewbox>
+                                        <TextBlock x:Uid="/Other/Transform" Grid.Column="1"  Style="{StaticResource TipTextBlock}"/>
+                                    </Grid>
+                            </Button>
+
+                            <!--Transform3D：变换3D-->
+                                <Button x:Name="OtherTransform3DButton" Height="46" Style="{StaticResource RectangleButton}"  Tapped="OtherTransform3DButton_Tapped">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="40"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                         <Viewbox  Width="36" Height="36"  >
+                                            <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M346.495,210.4c0,0 -22.373,-0.645 -55.447,-1.552c-17.726,-0.487 -18.024,-14.357 -12.605,-23.111c26.376,-26.14 64.886,-71.326 95.228,-98.653c7.196,-5.752 20.327,-5.157 27.632,0.456c23.719,23.781 56.339,62.607 82.622,91.346c17.101,18.699 12.897,31.995 -16.122,31.88c-40.27,1.204 -40.01,1.233 -40.01,1.233l-0.685,130.853l131.31,-2.055c0,0 -0.276,-33.932 -0.457,-49.556c-0.296,-25.528 8.335,-32.048 24.663,-18.954c18.741,15.029 80.082,75.067 98.197,94.315c12.768,13.565 5.884,23.78 -1.37,31.286c-19.525,20.202 -71.909,71.968 -88.377,88.834c-19.585,20.058 -29.158,17.649 -29.688,-10.962c-0.216,-11.709 -1.827,-51.839 -1.827,-51.839l-132.223,-0.685l-0.456,132.223c0,0 41.888,-0.562 53.894,-0.228c18.754,0.521 24.634,10.926 13.473,25.805c-15.012,20.014 -75.017,83.277 -95.684,99.795c-7.376,5.895 -21.133,5.441 -28.318,-0.685c-19.373,-16.518 -72.905,-79.15 -87.92,-98.425c-15.613,-20.043 -7.512,-27.343 11.19,-26.49c11.383,0.519 51.839,0 51.839,0l0.685,-131.081l-133.137,0.228c0,0 0.457,32.938 -0.046,44.577c-1.239,28.712 -7.388,34.31 -24.846,20.735c-19.199,-14.929 -82.439,-76.363 -98.881,-95.228c-3.935,-4.514 -3.696,-13.439 0.228,-17.962c15.434,-17.793 74.796,-70.608 92.373,-88.798c15.276,-15.808 32.492,-20.5 32.999,11.076c0.314,19.516 0.457,43.16 0.457,43.16l129.939,1.599l1.37,-133.137"/>
+                                        </Viewbox>
+                                     <TextBlock x:Uid="/Other/Transform3D" Grid.Column="1" Style="{StaticResource TipTextBlock}"/>
+                                    </Grid>
+                            </Button>
+
+                        </StackPanel> 
+                    </Grid>
+ 
+                    <StackPanel  x:Name="RotateGrid" Orientation="Horizontal" Visibility="Collapsed" Padding="2" >
+                        <Button x:Name="RotateButton" Width="26" Margin="0,20" FontSize="18" FontFamily="Segoe MDL2 Assets" Content="&#xE26C;"  Style="{StaticResource RectangleButton}" Tapped="RotateButton_Tapped"/>
+                        <StackPanel >
+                            <!--FlipHorizontal：水平镜像-->
+                                <Button x:Name="FlipHorizontalButton" MinWidth="150" Style="{StaticResource RectangleButton}" Tapped="FlipHorizontalButton_Tapped">
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Canvas Width="40" Height="40" >
+                                        <Polygon Points=" 18,6  18,32  4,32" Fill="{StaticResource Blue}" />
+                                        <Polygon Points=" 22,6  22,32  36,32" Fill="{Binding Foreground,Mode=OneWay}" />
+                                    </Canvas>
+                                    <TextBlock x:Uid="/Other/RotateHorizontal" Grid.Column="1" FontSize="16" FontWeight="Medium" FontFamily="微软雅黑" Style="{StaticResource TipTextBlock}"/>
+                                </Grid>
+                            </Button>
+
+                            <!--FlipVertical：垂直镜像-->
+                                <Button   x:Name="FlipVerticalButton" MinWidth="150" Style="{StaticResource RectangleButton}"  Tapped="FlipVerticalButton_Tapped">
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Canvas Width="40" Height="40" >
+                                        <Polygon Points=" 6,18  32,18  32,4" Fill="{StaticResource Blue}" />
+                                        <Polygon Points=" 6,22  32,22  32,36" Fill="{Binding Foreground,Mode=OneWay}" />
+                                    </Canvas>
+                                    <TextBlock x:Uid="/Other/RotateVertical" Grid.Column="1" FontSize="16" FontWeight="Medium" FontFamily="微软雅黑" Style="{StaticResource TipTextBlock}"/>
+                                </Grid>
+                            </Button>
+
+                            <!--LeftTurn：左旋转-->
+                                <Button  x:Name="LeftTurnButton"  MinWidth="150" Style="{StaticResource RectangleButton}"  Tapped="LeftTurnButton_Tapped">
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Canvas Width="40" Height="40">
+                                        <Rectangle Width="12" Height="28" Canvas.Left="6" Canvas.Top="6" Fill="{StaticResource Blue}" />
+                                        <Rectangle Width="12" Height="12" Canvas.Left="22" Canvas.Top="22" Fill="{Binding Foreground,Mode=OneWay}" />
+                                        <FontIcon Canvas.Left="20" Canvas.Top="0" Glyph="&#x2BA2;" FontSize="16" FontFamily="Segoe UI Symbol" Foreground="{Binding SignForeground,Mode=OneWay}" />
+                                    </Canvas>
+                                    <TextBlock x:Uid="/Other/RotateLeftTurn" Grid.Column="1" FontSize="16" FontWeight="Medium" FontFamily="微软雅黑" Style="{StaticResource TipTextBlock}"/>
+                                </Grid>
+                            </Button>
+
+                            <!--RightTurn：右旋转-->
+                                <Button  x:Name="RightTurnButton"  MinWidth="150" Style="{StaticResource RectangleButton}"  Tapped="RightTurnButton_Tapped">
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Canvas Width="40" Height="40">
+                                        <Rectangle Width="12" Height="28" Canvas.Left="22" Canvas.Top="8" Fill="{StaticResource Blue}" />
+                                        <Rectangle Width="12" Height="12" Canvas.Left="6" Canvas.Top="24" Fill="{Binding Foreground,Mode=OneWay}" />
+                                        <FontIcon Canvas.Left="7" Canvas.Top="0" Glyph="&#x2BA3;" FontSize="16" FontFamily="Segoe UI Symbol" Foreground="{Binding SignForeground,Mode=OneWay}" />
+                                    </Canvas>
+                                    <TextBlock x:Uid="/Other/RotateRightTurn" Grid.Column="1" FontSize="16" FontWeight="Medium" FontFamily="微软雅黑" Style="{StaticResource TipTextBlock}"/>
+                                </Grid>
+                            </Button>
+
+                            <!--OverTurn：翻转-->
+                                <Button  x:Name="OverTurnButton"  MinWidth="150" Style="{StaticResource RectangleButton}"  Tapped="OverTurnButton_Tapped">
+                                <Grid Height="48">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="1*"/>
+                                        <ColumnDefinition Width="2*"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Canvas Width="40" Height="40">
+                                        <Rectangle Width="28" Height="10" Canvas.Left="8" Canvas.Top="7" Fill="{StaticResource Blue}" />
+                                        <Rectangle Width="28" Height="10" Canvas.Left="8" Canvas.Top="21" Fill="{Binding Foreground,Mode=OneWay}" />
+                                        <FontIcon Canvas.Left="6" Canvas.Top="4" Glyph="&#xE0F2;" FontSize="20" FontFamily="Segoe UI Symbol" Foreground="{Binding SignForeground,Mode=OneWay}"/>
+                                    </Canvas>
+                                    <TextBlock x:Uid="/Other/RotateOverTurn" Grid.Column="1" FontSize="16" FontWeight="Medium" FontFamily="微软雅黑" Style="{StaticResource TipTextBlock}"/>
+                                </Grid>
+                            </Button>
+                            
+                        </StackPanel> 
+                    </StackPanel>
+                    
+                </Grid>
+            </Flyout>
+        </Button.Flyout>
+    </Button>
+        
+        
+        <ContentDialog x:Name="StretchContentDialog" x:Uid="/Other/StretchDialog" PrimaryButtonClick="StretchContentDialog_PrimaryButtonClick" PrimaryButtonStyle="{ThemeResource AccentButtonStyle}"    Background="{Binding AcrylicBrush,Mode=OneWay}"   BorderBrush="{Binding LineColor,Mode=OneWay}" >
+            <Grid  Width="240" Height="70">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="5*"/>
+                    <ColumnDefinition Width="4*"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock x:Uid="/Other/StretchWidth" HorizontalAlignment="Right" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <pic:NumberPicker x:Name="WidthNumberPicker" Height="28" Min="16" Max="16383" Grid.Column="1" ValueChange="WidthNumberPicker_ValueChange"/>
+
+                <TextBlock x:Uid="/Other/StretchHeight" Grid.Row="1" HorizontalAlignment="Right" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                <pic:NumberPicker x:Name="HeightNumberPicker" Height="28" Min="16" Max="16383" Grid.Row="1"  Grid.Column="1" ValueChange="HeightNumberPicker_ValueChange"/>
+
+                <Button x:Name="GeometricButton"  Grid.RowSpan="2" Grid.Column="2" VerticalAlignment="Center"  Style="{ThemeResource NavigationBackButtonNormalStyle}" Tapped="GeometricButton_Tapped">
+                    <FontIcon x:Name="GeometricIcon" Opacity="0.5" FontSize="22"  Glyph="&#xE71B;"  Foreground="{Binding SignForeground,Mode=OneWay}" />
+                </Button>
+             
+            </Grid>
+        </ContentDialog>
+
+    </Grid>
+</UserControl>

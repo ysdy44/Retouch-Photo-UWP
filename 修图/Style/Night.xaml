@@ -1,0 +1,39 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.Style">
+
+
+    <!--主题颜色：亚克力-->
+    <AcrylicBrush x:Key="NightAcrylicBrush" TintOpacity="0.8" TintColor="#222222" FallbackColor="#303030" />
+
+
+    <!--透明颜色：透明黑色-->
+    <SolidColorBrush x:Key="NightOpacityBrush" >#88000000</SolidColorBrush>
+
+    <!--标题颜色：深灰-->
+    <SolidColorBrush x:Key="NightTitleColor" >#0b0b0b</SolidColorBrush>
+    <!--按钮颜色：浅灰-->
+    <SolidColorBrush x:Key="NightButtonColor" >#1e1e1e</SolidColorBrush>
+
+
+    <!--背景颜色：浅白灰色-->
+    <SolidColorBrush x:Key="NightBackground" >#171717</SolidColorBrush>
+    <!--面板颜色：白色-->
+    <SolidColorBrush x:Key="NightPanelColor" >#171717</SolidColorBrush>
+
+
+    <!--浅线颜色：灰色-->
+    <SolidColorBrush x:Key="NightLineColor" >#000000</SolidColorBrush>
+    <!--文本背景：黑-->
+    <SolidColorBrush x:Key="NightTextBackColor" >#56555a</SolidColorBrush>
+
+
+    <!--字体颜色：灰黑-->
+    <SolidColorBrush x:Key="NightForeground" >#8c8c8c</SolidColorBrush>
+    <!--高亮字体颜色：黑色-->
+    <SolidColorBrush x:Key="NightSignForeground" >#dddddd</SolidColorBrush>
+
+
+
+</ResourceDictionary>

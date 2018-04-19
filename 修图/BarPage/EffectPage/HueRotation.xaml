@@ -1,0 +1,42 @@
+﻿<Page
+    x:Class="修图.BarPage.EffectPage.HueRotation"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.EffectPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <!-- HueRotation：色相-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <!--饱和度-->
+        <Image Width="24" Height="24" Source="ms-appx:///Icon\gradient.png"  Stretch="UniformToFill"/>
+
+        <Slider x:Name="HueRotationSlider" Maximum="600" Minimum="0"   Grid.Column="1"   Foreground="#22FFFFFF"  BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource Slider}" >
+            <Slider.Background>
+                <LinearGradientBrush StartPoint=" 0,0.5" EndPoint="1,0.5">
+                    <GradientStop Color="#ffce3b" Offset="0"/>
+                    <GradientStop Color="#72c075" Offset="0.125"/>
+                    <GradientStop Color="#46a7f6" Offset="0.25"/>
+                    <GradientStop Color="#784bb0" Offset="0.375"/>
+                    <GradientStop Color="#a336b5" Offset="0.5"/>
+                    <GradientStop Color="#eb2e6e"  Offset="0.625"/>
+                    <GradientStop Color="#ec5449" Offset="0.75"/>
+                    <GradientStop Color="#ffa827" Offset="0.875"/>
+                    <GradientStop Color="#ffce3b" Offset="1"/>
+                </LinearGradientBrush>
+            </Slider.Background>
+        </Slider>
+
+        <pic:NumberPicker x:Name="HueRotationNumberPicker"  Grid.Column="2" Text="º"  Max="600" Min="0" Value="0" Placement="Top" />
+
+    </Grid>
+</Page>

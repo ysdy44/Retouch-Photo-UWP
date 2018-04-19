@@ -1,0 +1,38 @@
+﻿<Page
+    x:Class="修图.BarPage.ToolPage.Polygon"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.ToolPage"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+     NavigationCacheMode="Enabled"
+    
+    >
+
+    <Grid MinWidth="{StaticResource BarPageMinWidth}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--顶栏-->
+        <Grid HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="4*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Viewbox  Width="22" Height="22"  >
+                <Path StrokeThickness="100" Stroke="{Binding SignForeground,Mode=OneWay}" Data="M872.992,1051.37l1.976,-24.364l99.433,-215.989l-75.727,-183.722l-46.095,109.311l121.822,74.411l96.8,-75.728l-55.314,-113.92l-116.555,80.337l-547.763,108.048l-262.372,-592.138l642.358,204.753l364.944,-326.164l-36.012,470.726l-34.821,74.577                            "/>
+            </Viewbox>
+            <bar:MaskMode Grid.Column="1" Mode="{Binding MaskMode,Mode=TwoWay}"/>
+
+            <bar:BottomButton Grid.Column="2" />
+
+        </Grid>
+
+    </Grid>
+</Page>

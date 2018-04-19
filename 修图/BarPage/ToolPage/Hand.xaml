@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="修图.BarPage.ToolPage.Hand"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.ToolPage"
+    xmlns:pic="using:修图.Picker"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+   mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+        <Slider Value ="{Binding  Refresh,Mode=OneWay}" Grid.Column="1" Opacity="0" Maximum="1024" ValueChanged="_ValueChanged"/>
+        <TextBlock Text="🖐"   FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="{Binding SignForeground,Mode=OneWay}"  />
+
+        <Slider x:Name="Slider" Margin="11,0" Maximum="4000" Minimum="100" Grid.Column="1" Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}" />
+
+        <pic:NumberPicker x:Name="NumberPicker"  Grid.Column="2"  Max="4000" Min="100" Placement="Top" />
+
+    </Grid>
+</Page>

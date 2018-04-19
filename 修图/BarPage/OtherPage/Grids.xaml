@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="修图.BarPage.OtherPage.Grids"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.OtherPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:con="using:修图.Control"
+    mc:Ignorable="d" >
+
+    <!-- Grids：网格线-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"  MinWidth="60"/>
+            <ColumnDefinition Width="*"/>
+              <ColumnDefinition  Width="80"/>
+        </Grid.ColumnDefinitions>
+
+        <!--网格线-->
+        <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE80A;" FontSize="22" Foreground="{StaticResource Blue}"/>
+
+        <Slider x:Name="Slider"   Maximum="200" Minimum="10" Grid.Column="1" Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}" ValueChanged="Slider_ValueChanged" />
+
+        <con:ColorButton   Grid.Column="4"   Height="36" Color="{Binding GridsColor,Mode=TwoWay}"  ColorChanged="ColorButton_ColorChanged" />
+
+    </Grid>
+</Page>

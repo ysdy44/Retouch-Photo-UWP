@@ -1,0 +1,30 @@
+﻿<Page
+    x:Class="修图.BarPage.ToolPage.MaskEraser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.ToolPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    mc:Ignorable="d"
+     NavigationCacheMode="Enabled"
+    Loaded="Page_Loaded">
+
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <Canvas Width="40" Height="40">
+            <Ellipse Canvas.Left="4" Canvas.Top="17" Width="19" Height="14" StrokeThickness="1" Stroke="{Binding SignForeground,Mode=OneWay}"  StrokeDashArray="5 3"   />
+            <ContentControl  Canvas.Left="14" Canvas.Top="3" Content="&#xED60;"  FontSize="22" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Canvas>
+
+        <Slider x:Name="Slider" Margin="11,0" Maximum="256" Minimum="1" Grid.Column="1" Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}"  Style="{StaticResource Slider}"  />
+      
+        <pic:NumberPicker x:Name="NumberPicker"  Grid.Column="2"  Max="256" Min="1" Placement="Top" />
+
+     </Grid>
+</Page>

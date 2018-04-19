@@ -1,0 +1,73 @@
+﻿<Page
+    x:Class="修图.BarPage.GeometryPage.Free"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.GeometryPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:con="using:修图.Control"
+    xmlns:pic="using:修图.Picker"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    xmlns:bar="using:修图.BarPage"
+    mc:Ignorable="d"
+    NavigationCacheMode="Enabled"
+    Loaded="Page_Loaded">
+
+    <!--Free：自由线-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"   >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="52"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!--顶栏-->
+        <Grid  HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"  MinWidth="80"/>
+                <ColumnDefinition Width="Auto"  />
+                <ColumnDefinition Width="1*"  />
+                <ColumnDefinition Width="Auto"  />
+                <ColumnDefinition Width="1*"  />
+                <ColumnDefinition Width="Auto"  MinWidth="80"/>
+            </Grid.ColumnDefinitions>
+
+            <FontIcon FontFamily="Segoe UI Symbol"  Glyph="&#x2572;" FontSize="22"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+
+            <TextBlock x:Uid="/Geometry/GeometryStrokeStyle" Grid.Column="1" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+            <Button Grid.Column="2"   Width="100" Height="36"  Background="{ Binding Background,Mode=OneWay}"  Foreground="{Binding SignForeground,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"  Style="{StaticResource Button}">
+                <Button.Flyout>
+                    <Flyout Placement="Top" FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}"   >
+                        <pic:StrokePicker x:Name="StrokePicker"  Width="200" Height="250" />
+                    </Flyout>
+                </Button.Flyout>
+                <Rectangle Width="60" Height="22"   StrokeThickness="2"  Stroke="{Binding SignForeground,Mode=OneWay}"    StrokeDashArray="5 2"   />
+            </Button>
+
+            <TextBlock x:Uid="/Geometry/GeometryStroke" Grid.Column="3" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+            <con:ColorButton Grid.Column="4"  Width="100" Height="36" HorizontalAlignment="Right" Color="{Binding StrokeColor,Mode=TwoWay}"/>
+
+
+            <bar:BottomButton Grid.Column="5"/>
+
+        </Grid>
+
+
+        <!--内容-->
+        <Grid x:Name="Content" Grid.Row="1" BorderThickness="0,1,0,0" HorizontalAlignment="Stretch"  BorderBrush="{Binding Foreground,Mode=OneWay}"  Visibility="{Binding BottomVisibility,Mode=OneWay}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="70"/>
+            </Grid.ColumnDefinitions>
+
+            <!--Control-->
+            <TextBlock x:Uid="/Geometry/GeometryWidth"   Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+            <Slider x:Name="WidthSlider" Grid.Column="1"  Value="4" Minimum="1" Maximum="100" Foreground="{StaticResource Blue}" Style="{StaticResource Slider}" />
+            <pic:NumberPicker x:Name="WidthNumberPicker" Placement="Top" Height="28" Grid.Column="2" Value="4" Min="1" Max="100" />
+
+        </Grid>
+
+
+    </Grid>
+</Page>
+

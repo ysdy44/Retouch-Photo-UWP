@@ -1,0 +1,98 @@
+﻿<UserControl
+    x:Class="修图.Control.GeometryControl"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="1200"
+    d:DesignWidth="100">
+
+    <ListView x:Name="ListView"  ScrollViewer.VerticalScrollBarVisibility="Hidden"   ItemContainerStyle="{StaticResource ToolListViewItem}"  SelectionChanged="ListView_SelectionChanged">
+
+
+        <!--Line：直线-->
+        <Border x:Uid="/Geometry/Line" Background="Transparent">
+            <FontIcon FontFamily="Segoe UI Symbol"  Glyph="&#x2572;" FontSize="22"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!--Free：自由线-->
+        <Border x:Uid="/Geometry/Free" Background="Transparent">
+            <FontIcon FontFamily="Segoe MDL2 Assets"   Glyph="&#xF128;" FontSize="30"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center" RenderTransformOrigin="0.5,0.5">
+                <FontIcon.RenderTransform>
+                    <CompositeTransform Rotation="-252.937"/>
+                </FontIcon.RenderTransform>
+            </FontIcon>
+        </Border>
+        <!--Image：图像-->
+        <Border x:Uid="/Geometry/Image" Background="Transparent">
+            <FontIcon  FontFamily="Segoe MDL2 Assets" Glyph="&#xEB9F;" FontSize="22"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!--Word：字词-->
+        <Border x:Uid="/Geometry/Word" Background="Transparent">
+            <FontIcon  FontFamily="Segoe MDL2 Assets" Glyph="&#xF17F;" FontSize="24"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+
+
+
+
+        <!--Circle：圆-->
+        <Border x:Uid="/Geometry/Circle" Background="Transparent" BorderThickness="0,1,0,0" BorderBrush="{Binding LineColor,Mode=OneWay}">
+            <FontIcon  FontFamily="Segoe MDL2 Assets" Glyph="&#xF127;" FontSize="22"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!--Rect：矩形-->
+        <Border x:Uid="/Geometry/Rect" Background="Transparent">
+            <FontIcon  FontFamily="Segoe MDL2 Assets" Glyph="&#xE747;" FontSize="20"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!--RoundRect：圆角矩形-->
+        <Border x:Uid="/Geometry/RoundRect" Background="Transparent">
+            <Rectangle Width="22" Height="22" RadiusX="6"  RadiusY="6" Fill="{StaticResource Blue}"/>
+        </Border>
+        <!--Triangle：三角形-->
+        <Border x:Uid="/Geometry/Triangle" Background="Transparent">
+            <FontIcon  FontFamily="Segoe MDL2 Assets" Glyph="&#xF139;" FontSize="22"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        
+        
+        
+        <!--Diamond：菱形-->
+        <Border x:Uid="/Geometry/Diamond" Background="Transparent" BorderThickness="0,1,0,0" BorderBrush="{Binding LineColor,Mode=OneWay}">
+            <FontIcon  FontFamily="Segoe UI Symbol" Glyph="&#xE18A;" FontSize="26"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!--Pentagon：多边形-->
+        <Border x:Uid="/Geometry/Pentagon" Background="Transparent">
+            <FontIcon  FontFamily="Segoe UI Symbol" Glyph="&#x2B1F;" FontSize="30"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!--Star：星星-->
+        <Border x:Uid="/Geometry/Star" Background="Transparent">
+            <FontIcon  FontFamily="Segoe MDL2 Assets" Glyph="&#xE113;" FontSize="24"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!--Pie：饼图-->
+        <Border x:Uid="/Geometry/Pie" Background="Transparent">
+            <FontIcon  FontFamily="Segoe UI Emoji" Glyph="&#x25D5;" FontSize="32"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+
+
+
+
+        <!--Cog：齿轮-->
+        <Border x:Uid="/Geometry/Cog" Background="Transparent" BorderThickness="0,1,0,0" BorderBrush="{Binding LineColor,Mode=OneWay}">
+            <FontIcon  FontFamily="Segoe UI Symbol" Glyph="&#xE115;" FontSize="28"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!--Arrow：箭头-->
+        <Border x:Uid="/Geometry/Arrow" Background="Transparent">
+            <FontIcon  FontFamily="Segoe UI Symbol" Glyph="&#x27A1;" FontSize="40"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!--Capsule：胶囊-->
+        <Border x:Uid="/Geometry/Capsule" Background="Transparent">
+            <FontIcon  FontFamily="Segoe MDL2 Assets" Glyph="&#xEC11;" FontSize="26"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border>
+        <!--Heart：心型-->
+        <Border x:Uid="/Geometry/Heart" Background="Transparent">
+            <FontIcon  FontFamily="Segoe MDL2 Assets" Glyph="&#xEB52;" FontSize="22"  Foreground="{StaticResource Blue}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+        </Border> 
+
+
+
+    </ListView>
+</UserControl>

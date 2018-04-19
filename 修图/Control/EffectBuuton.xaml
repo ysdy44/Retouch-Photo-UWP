@@ -1,0 +1,392 @@
+﻿<UserControl
+    x:Class="修图.Control.EffectBuuton"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.Control"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
+    mc:Ignorable="d"
+    d:DesignHeight="300"
+    d:DesignWidth="400"
+    Loaded="UserControl_Loaded">
+    
+    <UserControl.Resources>
+        <Style x:Key="GridViewItemStyle" TargetType="GridViewItem">
+            <Setter Property="Width" Value="110"/>
+                <Setter Property="Height" Value="74"/>
+            <Setter Property="Background" Value="{ThemeResource ApplicationPageBackgroundThemeBrush}"/>
+                <Setter Property="Margin" Value="4,2"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="{ThemeResource SystemControlTransparentRevealBorderBrush}"/>
+            </Style>
+    </UserControl.Resources>
+
+    <Button x:Name="button" x:Uid="/Main/Effect" Background="{Binding ButtonColor,Mode=OneWay}"  BorderBrush="{Binding LineColor,Mode=OneWay}"   Style="{StaticResource Button}">
+        <Button.Flyout>
+            <Flyout x:Name="flyout" Opened="flyout_Opened" Placement="Bottom" FlyoutPresenterStyle="{StaticResource FlyoutPresenterBottom }">
+                <Grid  Width="380" Padding="-4,-14">
+
+                    <!--内容-->
+                    <Pivot x:Name="Pivot" SelectedIndex="0"  Padding="0,4"  SelectionChanged="Pivot_SelectionChanged">
+
+                        <!--第一栏-->
+                        <PivotItem CacheMode="BitmapCache">
+                            <GridView x:Name="GridView0"   MaxWidth="400" ScrollViewer.VerticalScrollBarVisibility="Hidden"  SelectionMode="None" ItemContainerStyle="{StaticResource GridViewItemStyle}">
+
+                                <!--Gray：黑白-->
+                                    <Button  x:Name="GrayButton" Style="{StaticResource RectangleButton}"  Tapped="GrayButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                            <Image  Source="ms-appx:///Icon\Effect\Gray.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect0/Gray"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+                                <!--Invert：反色-->
+                                    <Button  x:Name="InvertButton" Style="{StaticResource RectangleButton}"  Tapped="InvertButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect\Invert.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect0/Invert"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+                                <!--Exposure：曝光-->
+                                    <Button x:Name="ExposureButton" Style="{StaticResource RectangleButton}"  Tapped="ExposureButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect\Exposure.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect0/Exposure"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--Brightness：亮度-->
+                                    <Button x:Name="BrightnessButton" Style="{StaticResource RectangleButton}" Tapped="BrightnessButton_Tapped" >
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect\Brightness.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect0/Brightness"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--Saturation：饱和度-->
+                                    <Button  x:Name="SaturationButton" Style="{StaticResource RectangleButton}"  Tapped="SaturationButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect\Saturation.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect0/Saturation"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--HueRotation：色相-->
+                                    <Button x:Name="HueRotationButton" Style="{StaticResource RectangleButton}"  Tapped="HueRotationButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect\HueRotation.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect0/HueRotation"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--Contrast：对比度-->
+                                <Button  x:Name="ContrastButton" Style="{StaticResource RectangleButton}"  Tapped="ContrastButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect\Contrast.png"  Stretch="UniformToFill"/>
+                                        <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                            <TextBlock x:Uid="/Effect0/Contrast"   Style="{StaticResource TipTextBlock}"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+
+                                <!--Temperature：冷暖-->
+                                    <Button x:Name="TemperatureButton" Style="{StaticResource RectangleButton}"  Tapped="TemperatureButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect\Temperature.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect0/Temperature"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--HighlightsAndShadows：高光/阴影-->
+                                    <Button x:Name="HighlightsAndShadowsButton" Style="{StaticResource RectangleButton}"  Tapped="HighlightsAndShadowsButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect\HighlightsAndShadows.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect0/HighlightsAndShadows"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                            </GridView>
+                        </PivotItem>
+
+                        <!--第二栏-->
+                        <PivotItem CacheMode="BitmapCache">
+                            <GridView x:Name="GridView1" MaxWidth="400" ScrollViewer.VerticalScrollBarVisibility="Hidden"  SelectionMode="None" ItemContainerStyle="{StaticResource GridViewItemStyle}">
+
+                                <!--GaussianBlur：高斯模糊-->
+                                    <Button x:Name="GaussianBlurButton" Style="{StaticResource RectangleButton}"  Tapped="GaussianBlurButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect1\GaussianBlur.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect1/GaussianBlur"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                
+                                <!--DirectionalBlur：定向模糊-->
+                                    <Button x:Name="DirectionalBlurButton" Style="{StaticResource RectangleButton}"  Tapped="DirectionalBlurButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect1\DirectionalBlur.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock  x:Uid="/Effect1/DirectionalBlur"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--Sharpen：锐化-->
+                                    <Button x:Name="SharpenButton" Style="{StaticResource RectangleButton}"  Tapped="SharpenButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect1\Sharpen.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock  x:Uid="/Effect1/Sharpen"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--Shadow：阴影-->
+                                    <Button x:Name="ShadowButton" Style="{StaticResource RectangleButton}"  Tapped="ShadowButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect1\Shadow.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock  x:Uid="/Effect1/Shadow"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                
+                                <!--ChromaKey：消除颜色-->
+                                    <Button x:Name="ChromaKeyButton" Style="{StaticResource RectangleButton}"  Tapped="ChromaKeyButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect1\ChromaKey.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect1/ChromaKey"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--EdgeDetection：边缘检测-->
+                                    <Button x:Name="EdgeDetectionButton" Style="{StaticResource RectangleButton}"  Tapped="EdgeDetectionButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect1\EdgeDetection.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect1/EdgeDetection"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+                                <!--Border：边界-->
+                                    <Button x:Name="BorderButton" Style="{StaticResource RectangleButton}"  Tapped="BorderButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect1\Border.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock  x:Uid="/Effect1/Border"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--Emboss：浮雕-->
+                                    <Button x:Name="EmbossButton" Style="{StaticResource RectangleButton}"  Tapped="EmbossButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect1\Emboss.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock  x:Uid="/Effect1/Emboss"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--Lighting：暗室灯光-->
+                                    <Button x:Name="LightingButton" IsEnabled="False" Style="{StaticResource RectangleButton}"  Tapped="LightingButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect1\Lighting.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock  x:Uid="/Effect1/Lighting"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                            </GridView>
+                        </PivotItem>
+
+                        <!--第三栏-->
+                        <PivotItem CacheMode="BitmapCache">
+                            <GridView x:Name="GridView2" MaxWidth="400" ScrollViewer.VerticalScrollBarVisibility="Hidden"  SelectionMode="None" ItemContainerStyle="{StaticResource GridViewItemStyle}">
+
+                                <!--LuminanceToAlpha：亮度转透明度（翻译：LuminanceToOpacity）-->
+                                    <Button x:Name="LuminanceToAlphaButton" Style="{StaticResource RectangleButton}"  Tapped="LuminanceToAlphaButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect2\LuminanceToAlpha.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect2/LuminanceToAlpha"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+                                <!--Fog：迷雾-->
+                                    <Button x:Name="FogButton" Style="{StaticResource RectangleButton}"  Tapped="FogButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect2\Fog.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect2/Fog"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+                                <!--Sepia：深褐色-->
+                                    <Button x:Name="SepiaButton" Style="{StaticResource RectangleButton}"  Tapped="SepiaButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect2\Sepia.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect2/Sepia"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+                                <!--Posterize：多色调分印-->
+                                    <Button x:Name="PosterizeButton" Style="{StaticResource RectangleButton}"  Tapped="PosterizeButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect2\Posterize.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect2/Posterize"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+                                <!--Colouring：上色-->
+                                    <Button x:Name="ColouringButton" Style="{StaticResource RectangleButton}"  Tapped="ColouringButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect2\Colouring.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect2/Colouring"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+                                <!--Tint：色彩-->
+                                <Button x:Name="TintButton" Style="{StaticResource RectangleButton}"  Tapped="TintButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect2\Tint.png"  Stretch="UniformToFill"/>
+                                        <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                            <TextBlock x:Uid="/Effect2/Tint"   Style="{StaticResource TipTextBlock}"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                                
+                                <!--DiscreteTransfer：离散转让-->
+                                    <Button x:Name="DiscreteTransferButton" Style="{StaticResource RectangleButton}"  Tapped="DiscreteTransferButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect2\DiscreteTransfer.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect2/DiscreteTransfer"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+                                <!--Vignette：装饰图案-->
+                                    <Button x:Name="VignetteButton" Style="{StaticResource RectangleButton}"  Tapped="VignetteButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect2\Vignette.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect2/Vignette"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--GammaTransfer：伽马转让-->
+                                    <Button x:Name="GammaTransferButton" Style="{StaticResource RectangleButton}"  Tapped="GammaTransferButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect2\GammaTransfer.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock x:Uid="/Effect2/GammaTransfer"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+                            </GridView>
+                        </PivotItem>
+
+                        <!--第四栏-->
+                        <PivotItem CacheMode="BitmapCache">
+                            <GridView x:Name="GridView3"  MaxWidth="400"  ScrollViewer.VerticalScrollBarVisibility="Hidden"  SelectionMode="None" ItemContainerStyle="{StaticResource GridViewItemStyle}">
+ 
+                                <!--Glass：玻璃-->
+                                    <Button x:Name="GlassButton" Style="{StaticResource RectangleButton}"  Tapped="GlassButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect3\Glass.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock  x:Uid="/Effect3/Glass"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+                                 
+                                <!--PinchPunch：膨胀收缩-->
+                                    <Button x:Name="PinchPunchButton" Style="{StaticResource RectangleButton}"  Tapped="PinchPunchButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect3\PinchPunch.png"  Stretch="UniformToFill"/>
+                                            <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                                <TextBlock  x:Uid="/Effect3/PinchAndPunch"   Style="{StaticResource TipTextBlock}"/>
+                                            </Grid>
+                                        </Grid>
+                                    </Button>
+
+
+
+                                <!--Morphology：形态学-->
+                                <Button x:Name="MorphologyButton" Style="{StaticResource RectangleButton}"  Tapped="MorphologyButton_Tapped">
+                                    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+                                        <Image  Source="ms-appx:///Icon\Effect3\Morphology.png"  Stretch="UniformToFill"/>
+                                        <Grid MinHeight="20" VerticalAlignment="Bottom" HorizontalAlignment="Stretch" Background="{Binding  OpacityBrush,Mode=OneWay}" >
+                                            <TextBlock  x:Uid="/Effect3/Morphology"   Style="{StaticResource TipTextBlock}"/>
+                                        </Grid>
+                                    </Grid>
+                                </Button>
+                                
+                                
+                            </GridView>
+                        </PivotItem>
+
+                    </Pivot>
+                    
+                    <!--顶栏-->
+                    <Grid  HorizontalAlignment="Center" Height="70" VerticalAlignment="Top">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="70"/>
+                            <ColumnDefinition Width="70"/>
+                        </Grid.ColumnDefinitions>
+                        <ToggleButton x:Name="EffectButton0" Grid.Column="0"  Content="&#x25D0;" FontSize="24" FontFamily="Segoe UI Emoji" Foreground="{Binding SignForeground,Mode=OneWay}" Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeLeftToggleButton}" Click="EffectButton_Click" />
+                        <ToggleButton x:Name="EffectButton1" Grid.Column="1"  Content="&#x25A0;" FontSize="22" FontFamily="Segoe UI Emoji" Foreground="{Binding SignForeground,Mode=OneWay}" Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeCenterToggleButton}" Click="EffectButton_Click"/>
+                        <ToggleButton x:Name="EffectButton2" Grid.Column="2"  Content="&#x273F;" FontSize="22" FontFamily="Segoe UI Emoji" Foreground="{Binding SignForeground,Mode=OneWay}" Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeCenterToggleButton}" Click="EffectButton_Click"/>
+                        <ToggleButton x:Name="EffectButton3" Grid.Column="3"  Content="&#x25CD;" FontSize="22" FontFamily="Segoe UI Emoji" Foreground="{Binding SignForeground,Mode=OneWay}" Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeRightToggleButton}" Click="EffectButton_Click"/>
+                    </Grid>
+
+                
+                </Grid>
+            </Flyout>
+        </Button.Flyout>
+ 
+        <Canvas Width="40" Height="40" >
+            <Ellipse Canvas.Left="12" Canvas.Top="5" Opacity="0.5" Width="16" Height="16" Fill="{Binding SignForeground,Mode=OneWay}"/>
+            <Ellipse  Canvas.Left="6" Canvas.Top="16" Opacity="0.2"  Width="16" Height="16" Fill="{Binding SignForeground,Mode=OneWay}"/>
+            <Ellipse  Canvas.Left="18" Canvas.Top="16" Opacity="0.8"   Width="16" Height="16" Fill="{Binding SignForeground,Mode=OneWay}"/>
+        </Canvas>
+        
+       </Button>
+</UserControl>

@@ -1,0 +1,140 @@
+﻿<Page
+    x:Class="修图.BarPage.OtherPage.Fade"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.OtherPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:canvas="using:Microsoft.Graphics.Canvas.UI.Xaml"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded" >
+
+    <!-- Fade：渐隐-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}" Height="{StaticResource BarPageHeight}" Padding="0,6">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition  Width="60"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition  Width="60"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- 图标-->
+        <Button   Style="{StaticResource RectangleButton}"  >
+
+            <Button.Flyout>
+                <Flyout  x:Name="flyout" Placement="Top" FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}">
+                    <StackPanel  >
+                            <TextBlock x:Uid="/Other/FadeEdgeBehavior" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+
+                        <StackPanel  Orientation="Horizontal" Margin="3">
+                            <ToggleButton x:Name="EdgeBehavior0" x:Uid="/Other/FadeEdgeBehaviorClamp" Width="60" FontSize="18" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource LeftToggleButton}" Click="EdgeBehavior_Click" />
+                            <ToggleButton x:Name="EdgeBehavior1" x:Uid="/Other/FadeEdgeBehaviorWrap" Width="60" FontSize="18" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource CenterToggleButton}"   Click="EdgeBehavior_Click" />
+                            <ToggleButton x:Name="EdgeBehavior2" x:Uid="/Other/FadeEdgeBehaviorMirror" Width="60" FontSize="18" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource RightToggleButton}"  Click="EdgeBehavior_Click"  />
+                        </StackPanel>
+
+                    </StackPanel>
+                </Flyout>
+            </Button.Flyout>
+
+            <StackPanel Orientation="Horizontal">
+                     <Grid   Padding="1"  Width="26" Height="16" BorderThickness="1" BorderBrush="{Binding SignForeground,Mode=OneWay}" >
+                        <Image  Source="ms-appx:///Icon/Clutter/GrayWhiteBig.png" Stretch="UniformToFill"/>
+                        <Grid>
+                            <Grid.Background>
+                                <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5" >
+                                    <GradientStop Color="#888888" Offset="0"/>
+                                    <GradientStop Color="#00888888" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Grid.Background>
+                        </Grid>
+                    </Grid>
+                 <FontIcon Glyph="&#x2BC5;"   FontSize="12"  FontFamily="Segoe UI Symbol"  Foreground="{Binding SignForeground,Mode=OneWay}"/>
+            </StackPanel>
+
+        </Button>
+
+        <!-- 内容-->
+        <Grid  Grid.Column="1" BorderThickness="2"   BorderBrush="{Binding LineColor,Mode=OneWay}"  >
+            <canvas:CanvasControl x:Name="canvasControl" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  SizeChanged="canvasControl_SizeChanged" Draw="canvasControl_Draw"/>
+            <Thumb x:Name="thumeGrid"    HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  DragStarted="thumeGrid_DragStarted" DragDelta="thumeGrid_DragDelta" DragCompleted="thumeGrid_DragCompleted">
+
+                <FlyoutBase.AttachedFlyout>
+                    <Flyout x:Name="Flyout" Placement="Top" FlyoutPresenterStyle="{StaticResource FlyoutPresenter }"  >
+                        <Grid  Width="180" Margin="2">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="36"/>
+                                <RowDefinition Height="32"/>
+                             </Grid.RowDefinitions>
+                            <TextBlock  x:Uid="/Other/FadeOpacity"  Style="{StaticResource TitleTextBlock}"/>
+                            <pic:NumberPicker x:Name="OpacityNumberPicker" Min="0" Max="255" Width="70"  Value="{Binding Opacity,Mode=TwoWay}"  HorizontalAlignment="Right" ValueChange="OpacityNumberPicker_ValueChange"/>
+                             <Slider x:Name="OpacitySlider" Grid.Row="1" Grid.ColumnSpan="3" Value="255"   Minimum="0" Maximum="255" Foreground="{StaticResource Blue}"   Background="Gray"  Style="{StaticResource Slider}"  ValueChanged="OpacitySlider_ValueChanged"/>
+                         </Grid>
+                    </Flyout>
+                </FlyoutBase.AttachedFlyout>
+
+                <Thumb.Template>
+                    <ControlTemplate>
+                        <Grid Background="#00000000">
+                        </Grid>
+                    </ControlTemplate>
+                </Thumb.Template>
+            </Thumb>
+        </Grid>
+
+        <!-- 按钮-->
+        <Button  Grid.Column="2"  Style="{StaticResource RectangleButton}"  >
+
+            <Button.Flyout>
+                <Flyout x:Name="rightFlyout" Placement="Top" FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}">
+                    <StackPanel  MinWidth="100">
+                        <Button   x:Name="LinearButton"  HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"  Style="{ThemeResource RectangleButton}"  Tapped="LinearButton_Tapped">
+                            <Grid Height="42">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid  Width="18" Height="16" BorderThickness="1" BorderBrush="{Binding SignForeground,Mode=OneWay}" >
+                                    <Grid Width="14" Height="12">
+                                        <Grid.Background>
+                                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                                <GradientStop Color="White" Offset="0"/>
+                                                <GradientStop Color="Black" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Grid.Background>
+                                    </Grid>
+                                </Grid>
+                                <TextBlock x:Uid="/Other/FadeLinear" Grid.Column="1"  Style="{StaticResource TitleTextBlock}"/>
+                            </Grid>
+                        </Button>
+                        <Button   x:Name="RadialButton"  HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"  Style="{ThemeResource RectangleButton}"  Tapped="RadialButton_Tapped">
+                            <Grid Height="42">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <FontIcon Glyph="&#xE81D;" FontSize="20" FontFamily="Segoe MDL2 Assets"/>
+                                <TextBlock x:Uid="/Other/FadeRadial" Grid.Column="1"  Style="{StaticResource TitleTextBlock}"/>
+                            </Grid>
+                        </Button>
+                        <Grid Margin="6,0" Height="1" HorizontalAlignment="Stretch"   Background="{Binding LineColor,Mode=OneWay}"   />
+                        <Button   x:Name="ReverseButton"   HorizontalAlignment="Stretch" HorizontalContentAlignment="Left"  Style="{ThemeResource RectangleButton}"  Tapped="ReverseButton_Tapped">
+                            <Grid Height="42">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <FontIcon Glyph="&#xE8AB;" FontSize="18" FontFamily="Segoe MDL2 Assets"/>
+                                <TextBlock x:Uid="/Other/FadeReverse" Grid.Column="1"  Style="{StaticResource TitleTextBlock}"/>
+                            </Grid>
+                        </Button>
+                    </StackPanel>
+                </Flyout>
+            </Button.Flyout>
+
+            <FontIcon Glyph="&#xE169;" FontSize="18"  FontFamily="Segoe UI Symbol" />
+
+        </Button>
+
+    </Grid>
+</Page>

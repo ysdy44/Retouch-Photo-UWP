@@ -1,0 +1,60 @@
+﻿<Page
+    x:Class="修图.BarPage.EffectPage1.ChromaKey"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图.BarPage.EffectPage1"
+    xmlns:bar="using:修图.BarPage"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:pic="using:修图.Picker"
+    xmlns:con="using:修图.Control"
+    mc:Ignorable="d"
+    Loaded="Page_Loaded">
+
+    <!-- ChromaKey：消除颜色-->
+    <Grid MinWidth="{StaticResource BarPageMinWidth}"  Height="{StaticResource BarPageHeight}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1*" MaxWidth="80"/>
+        </Grid.ColumnDefinitions>
+
+        <!--消除-->
+        <Button  Margin="0,8"   Style="{StaticResource RectangleButton}"  >
+
+            <Button.Flyout>
+                <Flyout  x:Name="flyout" Placement="Top" FlyoutPresenterStyle="{StaticResource FlyoutPresenterTop}">
+                    <StackPanel>
+
+                        <TextBlock  x:Uid="/Effect1/ChromaKeyMode" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                        <StackPanel Orientation="Horizontal">
+                            <ToggleButton x:Name="InvertAlpha0" x:Uid="/Effect1/ChromaKeyClear" Width="90" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource LeftToggleButton}" Click="InvertAlpha_Click"/>
+                            <ToggleButton x:Name="InvertAlpha1" x:Uid="/Effect1/ChromaKeyExtract" Width="90" Background="{Binding TitleColor,Mode=OneWay}" Style="{StaticResource RightToggleButton}" Click="InvertAlpha_Click"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock  x:Uid="/Effect1/ChromaKeyFeather"  Grid.Row="1" Foreground="{Binding Foreground,Mode=OneWay}" Style="{StaticResource TextBlock}" />
+                            <CheckBox  x:Name="FeatherCheck"    Grid.Column="1"   Grid.Row="1"  HorizontalAlignment="Left"  Loaded="FeatherCheck_Loaded"  />
+                        </StackPanel>
+
+                    </StackPanel>
+                </Flyout>
+            </Button.Flyout>
+
+            <StackPanel Orientation="Horizontal">
+                <Canvas Width="30" Height="30"  >
+                    <Viewbox  Canvas.Left="-4" Canvas.Top="-4" Width="30" Height="30"  >
+                        <Path Fill="{Binding SignForeground,Mode=OneWay}" Data="M571.666,490.032l60.64,-7.345c0,0 44.433,64.388 56.733,79.581c4.327,5.343 11.614,9.295 17.071,11.575c-23.238,12.906 -121.96,46.901 -164.423,49.458c-11.554,-21.23 -31.423,-81.115 -31.423,-81.115c0,0 7.258,56.759 12.57,82.285c-82.626,23.944 -283.977,5.807 -356.615,-18.416c6.902,-21.785 26.015,-79.215 26.015,-79.215l-42.823,72.054c0,0 -30.32,-7.26 -49.692,-17.393c13.885,-1.011 74.373,-98.935 74.373,-98.935l67.972,11.729l14.704,-10.404c0,0 -59.944,-17.211 -77.192,-26.175c-5.164,-2.683 -6.643,-14.639 -1.516,-17.392c29.801,-27.667 123.045,-70.963 186.832,-80.808c7.519,-3.625 15.849,-7.128 16.817,-13.657c1.794,-12.104 -0.247,-22.314 -0.247,-22.314l-18.198,-173.771c0,0 -5.438,-15.189 14.767,-22.094c16.858,0.116 38.479,-2.92 49.34,-0.259c13.25,2.696 15.627,16.901 15.827,21.088c-0.456,34.709 -16.538,152.881 -18.561,187.168c-0.386,6.534 0.612,15.543 6.423,18.555c34.314,17.781 126.623,25.002 198.527,89.631c5.812,7.453 -1.174,12.822 -6.077,15.256c-15.544,7.72 -60.979,24.976 -60.979,24.976"/>
+                    </Viewbox>
+                </Canvas>
+                <FontIcon Glyph="&#x2BC5;"   FontSize="12"  FontFamily="Segoe UI Symbol"  Foreground="{Binding SignForeground,Mode=OneWay}"/>
+            </StackPanel>
+
+        </Button>
+
+        <Slider  x:Name="ChromaKeySlider" Grid.Column="1" Maximum="100" Minimum="0" VerticalAlignment="Center"   Foreground="{StaticResource Blue}"   Background="{Binding Foreground,Mode=OneWay}" Style="{StaticResource Slider}"  ValueChanged="ChromaKeySlider_ValueChanged"/>
+
+        <con:ColorButton Grid.Column="2" Height="40" Color="{Binding ChromaKeyColor,Mode=TwoWay}" ColorChanged="ColorButton_ColorChanged" />
+
+    </Grid>
+ </Page>

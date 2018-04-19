@@ -1,0 +1,217 @@
+﻿<Page
+    x:Class="修图.KeyPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:修图"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <ScrollViewer Width="1000">
+        <StackPanel>
+
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="W"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="向上移动画布"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="S"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="向下移动画布"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="A"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="向左移动画布"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="D"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="向右移动画布"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Q"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="放大移动画布"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="E"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="缩小移动画布"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+
+
+
+
+            <!--我是分割线-->
+            <Border Margin="4" Height="2" HorizontalAlignment="Stretch"   Background="{ThemeResource ButtonBorderThemeBrush}"   />
+
+
+
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Z"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="撤销"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Y"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="重做"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="S"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="保存项目"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+
+
+
+            <!--我是分割线-->
+            <Border Margin="4" Height="2" HorizontalAlignment="Stretch"   Background="{ThemeResource ButtonBorderThemeBrush}"   />
+
+
+
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="X"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="剪切"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="C"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="复制"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="V"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="粘贴"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Delete"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="清除"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="E"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="提取"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="M"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="复制合并"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+
+
+
+            <!--我是分割线-->
+            <Border Margin="4" Height="2" HorizontalAlignment="Stretch"   Background="{ThemeResource ButtonBorderThemeBrush}"   />
+
+
+
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="A"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="全选"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="D"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="取消选择"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="P"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="像素选择"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="I"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="反选"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="F"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="羽化"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="Ctrl"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <Border CornerRadius="10" Margin="3" Width="70" Height="70" BorderThickness="2" BorderBrush="{ThemeResource ButtonBorderThemeBrush}">
+                    <TextBlock Text="T"  Style="{StaticResource TipTextBlock}"/>
+                </Border>
+                <TextBlock Text="变换选区"  Style="{StaticResource TipTextBlock}"/>
+            </StackPanel>
+
+
+
+
+
+
+        </StackPanel>
+    </ScrollViewer>
+</Page>
