@@ -22,8 +22,8 @@ At this point, you can perform operations on the MainCanvasControl<br>
 
 
 ## 4.Edit
-Edit Lasso selected mask by Cut,Copy,Paste,Clear,Extract,Copy Merged<br> 
-Edit Lasso by Select All,Deselect,Select Pixel,Inverse,Feather,Transform <br> 
+Edit Lasso selected mask by :Cut,Copy,Paste,Clear,Extract,Copy Merged<br> 
+Edit Lasso by :Select All,Deselect,Select Pixel,Inverse,Feather,Transform <br> 
 [MaskButton](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/MaskButton.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/04.PNG)  
 
