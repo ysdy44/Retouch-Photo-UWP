@@ -2,16 +2,17 @@
 Simple and free photo retouching tools,can transform,adjustment, shear,filling images,support layer,the selecti on. If you think that the PS is too complex might as well try.
 [form windows10 app-store](https://www.microsoft.com/store/productId/9N2SVF2769GH)   
 
-##1.new project> width:1000 height:1000>OK
+## 1.new project> width:1000 height:1000>OK
+  
 
-##2.Tools
+## 2.Tools
 Rrtouch-Photo provide dozens of tools: hand,curves,straw,Magic Wand,,Rectangular Marquee,Elliptical Marquee,Polygonal Marquee,Free Hand,,Selection Paint,Selection Eraser,Smudge,Mixer,,paint,pencil,pen,eraser......
 [ToolControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/ToolControl.xaml)   
 [ToolPage](https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/ToolPage)   
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/01.PNG)  
 
 
-##3.Canvas
+## 3.Canvas
 When you choose a different Tool, barPage will navigate to the corresponding BarPage。
 At this point, you can perform operations on the MainCanvasControl
 [MainCanvasControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/MainCanvasControl.xaml)
@@ -19,12 +20,12 @@ At this point, you can perform operations on the MainCanvasControl
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshots/03.PNG)  
 
 
-##4.Edit
+## 4.Edit
 Edit Lasso selected mask by Cut,Copy,Paste,Clear,Extract,Copy Merged
 Edit Lasso by Select All,Deselect,Select Pixel,Inverse,Feather,Transform 
 [MaskButton](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/MaskButton.xaml)
 
-##5.Effect
+## 5.Effect
 Add special effects to the image with parameters
 [Efect]https://github.com/ysdy44/Retouch-Photo-UWP/tree/master/%E4%BF%AE%E5%9B%BE/BarPage/EffectPage):
 Gray,Invert,Exposure,Brightness,Saturation,HueRotatom,Contrast.Temperature,Highights and Shadow
