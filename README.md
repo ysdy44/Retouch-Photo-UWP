@@ -44,7 +44,7 @@ Glass,Pinch and Punch,Morphology<br>
 ## 6.Others
 Other operations:Crop,Stretch,Rotate,Gradient,Fade
 Text,Grid,Fill,Transform<br> 
-[Other](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/OtherButton.xaml)
+[OtherButton](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/OtherButton.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/006.PNG)  
 
 ## 7.Layer
@@ -64,7 +64,7 @@ You can also choose ready-made filters<br>
 ## 9.Paint Mode
 It is now a professional drawing software<br>
 [ColorPicker](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Picker/ColorPicker.xaml)<br>
-[BrushCOntrol](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/BrushControl.xaml)
+[BrushControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/BrushControl.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/009.PNG)
 
 ## 10.Geometry
