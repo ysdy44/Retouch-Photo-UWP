@@ -62,7 +62,8 @@ You can also choose ready-made filters<br>
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/008.PNG)  
 
 ## 9.Paint Mode
-It is now a professional drawing software
+It is now a professional drawing software<br>
+[ColorPicker](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Picker/ColorPicker.xaml)
 [BrushCOntrol](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/BrushControl.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/009.PNG)
 
