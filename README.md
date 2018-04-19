@@ -63,11 +63,11 @@ You can also choose ready-made filters<br>
 
 ## 9.Paint Mode
 It is now a professional drawing software<br>
-[ColorPicker](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Picker/ColorPicker.xaml)
+[ColorPicker](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Picker/ColorPicker.xaml)<br>
 [BrushCOntrol](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/BrushControl.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/009.PNG)
 
 ## 10.Geometry
-You can freely draw any shape
+You can freely draw any shape<br>
 [GeometryControl](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/%E4%BF%AE%E5%9B%BE/Control/GeometryControl.xaml)
 ![](https://github.com/ysdy44/Retouch-Photo-UWP/blob/master/Screenshot/010.PNG)
