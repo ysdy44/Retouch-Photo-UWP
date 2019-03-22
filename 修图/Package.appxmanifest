@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="43956ysdy44.RetouchPhoto" Publisher="CN=9DF2B1A6-C2CE-481C-9997-A3B93DA91100" Version="1.1.17.0" />
+  <Identity Name="43956ysdy44.RetouchPhoto" Publisher="CN=9DF2B1A6-C2CE-481C-9997-A3B93DA91100" Version="1.1.23.0" />
   <mp:PhoneIdentity PhoneProductId="9e17f5bc-a7f7-4deb-b78f-f1b2a47e75fc" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>ms-resource:///Main/AppName</DisplayName>

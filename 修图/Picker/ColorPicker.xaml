@@ -20,7 +20,7 @@
 
         <!--标题-->
         <TextBlock x:Uid="/Main/ColorColor" FontSize="16" VerticalAlignment="Center" HorizontalAlignment="Center" />
-        <Button x:Name="StrawButton" Content="&#xEF3C;" Width="44" Height="33" HorizontalAlignment="Right"  Style="{StaticResource RectangleButton}" Tapped="StrawButton_Tapped"/>
+        <Button x:Name="StrawButton" Content="&#xEF3C;" FontFamily="Segoe MDL2 Assets" Width="44" Height="33" HorizontalAlignment="Right"  Style="{StaticResource RectangleButton}" Tapped="StrawButton_Tapped"/>
         <Button Width="44" Height="33" HorizontalAlignment="Left"   Style="{StaticResource RectangleButton}" >
             <Border CornerRadius="10">
                 <Border.Background>
@@ -59,7 +59,7 @@
                 <ColumnDefinition Width="1*"  />
             </Grid.ColumnDefinitions>
 
-            <ToggleButton x:Name="ListButton" Grid.Column="0"   Foreground="Red"  Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeLeftToggleButton}" Click="Button_Click">
+            <ToggleButton x:Name="ListButton" Grid.Column="0"   Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeLeftToggleButton}" Click="Button_Click">
                 <TextBlock x:Name="ListText" FontFamily="Segoe UI Symbol" Text="&#xE138;" FontSize="15"/>
             </ToggleButton>
             <ToggleButton x:Name="CopyButton" Grid.Column="1"  Background="{Binding PanelColor,Mode=OneWay}" BorderBrush="{Binding LineColor,Mode=OneWay}" Style="{StaticResource ThemeCenterToggleButton}"  Click="Button_Click">

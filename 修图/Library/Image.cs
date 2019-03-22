@@ -23,7 +23,7 @@ namespace 修图.Library
                 await encoder.FlushAsync();
             }
         }
-        public static async void SavePng(IStorageFolder Folder, byte[] bytes, int Width, int Height, string Name, CreationCollisionOption options = CreationCollisionOption.GenerateUniqueName)
+        public static async Task SavePng(IStorageFolder Folder, byte[] bytes, int Width, int Height, string Name, CreationCollisionOption options = CreationCollisionOption.GenerateUniqueName)
         {
             StorageFile file = await Folder.CreateFileAsync(Name + ".png", options);
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
@@ -33,7 +33,7 @@ namespace 修图.Library
                 await encoder.FlushAsync();
             }
         }
-        public static async void SaveBmp(IStorageFolder Folder, byte[] bytes, int Width, int Height, string Name, CreationCollisionOption options = CreationCollisionOption.GenerateUniqueName)
+        public static async Task SaveBmp(IStorageFolder Folder, byte[] bytes, int Width, int Height, string Name, CreationCollisionOption options = CreationCollisionOption.GenerateUniqueName)
         {
             StorageFile file = await Folder.CreateFileAsync(Name + ".bmp", options);
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
@@ -43,7 +43,7 @@ namespace 修图.Library
                 await encoder.FlushAsync();
             }
         }
-        public static async void SaveGif(IStorageFolder Folder, byte[] bytes, int Width, int Height, string Name, CreationCollisionOption options = CreationCollisionOption.GenerateUniqueName)
+        public static async Task SaveGif(IStorageFolder Folder, byte[] bytes, int Width, int Height, string Name, CreationCollisionOption options = CreationCollisionOption.GenerateUniqueName)
         {
             StorageFile file = await Folder.CreateFileAsync(Name + ".gif", options);
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
@@ -53,7 +53,7 @@ namespace 修图.Library
                 await encoder.FlushAsync();
             }
         }
-        public static async void SaveTiff(IStorageFolder Folder, byte[] bytes, int Width, int Height, string Name, CreationCollisionOption options = CreationCollisionOption.GenerateUniqueName)
+        public static async Task SaveTiff(IStorageFolder Folder, byte[] bytes, int Width, int Height, string Name, CreationCollisionOption options = CreationCollisionOption.GenerateUniqueName)
         {
             StorageFile file = await Folder.CreateFileAsync(Name + ".tif", options);
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))
@@ -64,7 +64,7 @@ namespace 修图.Library
             }
         }
 
-        public static async void SaveJpeg(IStorageFolder Folder, CanvasBitmap cb, string Name, CreationCollisionOption options = CreationCollisionOption.GenerateUniqueName)
+        public static async Task SaveJpeg(IStorageFolder Folder, CanvasBitmap cb, string Name, CreationCollisionOption options = CreationCollisionOption.GenerateUniqueName)
         {
             StorageFile file = await Folder.CreateFileAsync(Name + ".jpg", options);
             using (var fileStream = await file.OpenAsync(FileAccessMode.ReadWrite))

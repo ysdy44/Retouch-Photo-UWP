@@ -7,15 +7,52 @@
     >
     
     <Application.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                
-                <ResourceDictionary Source="ms-appx:///Style/Light.xaml"/>
-                <ResourceDictionary Source="ms-appx:///Style/Night.xaml"/>
-                
-                <ResourceDictionary Source="ms-appx:///Style/Style.xaml"/>
-                
-            </ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary> 
+
+                <!--Theme-->
+                <ResourceDictionary.ThemeDictionaries>
+
+                    <ResourceDictionary x:Key="Default">
+                        <Color x:Key="AppForegroundColor" >#F2f2f2</Color>
+                        <Color x:Key="AppBackgroundColor" >#FFFFFF</Color>
+                        <Color x:Key="AppBorderBrushColor" >#CECEDE</Color>
+                        <Color x:Key="AppFillColor" >#FFFFFF</Color>
+                        <Color x:Key="AppStrokeColor" >#666b6791</Color>
+
+                        <SolidColorBrush x:Key="AppForeground" Color="{ThemeResource AppForegroundColor}" />
+                        <SolidColorBrush x:Key="AppBackground" Color="{ThemeResource AppBackgroundColor}" />
+                        <SolidColorBrush x:Key="AppBorderBrush" Color="{ThemeResource AppBorderBrushColor}" />
+                        <SolidColorBrush x:Key="AppFill" Color="{ThemeResource AppFillColor}" />
+                        <SolidColorBrush x:Key="AppStroke" Color="{ThemeResource AppStrokeColor}" />
+
+                    </ResourceDictionary>
+
+                    <ResourceDictionary x:Key="Dark">
+                        <Color x:Key="AppForegroundColor" >#202020</Color>
+                        <Color x:Key="AppBackgroundColor" >#101010</Color>
+                        <Color x:Key="AppBorderBrushColor" >#343434</Color>
+                        <Color x:Key="AppFillColor" >#303030</Color>
+                        <Color x:Key="AppStrokeColor" >#000000</Color>
+
+                        <SolidColorBrush x:Key="AppForeground" Color="{ThemeResource AppForegroundColor}" />
+                        <SolidColorBrush x:Key="AppBackground" Color="{ThemeResource AppBackgroundColor}" />
+                        <SolidColorBrush x:Key="AppBorderBrush" Color="{ThemeResource AppBorderBrushColor}" />
+                        <SolidColorBrush x:Key="AppFill" Color="{ThemeResource AppFillColor}" />
+                        <SolidColorBrush x:Key="AppStroke" Color="{ThemeResource AppStrokeColor}" />
+                    </ResourceDictionary>
+
+                </ResourceDictionary.ThemeDictionaries>
+
+
+
+                <!--Merged-->
+                <ResourceDictionary.MergedDictionaries>
+                    <ResourceDictionary Source="ms-appx:///Style/Style.xaml"/>
+
+                    <!--Version
+                    <XamlControlsResources xmlns="using:Microsoft.UI.Xaml.Controls"/>-->
+
+                </ResourceDictionary.MergedDictionaries> 
         </ResourceDictionary>
     </Application.Resources>
     

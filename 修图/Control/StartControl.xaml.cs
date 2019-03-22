@@ -873,7 +873,20 @@ namespace 修图.Control
         {
             LoadingControl.IsLoading = true;//Con：加载控件
 
-             foreach (Object photoFile in AdaptiveGridViewControl.SelectedItems)
+            await Save();
+
+            InAppNotificationDismiss(SaveInAppNotification);//Notification：通知驳回
+            
+            LoadingControl.IsLoading = false;//Con：加载控件
+
+            string path = "Icon/Clutter/OK.png";
+            修图.Library.Toast.ShowToastNotification(path, "已保存到本地相册");
+        }
+        
+      private async Task Save()
+        {
+
+            foreach (Object photoFile in AdaptiveGridViewControl.SelectedItems)
             {
                 PhotoFile pf = photoFile as PhotoFile;
                 var XDoc = XDocument.Load(pf.Path);
@@ -895,29 +908,21 @@ namespace 修图.Control
                         App.Model.SecondTopRenderTarget = new CanvasRenderTarget(App.Model.VirtualControl, Width, Height);
                         App.Model.SecondTopRenderTarget.SetPixelBytes(bytes);
                         App.Model.SecondBottomRenderTarget = new CanvasRenderTarget(App.Model.VirtualControl, Width, Height);
-                        using (var ds=App.Model.SecondBottomRenderTarget.CreateDrawingSession())
+                        using (var ds = App.Model.SecondBottomRenderTarget.CreateDrawingSession())
                         {
                             ds.Clear(Colors.White);
                             ds.DrawImage(App.Model.SecondTopRenderTarget);
                         }
-                         修图.Library.Image.SaveJpeg(KnownFolders.SavedPictures, App.Model.SecondBottomRenderTarget, Name);
+                        await  修图.Library.Image.SaveJpeg(KnownFolders.SavedPictures, App.Model.SecondBottomRenderTarget, Name);
                         break;
-                    case 1: 修图.Library.Image.SavePng(KnownFolders.SavedPictures, bytes, Width, Height, Name); break;
-                    case 2: 修图.Library.Image.SaveBmp(KnownFolders.SavedPictures, bytes, Width, Height, Name); break; ;
-                    case 3: 修图.Library.Image.SaveGif(KnownFolders.SavedPictures, bytes, Width, Height, Name); break;
-                    case 4: 修图.Library.Image.SaveTiff(KnownFolders.SavedPictures, bytes, Width, Height, Name); break;
+                    case 1:await 修图.Library.Image.SavePng(KnownFolders.SavedPictures, bytes, Width, Height, Name); break;
+                    case 2: await 修图.Library.Image.SaveBmp(KnownFolders.SavedPictures, bytes, Width, Height, Name); break; ;
+                    case 3: await 修图.Library.Image.SaveGif(KnownFolders.SavedPictures, bytes, Width, Height, Name); break;
+                    case 4: await 修图.Library.Image.SaveTiff(KnownFolders.SavedPictures, bytes, Width, Height, Name); break;
                     default: break;
                 }
             }
-            InAppNotificationDismiss(SaveInAppNotification);//Notification：通知驳回
-
-            await Task.Delay(1000);
-            LoadingControl.IsLoading = false;//Con：加载控件
-
-            string path = "Icon/Clutter/OK.png";
-            修图.Library.Toast.ShowToastNotification(path, "已保存到本地相册");
         }
-        
 
         #endregion
 
@@ -952,13 +957,13 @@ namespace 修图.Control
 
         DataTransferManager dataTransferManager = DataTransferManager.GetForCurrentView();
 
-        private void ShareShareButton_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void ShareShareButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
             //删光临时文件夹
             IEnumerable<StorageFile> DelelteFiles = ApplicationData.Current.TemporaryFolder.GetFilesAsync().AsTask().Result;
             foreach (var file in DelelteFiles)
             {
-                file.DeleteAsync();
+             await   file.DeleteAsync();
             }
 
 
@@ -1160,6 +1165,16 @@ namespace 修图.Control
                 " https://www.microsoft.com/store/productId/9N2SVF2769GH");
             e.Request.SetData(shareSourceData);
         }
+
+
+
+
+
+        private void OpenSourceAppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            Launcher.LaunchUriAsync(new Uri("https://github.com/ysdy44/Retouch-Photo-UWP.git"));
+        }
+
 
         #endregion
 

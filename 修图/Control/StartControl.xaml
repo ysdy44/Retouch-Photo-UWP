@@ -577,6 +577,12 @@
                         </AppBarButton.Icon>
                     </AppBarButton>
 
+                    <AppBarButton  x:Name="OpenSourceAppBarButton"  x:Uid="/Home/OpenSourceBarButton" Click="OpenSourceAppBarButton_Click">
+                        <AppBarButton.Icon>
+                            <FontIcon FontFamily="Segoe UI Symbol"  FontSize="24" Glyph="&#xE2AF;"/>
+                        </AppBarButton.Icon>
+                    </AppBarButton>
+
                 </CommandBar.SecondaryCommands>
             </CommandBar>
         </controls:DropShadowPanel>
@@ -682,7 +688,7 @@
 
                         <HyperlinkButton   Grid.Column="1" FontSize="20" Margin="20,0" Background="#00000000"
                                        Content="Retouch Photo   " 
-                                       NavigateUri="https://www.microsoft.com/store/productId/9N2SVF2769GH"
+                                       NavigateUri=" ms-windows-store://pdp/?ProductId=9N2SVF2769GH"
                     />
 
                         <TextBlock   Grid.Column="1"  Grid.Row="1"  Margin="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"
@@ -711,7 +717,7 @@
 
                         <HyperlinkButton   Grid.Column="1" FontSize="20" Margin="20,0" Background="#00000000"
                                        Content="ColorScheme pro  " 
-                                       NavigateUri="https://www.microsoft.com/store/productId/9NJXVM10VX16"
+                                       NavigateUri="ms-windows-store://pdp/?ProductId=9NJXVM10VX16"
                     />
 
                         <TextBlock   Grid.Column="1"  Grid.Row="1"  Margin="2" TextWrapping="Wrap" TextTrimming="CharacterEllipsis"

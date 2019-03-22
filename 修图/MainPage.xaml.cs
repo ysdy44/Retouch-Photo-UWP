@@ -46,8 +46,12 @@ namespace 修图
 
              Frame.Navigate(typeof(DrawPage));
 
-            
-         }
+          }
 
     }
 }
+
+
+
+
+

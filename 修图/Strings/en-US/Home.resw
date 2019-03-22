@@ -225,6 +225,9 @@
   <data name="Name.Text" xml:space="preserve">
     <value>Retouch Photo</value>
   </data>
+  <data name="OpenSourceBarButton.Label" xml:space="preserve">
+    <value>OpenSource</value>
+  </data>
   <data name="PicturesBarButton.Label" xml:space="preserve">
     <value>Pictures</value>
   </data>

@@ -5,6 +5,12 @@ using Windows.UI.Xaml.Input;
 
 namespace 修图.Library
 {
+
+    ///使用方法：控件的几个Pointer方法
+    ///    void PointerPressed(object sender, PointerRoutedEventArgs e)
+    ///    {
+    ///          Judge.Pressure(e, Control);
+    ///      }
    public class Judge
     {
         //返回压力

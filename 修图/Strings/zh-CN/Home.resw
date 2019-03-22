@@ -225,6 +225,9 @@
   <data name="Name.Text" xml:space="preserve">
     <value>修图</value>
   </data>
+  <data name="OpenSourceBarButton.Label" xml:space="preserve">
+    <value>开源</value>
+  </data>
   <data name="PicturesBarButton.Label" xml:space="preserve">
     <value>相册</value>
   </data>

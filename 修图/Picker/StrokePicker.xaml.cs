@@ -13,10 +13,12 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation; 
 using Microsoft.Graphics.Canvas;
-using Microsoft.Graphics.Canvas.Effects; 
+using Microsoft.Graphics.Canvas.Effects;
 using Microsoft.Graphics.Canvas.Geometry;
-
-//https://go.microsoft.com/fwlink/?LinkId=234236 上介绍了“用户控件”项模板
+using Microsoft.Graphics.Canvas.Brushes;
+using System.Numerics;
+using Microsoft.Graphics.Canvas.UI.Xaml;
+using Windows.UI;
 
 namespace 修图.Picker
 {
@@ -349,6 +351,6 @@ namespace 修图.Picker
         #region Array：间隔
 
         #endregion
-
+         
     }
 }

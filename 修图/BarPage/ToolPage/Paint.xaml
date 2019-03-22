@@ -51,10 +51,10 @@
                                 </LinearGradientBrush>
                             </Grid.BorderBrush>
                                 <canvas:CanvasControl  x:Name="ShowCanvas"  Draw="ShowCanvas_Draw" SizeChanged="ShowCanvas_SizeChanged"/>
-                            <Button  x:Name="ThumbnailButton" Style="{ThemeResource NavigationBackButtonNormalStyle}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Tapped="ThumbnailButton_Tapped">
+                            <Button  x:Name="ThumbnailButton" Visibility="Collapsed" Style="{ThemeResource NavigationBackButtonNormalStyle}" VerticalAlignment="Bottom" HorizontalAlignment="Right" Tapped="ThumbnailButton_Tapped">
                                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xE17C;" FontSize="26" Foreground="White"/>
                             </Button>
-                            <Button  x:Name="PictureButton" Style="{ThemeResource NavigationBackButtonNormalStyle}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Tapped="PictureButton_Tapped">
+                            <Button  x:Name="PictureButton" Visibility="Collapsed"  Style="{ThemeResource NavigationBackButtonNormalStyle}" VerticalAlignment="Bottom" HorizontalAlignment="Left" Tapped="PictureButton_Tapped">
                                 <FontIcon FontFamily="Segoe MDL2 Assets" Glyph="&#xEB9F;" FontSize="23" Foreground="White"/>
                             </Button>
                         </Grid>
