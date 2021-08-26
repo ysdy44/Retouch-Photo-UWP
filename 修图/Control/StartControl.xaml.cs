@@ -58,24 +58,24 @@ namespace 修图.Control
         }
 
         #endregion
- 
+
         public StartControl()
         {
             this.InitializeComponent();
             this.DataContext = App.Model;
         }
 
- 
+
         #region Global：全局
 
 
         private void page_Loaded(object sender, RoutedEventArgs e)
         {
             //File：文件关联
-             if (App.StorageItem != null)
+            if (App.StorageItem != null)
             {
                 Pictures((StorageFile)App.StorageItem);
-            } 
+            }
         }
 
 
@@ -107,9 +107,9 @@ namespace 修图.Control
 
                     if (items != null)//空或没有
                     {
-                        Pictures(items.Single() as StorageFile);//Pictures：照片
-                     }
-                     else App.Tip(App.resourceLoader.GetString("/Home/PicturesUnsupported_"));//不支持的图片格式
+                        Pictures(items.Single() as StorageFile);//Pictures
+                    }
+                    else App.Tip(App.resourceLoader.GetString("/Home/PicturesUnsupported_"));//不支持的图片格式
                 }
             }
         }
@@ -222,7 +222,7 @@ namespace 修图.Control
 
         //加载完成
         private async void AdaptiveGridViewControl_Loaded(object sender, RoutedEventArgs e)
-        {  
+        {
             //Blank：空白添加
             AddPhotoFile = new PhotoFile()
             {
@@ -242,7 +242,7 @@ namespace 修图.Control
             string FolderPath = ApplicationData.Current.LocalFolder.Path;
 
             IOrderedEnumerable<StorageFile> list = FileList.OrderByDescending(i => i.DateCreated);//文件夹按照时间排序
-             foreach (StorageFile flie in list)
+            foreach (StorageFile flie in list)
             {
                 if (flie.FileType == ".photo")
                 {
@@ -258,9 +258,9 @@ namespace 修图.Control
                     });
                 }
             }
- 
+
             PhotoFileList.Add(AddPhotoFile);//空白添加     
-         }
+        }
 
         //点击进入
         private void AdaptiveGridViewControl_ItemClick(object sender, ItemClickEventArgs e)
@@ -269,7 +269,7 @@ namespace 修图.Control
 
             if (pf.isAdd == Visibility.Visible)
             {
-                AddContentDialog.ShowAsync();//Add：添加
+                AddContentDialog.ShowAsync();//Add
             }
             else
             {
@@ -288,7 +288,7 @@ namespace 修图.Control
                     App.Model.StartVisibility = Visibility.Collapsed;
                 }
                 catch (Exception)
-                { 
+                {
                 }
             }
         }
@@ -338,7 +338,7 @@ namespace 修图.Control
 
         private void RenameMenuItem_Click(object sender, RoutedEventArgs e)
         {
-            RenameContentDialog.ShowAsync();//Rename：重命名
+            RenameContentDialog.ShowAsync();//Rename
 
             var pf = AdaptiveGridViewControl.SelectedItems.Last() as PhotoFile;
             if (pf.isAdd == Visibility.Collapsed)
@@ -415,10 +415,10 @@ namespace 修图.Control
             }
         }
 
-        
-         private void ShareMenuItemJPEG_Click(object sender, RoutedEventArgs e)
+
+        private void ShareMenuItemJPEG_Click(object sender, RoutedEventArgs e)
         {
-            if (RightPhotoFile!=null)
+            if (RightPhotoFile != null)
             {
                 //删光临时文件夹
                 IEnumerable<StorageFile> DelelteFiles = ApplicationData.Current.TemporaryFolder.GetFilesAsync().AsTask().Result;
@@ -450,7 +450,7 @@ namespace 修图.Control
                 }
                 修图.Library.Image.SaveJpeg(ApplicationData.Current.TemporaryFolder, App.Model.SecondBottomRenderTarget, Name);
 
-                //Share：分享
+                //Share
                 dataTransferManager.DataRequested += OnDataRequested;
                 DataTransferManager.ShowShareUI();
             }
@@ -466,7 +466,7 @@ namespace 修图.Control
                 var XDoc = XDocument.Load(RightPhotoFile.Path);
                 修图.Library.Image.SavePng(ApplicationData.Current.TemporaryFolder, Convert.FromBase64String(XDoc.Descendants("MainRenderTarget").Single().Value), (int)XDoc.Descendants("Width").Single(), (int)XDoc.Descendants("Height").Single(), RightPhotoFile.Name);
 
-                //Share：分享
+                //Share
                 dataTransferManager.DataRequested += OnDataRequested;
                 DataTransferManager.ShowShareUI();
             }
@@ -482,7 +482,7 @@ namespace 修图.Control
                 var XDoc = XDocument.Load(RightPhotoFile.Path);
                 修图.Library.Image.SaveBmp(ApplicationData.Current.TemporaryFolder, Convert.FromBase64String(XDoc.Descendants("MainRenderTarget").Single().Value), (int)XDoc.Descendants("Width").Single(), (int)XDoc.Descendants("Height").Single(), RightPhotoFile.Name);
 
-                //Share：分享
+                //Share
                 dataTransferManager.DataRequested += OnDataRequested;
                 DataTransferManager.ShowShareUI();
             }
@@ -498,7 +498,7 @@ namespace 修图.Control
                 var XDoc = XDocument.Load(RightPhotoFile.Path);
                 修图.Library.Image.SaveGif(ApplicationData.Current.TemporaryFolder, Convert.FromBase64String(XDoc.Descendants("MainRenderTarget").Single().Value), (int)XDoc.Descendants("Width").Single(), (int)XDoc.Descendants("Height").Single(), RightPhotoFile.Name);
 
-                //Share：分享
+                //Share
                 dataTransferManager.DataRequested += OnDataRequested;
                 DataTransferManager.ShowShareUI();
             }
@@ -514,13 +514,13 @@ namespace 修图.Control
                 var XDoc = XDocument.Load(RightPhotoFile.Path);
                 修图.Library.Image.SaveTiff(ApplicationData.Current.TemporaryFolder, Convert.FromBase64String(XDoc.Descendants("MainRenderTarget").Single().Value), (int)XDoc.Descendants("Width").Single(), (int)XDoc.Descendants("Height").Single(), RightPhotoFile.Name);
 
-                //Share：分享
+                //Share
                 dataTransferManager.DataRequested += OnDataRequested;
                 DataTransferManager.ShowShareUI();
             }
         }
 
- 
+
         private void CopyMenuItem_Click(object sender, RoutedEventArgs e)
         {
             if (RightPhotoFile != null)
@@ -619,7 +619,7 @@ namespace 修图.Control
 
                 if (pf.isAdd == Visibility.Visible)
                 {
-                    AddContentDialog.ShowAsync();//Add：添加
+                    AddContentDialog.ShowAsync();//Add
                 }
                 else
                 {
@@ -689,7 +689,7 @@ namespace 修图.Control
         #region Notification：应用通知
 
 
-        private void InAppNotificationShow(InAppNotification inAppNotification, ListViewSelectionMode mode=ListViewSelectionMode.Multiple)//Notification：通知展示
+        private void InAppNotificationShow(InAppNotification inAppNotification, ListViewSelectionMode mode = ListViewSelectionMode.Multiple)//Notification
         {
             inAppNotification.Show();
 
@@ -699,7 +699,7 @@ namespace 修图.Control
             PhotoFileList.Remove(AddPhotoFile);//空白添加：移除
         }
 
-        private void InAppNotificationDismiss(InAppNotification inAppNotification)//Notification：通知驳回
+        private void InAppNotificationDismiss(InAppNotification inAppNotification)//Notification
         {
             inAppNotification.Dismiss();
 
@@ -713,7 +713,7 @@ namespace 修图.Control
         #endregion
 
 
-        #region Rename：重命名
+        #region Rename
 
 
         private void RenameContentDialog_PrimaryButtonClick(ContentDialog sender, ContentDialogButtonClickEventArgs args)
@@ -724,21 +724,21 @@ namespace 修图.Control
                 pf.Name = RenameText.Text;
 
                 //文件改名
-                StorageFile file =  StorageFile.GetFileFromPathAsync(pf.Path).AsTask().Result;
+                StorageFile file = StorageFile.GetFileFromPathAsync(pf.Path).AsTask().Result;
                 file.RenameAsync(RenameText.Text);
                 pf.Path = file.Path;
-             }
+            }
         }
 
 
         #endregion
 
-        #region Add：添加
+        #region Add
 
 
         private void AddAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            AddContentDialog.ShowAsync();//Add：添加
+            AddContentDialog.ShowAsync();//Add
         }
 
 
@@ -775,7 +775,7 @@ namespace 修图.Control
 
         #endregion
 
-        #region  Pictures：照片
+        #region  Pictures
 
 
         private void PicturesFlyoutx_Opened(object sender, object e)
@@ -800,7 +800,7 @@ namespace 修图.Control
 
             if (file != null && App.Model.VirtualControl.Device != null)
             {
-                Pictures(file);//Pictures：照片
+                Pictures(file);//Pictures
             }
         }
         private async void PicturesDestopButton_Tapped(object sender, TappedRoutedEventArgs e)
@@ -821,8 +821,8 @@ namespace 修图.Control
 
             if (file != null && App.Model.VirtualControl.Device != null)
             {
-                Pictures(file);//Pictures：照片
-             }
+                Pictures(file);//Pictures
+            }
         }
 
 
@@ -856,11 +856,11 @@ namespace 修图.Control
 
         private void SaveAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            InAppNotificationShow(SaveInAppNotification);//Notification：通知展示
+            InAppNotificationShow(SaveInAppNotification);//Notification
         }
         private void SaveCancelButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            InAppNotificationDismiss(SaveInAppNotification);//Notification：通知驳回
+            InAppNotificationDismiss(SaveInAppNotification);//Notification
         }
 
         //保存索引：JPG PNG GIF BMP TIFF
@@ -875,15 +875,15 @@ namespace 修图.Control
 
             await Save();
 
-            InAppNotificationDismiss(SaveInAppNotification);//Notification：通知驳回
-            
+            InAppNotificationDismiss(SaveInAppNotification);//Notification
+
             LoadingControl.IsLoading = false;//Con：加载控件
 
             string path = "Icon/Clutter/OK.png";
             修图.Library.Toast.ShowToastNotification(path, "已保存到本地相册");
         }
-        
-      private async Task Save()
+
+        private async Task Save()
         {
 
             foreach (Object photoFile in AdaptiveGridViewControl.SelectedItems)
@@ -913,9 +913,9 @@ namespace 修图.Control
                             ds.Clear(Colors.White);
                             ds.DrawImage(App.Model.SecondTopRenderTarget);
                         }
-                        await  修图.Library.Image.SaveJpeg(KnownFolders.SavedPictures, App.Model.SecondBottomRenderTarget, Name);
+                        await 修图.Library.Image.SaveJpeg(KnownFolders.SavedPictures, App.Model.SecondBottomRenderTarget, Name);
                         break;
-                    case 1:await 修图.Library.Image.SavePng(KnownFolders.SavedPictures, bytes, Width, Height, Name); break;
+                    case 1: await 修图.Library.Image.SavePng(KnownFolders.SavedPictures, bytes, Width, Height, Name); break;
                     case 2: await 修图.Library.Image.SaveBmp(KnownFolders.SavedPictures, bytes, Width, Height, Name); break; ;
                     case 3: await 修图.Library.Image.SaveGif(KnownFolders.SavedPictures, bytes, Width, Height, Name); break;
                     case 4: await 修图.Library.Image.SaveTiff(KnownFolders.SavedPictures, bytes, Width, Height, Name); break;
@@ -926,29 +926,29 @@ namespace 修图.Control
 
         #endregion
 
-        #region Share：分享
+        #region Share
 
 
         private void ShareAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            InAppNotificationShow(ShareInAppNotification);//Notification：通知展示
+            InAppNotificationShow(ShareInAppNotification);//Notification
         }
         private void ShareCancelButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            InAppNotificationDismiss(ShareInAppNotification);//Notification：通知驳回
+            InAppNotificationDismiss(ShareInAppNotification);//Notification
         }
-         
+
 
 
 
 
 
         //分享索引：JPG PNG GIF BMP TIFF
-        int ShareIndex = 0; 
+        int ShareIndex = 0;
         private void ShareComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             ShareIndex = (sender as ComboBox).SelectedIndex;
-        } 
+        }
 
 
 
@@ -963,7 +963,7 @@ namespace 修图.Control
             IEnumerable<StorageFile> DelelteFiles = ApplicationData.Current.TemporaryFolder.GetFilesAsync().AsTask().Result;
             foreach (var file in DelelteFiles)
             {
-             await   file.DeleteAsync();
+                await file.DeleteAsync();
             }
 
 
@@ -1006,15 +1006,15 @@ namespace 修图.Control
             }
 
 
-            //Share：分享
+            //Share
             dataTransferManager.DataRequested += OnDataRequested;
             DataTransferManager.ShowShareUI();
-         }
+        }
 
         private async void OnDataRequested(DataTransferManager sender, DataRequestedEventArgs e)
         {
-            //Share：分享
-            ShareSourceData shareSourceData = new ShareSourceData("  ", "  ");//萤火虫发给我的方法
+            //Share
+            ShareSourceData shareSourceData = new ShareSourceData("  ", "  ");
             shareSourceData.SetStorageItems(ApplicationData.Current.TemporaryFolder.GetFilesAsync().AsTask().Result);
             e.Request.SetData(shareSourceData);
         }
@@ -1028,11 +1028,11 @@ namespace 修图.Control
 
         private void DeleteAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            InAppNotificationShow(DeleteInAppNotification);//Notification：通知展示
+            InAppNotificationShow(DeleteInAppNotification);//Notification
         }
         private void DeleteCancelButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            InAppNotificationDismiss(DeleteInAppNotification);//Notification：通知驳回
+            InAppNotificationDismiss(DeleteInAppNotification);//Notification
         }
         private async void DeleteDeleteButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -1056,10 +1056,10 @@ namespace 修图.Control
 
             DeleteList.Clear();
 
-            InAppNotificationDismiss(DeleteInAppNotification);//Notification：通知驳回
+            InAppNotificationDismiss(DeleteInAppNotification);//Notification
         }
 
-         
+
         #endregion
 
         #region Copy：复制
@@ -1067,11 +1067,11 @@ namespace 修图.Control
 
         private void CopyAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            InAppNotificationShow(CopyInAppNotification);//Notification：通知展示
+            InAppNotificationShow(CopyInAppNotification);//Notification
         }
         private void CopyCancelButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
-            InAppNotificationDismiss(CopyInAppNotification);//Notification：通知驳回
+            InAppNotificationDismiss(CopyInAppNotification);//Notification
         }
         private async void CopyCopyButton_Tapped(object sender, TappedRoutedEventArgs e)
         {
@@ -1096,7 +1096,7 @@ namespace 修图.Control
                     string Target = xDoc.Descendants("MainRenderTarget").Single().Value;
                     byte[] bytes = Convert.FromBase64String(Target); App.Model.MainRenderTarget = new CanvasRenderTarget(App.Model.VirtualControl, Width, Height);
                     App.Model.MainRenderTarget.SetPixelBytes(bytes);
- 
+
                     //缩略图缩放比例
                     float scale = Width < Height ? 256.0f / Width : 256.0f / Height;
 
@@ -1120,7 +1120,7 @@ namespace 修图.Control
 
             Task.Delay(200);
             GridViewLoaded();
-            InAppNotificationDismiss(CopyInAppNotification);//Notification：通知驳回
+            InAppNotificationDismiss(CopyInAppNotification);//Notification
         }
 
         #endregion
@@ -1137,7 +1137,7 @@ namespace 修图.Control
 
         private void MoneyAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-              MoneyContentDialog.ShowAsync();
+            MoneyContentDialog.ShowAsync();
         }
 
 
@@ -1151,14 +1151,14 @@ namespace 修图.Control
 
         private void MoreShareAppBarButton_Click(object sender, RoutedEventArgs e)
         {
-            //Share：分享
+            //Share
             dataTransferManager.DataRequested += MoreOnDataRequested;
             DataTransferManager.ShowShareUI();
         }
         private async void MoreOnDataRequested(DataTransferManager sender, DataRequestedEventArgs e)
         {
-            //Share：分享
-            ShareSourceData shareSourceData = new ShareSourceData("  ", "  ");//萤火虫发给我的方法
+            //Share
+            ShareSourceData shareSourceData = new ShareSourceData("  ", "  ");
             shareSourceData.SetText(
                 "Retouch Photo\r\n" +
                 "——form Windows10 UWP Shop\r\n" +
