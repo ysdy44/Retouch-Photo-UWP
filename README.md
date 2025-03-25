@@ -1,6 +1,6 @@
 ﻿# Retouch-Photo-UWP
 Simple and free photo retouching tools,can transform,adjustment, shear,filling images,support layer,the selecti on. If you think that the PS is too complex might as well try.
-[form windows10 app-store](https://www.microsoft.com/store/productId/9N2SVF2769GH)   
+[form windows10 app-store](https://apps.microsoft.com/detail/9n2svf2769gh)   
 
 ![](Screenshot/logo.png)  
 
